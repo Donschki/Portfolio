@@ -146,11 +146,10 @@ main {
    padding-left: 1rem;
    transition: 0.5s ease-in-out;
    
-   background-image: url('./Portfolio/Photos/shapes-background.png');
+   background-image: url('/Portfolio/Photos/shapes-background.png');
    background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
-
 }
 
 .first-introduction-section::before {
@@ -207,7 +206,7 @@ main {
   transition: 0.2s;
   padding-left: 2rem;
 
-  background-image: url('./Portfolio/Photos/square-background.png');
+  background-image: url('/Portfolio/Photos/square-background.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -369,11 +368,8 @@ main {
     width: 400px;
     height: 250px;
   }
-}
+ }
 
- @media only screen and (min-width: 1000px) {
-
-}
 
 @media only screen and (min-width: 1200px) {
 
