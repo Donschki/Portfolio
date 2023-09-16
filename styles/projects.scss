@@ -1,0 +1,56 @@
+
+.projectSection {
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.projectContainers {
+  grid-template-columns: 1fr;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-gap: 1rem;
+  justify-content: center;
+}
+
+.projectContainer {
+ background-color:  #242f33;
+ display: flex;
+ align-items: center;
+ padding-left: 3rem;
+}
+
+
+//  .fioriCakes3D::before {
+//    content: "";
+//    height: 100%;
+//    width: 14.4px;
+//    left: -14px;
+//    top: 0;
+//    position: absolute;
+//    transform: skewY(35deg);
+//    background-color: #2da8d8;
+//    transform-origin: right;
+//    transition: all 0.7s;
+//   }
+ 
+//  .fioriCakes3D::after {
+//    content: "";
+//    height: 10px;
+//    width: 100%;
+//    position: absolute;
+//    transform: skewX(55deg);
+//    background-color: #d9524e;
+//    transform-origin: bottom;
+//    top: -10px;
+//    left: 0;
+//    transition: all 0.7s;
+//   }
+
+

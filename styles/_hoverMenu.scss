@@ -1,0 +1,61 @@
+
+/* SIDEBAR START */
+
+.hoverMenu {
+    transform: skewY(-10deg);
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+.hoverMenu .menuItem {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    position: relative;
+    width: 80%;
+    height: 100%;
+    background-color: #4c4e57;
+    z-index: var(--i);
+    transition: 0.1s; 
+    padding: 0.5em;
+    font-size: 1.5em;
+}
+
+
+
+.hoverMenu .menuItem:hover {
+    transform: translateX(50px);
+    cursor: pointer;
+    text-decoration: none;    
+    color: white;
+}
+
+.hoverMenu .menuItem::before {
+    content: '';
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background-color: #3e3f46;
+    transform: skewY(45deg);
+    transform-origin: right;
+    transition: 0.5s;
+
+  
+}
+
+.hoverMenu .menuItem::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 0px;
+    height: 40px;
+    width: 100%;
+    background-color: #3e3f46;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    transition: 0.5s;
+  
+}
