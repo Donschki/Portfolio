@@ -146,7 +146,7 @@ main {
    padding-left: 1rem;
    transition: 0.5s ease-in-out;
    
-   background-image: url('Portfolio/Photos/shapes-background.png');
+   background-image: url('./Portfolio/Photos/shapes-background.png');
    background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
@@ -207,7 +207,7 @@ main {
   transition: 0.2s;
   padding-left: 2rem;
 
-  background-image: url('/Portfolio/Photos/square-background.png');
+  background-image: url('./Portfolio/Photos/square-background.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -269,9 +269,6 @@ main {
   opacity: 1;
 }
 
-.project-container {
-  margin-left: 5rem;
-}
 
 @media screen and (min-width: 550px) { 
 
