@@ -218,7 +218,7 @@ main {
   height: 100vh;
   padding-left: 1rem;
   transition: 0.5s ease-in-out;
-  background: url("Photos/shapes-background.png");
+  background: url("/Photos/shapes-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -273,7 +273,7 @@ main {
   overflow: hidden;
   transition: 0.2s;
   padding-left: 2rem;
-  background: url("Photos/square-background.png");
+  background: url("/Photos/square-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
