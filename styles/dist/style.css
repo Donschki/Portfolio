@@ -56,12 +56,12 @@
 }
 
 .lightMode {
-  background: rgb(211, 211, 211);
+  background: lightgray;
   transition: all 0.5s ease;
 }
 .lightMode span {
   transition: 0.5s;
-  color: rgb(24, 23, 23);
+  color: #181717;
 }
 .lightMode p {
   transition: 0.5s;
@@ -135,10 +135,6 @@
   color: white;
 }
 
-.inputBox ::-moz-placeholder {
-  color: #999;
-}
-
 .inputBox ::placeholder {
   color: #999;
 }
@@ -198,7 +194,8 @@ body {
   font-family: "Tapestry", cursive;
   font-family: "Edu NSW ACT Foundation", cursive;
   /* Hide scrollbar for Chrome, Safari and Opera */
-  -ms-overflow-style: none; /* IE and Edge */
+  -ms-overflow-style: none;
+  /* IE and Edge */
   font-family: "Handjet", cursive;
   font-family: "Kanit", sans-serif;
   font-family: "Tektur", cursive;
@@ -242,7 +239,7 @@ main {
   right: 0;
   padding: 1rem;
   font-size: 0.7rem;
-  color: rgb(172, 172, 172);
+  color: #acacac;
   letter-spacing: 1px;
 }
 
@@ -298,8 +295,7 @@ main {
   width: 100%;
   height: 100%;
   z-index: -1;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .project-container h3 {
   position: absolute;
@@ -343,6 +339,7 @@ main {
   .projects-section {
     padding-left: 5rem;
   }
+
   .about-section {
     padding-left: 5rem;
   }
@@ -351,20 +348,24 @@ main {
   .projects-main {
     margin: auto;
   }
+
   .dwd-bakery {
     margin-left: 2rem;
     width: 400px;
     height: 250px;
     margin-left: 0rem;
   }
+
   .saveur-restaurant {
     width: 280px;
     height: 400px;
   }
+
   .blog-page {
     width: 450px;
     height: 250px;
   }
+
   .wedding-page {
     width: 300px;
     height: 400px;
@@ -388,12 +389,15 @@ main {
     margin-left: 6rem;
     width: 100%;
   }
+
   .first-introduction-section::after {
     padding: 2rem;
   }
+
   .first-introduction-section::before {
     margin: 2.1rem 20.25rem;
   }
+
   .projects-section h1 {
     font-size: 2rem;
   }
@@ -405,22 +409,27 @@ main {
   .introduction-container h2 {
     margin-left: 8rem;
   }
+
   .projects-main {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 300px 1fr;
     gap: 3rem;
   }
+
   .project-container {
     margin-left: 0;
   }
+
   .saveur-restaurant {
     width: 280px;
     height: 250px;
   }
+
   .blog-page {
     height: 400px;
     width: 300px;
   }
+
   .wedding-page {
     width: 400px;
     height: 250px;
@@ -450,4 +459,4 @@ main {
   .projects-section h1 {
     transition: 0.5s;
   }
-}/*# sourceMappingURL=style.css.map */
+}
