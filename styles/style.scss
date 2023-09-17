@@ -151,31 +151,34 @@ main {
    background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
-}
 
-.first-introduction-section::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  .adobe-ps-block {
+    position: absolute;
+    bottom: 0;
+    right: 0.5rem;
+    text-align: right;
+  }
 
-  width: 5px; height: 5px;
-  margin: 1.2rem 19.2rem;
-  border-radius: 50%;
-  border: solid 2px white;
-}
-
-.first-introduction-section::after {
-  content: '-- background images created with Adobe PS';
-  position: absolute;
-  bottom: 0;
-  right: 0;
+   .adobe-ps::before {
+    content: '';
+    position: absolute;
+    left: -10px;  
+    bottom: 5px;
+    padding: 2px ;
+    border: solid 2px white;
+    border-radius: 50%;
+  }
   
-  padding: 1rem ;
-  font-size: $fontSizeXS;
-  color: rgb(172, 172, 172);
-  letter-spacing: 1px;
+  .adobe-ps::after {
+    content: '-- background images created with Adobe PS';
+  
+    font-size: $fontSizeXS;
+    color: rgb(172, 172, 172);
+    letter-spacing: 1px;
+  }
 }
+
+
 
 .introduction-container {
  transition: 0.5s;
@@ -215,13 +218,14 @@ main {
   background-repeat: no-repeat;
 
   a {
-     width: 0%;
+     width: 100%;
+     @include flexCenter();
   }
 
-    h1 {
-      margin: 2rem 0rem;
-      transition: 0.5s ;
-    }
+  h1 {
+    margin: 2rem 0rem;
+    transition: 0.5s ;
+  }
 }
 
 .projects-main {
@@ -251,7 +255,9 @@ main {
     color: $fontColor;
     font-size: $fontSizeS;
 }
+
 }
+
 
 .project-container:hover h3 {
   top: -60px;
@@ -262,7 +268,17 @@ main {
 //  ABOUT SECTION
 
 .about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  overflow: hidden;
+  transition: 0.2s;
   padding-left: 2rem;
+
+  h1 {
+    margin: 2rem 0rem;
+    transition: 0.5s ;
+  }
 }
 
 .about-container {
@@ -284,10 +300,11 @@ main {
 // Class linked to javascript > Make container pop up and disappear
 .reveal.active {
   transform: translateY(0px);
-  opacity: 1;
+  opacity: 1; 
+
 }
 
-@media screen and (min-width: 420px) { 
+@media only screen and (min-width: 420px) { 
   .projects-section {
     padding-left: 5rem;
   }
@@ -297,11 +314,19 @@ main {
   }
 } 
 
-@media screen and (min-width: 550px) { 
+@media only screen and (min-width: 550px) { 
 
-  .projects-main {
+.projects-main, .about-main {
     margin: auto;
+}
+
+.projects-section, .about-section {
+  padding-left: 0;
+
+  h1 {
+    margin-left: 5rem;
   }
+}
 
 .dwd-bakery {
  margin-left: 2rem;
@@ -328,6 +353,7 @@ main {
 }
 
 @media only screen and (min-width: 760px) { 
+
 .introduction-container {
   max-width: 500px;
   margin-left: 8rem;
@@ -396,6 +422,10 @@ main {
     width: 400px;
     height: 250px;
   }
+
+  .projects-section {
+    padding-left: 0;
+  }
  }
 
 @media only screen and (min-width: 1200px) {
@@ -407,6 +437,7 @@ main {
      font-size: $fontSizeL;
     }
 }
+
 }
 
  @media only screen and (min-width: 1400px) {
@@ -423,8 +454,11 @@ main {
           font-size: $fontSizeXL;
          margin-left: 4rem;
         }
+
       }
-}}
+}
+
+}
 
 @media only screen and (min-width: 1600px) {
 

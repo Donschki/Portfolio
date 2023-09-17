@@ -222,25 +222,23 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-.first-introduction-section::before {
+.first-introduction-section .adobe-ps-block {
+  position: absolute;
+  bottom: 0;
+  right: 0.5rem;
+  text-align: right;
+}
+.first-introduction-section .adobe-ps::before {
   content: "";
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 5px;
-  height: 5px;
-  margin: 1.2rem 19.2rem;
-  border-radius: 50%;
+  left: -10px;
+  bottom: 5px;
+  padding: 2px;
   border: solid 2px white;
+  border-radius: 50%;
 }
-
-.first-introduction-section::after {
+.first-introduction-section .adobe-ps::after {
   content: "-- background images created with Adobe PS";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 1rem;
   font-size: 0.7rem;
   color: rgb(172, 172, 172);
   letter-spacing: 1px;
@@ -278,7 +276,10 @@ main {
   background-repeat: no-repeat;
 }
 .projects-section a {
-  width: 0%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .projects-section h1 {
   margin: 2rem 0rem;
@@ -318,7 +319,16 @@ main {
 }
 
 .about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  overflow: hidden;
+  transition: 0.2s;
   padding-left: 2rem;
+}
+.about-section h1 {
+  margin: 2rem 0rem;
+  transition: 0.5s;
 }
 
 .about-container {
@@ -339,7 +349,7 @@ main {
   opacity: 1;
 }
 
-@media screen and (min-width: 420px) {
+@media only screen and (min-width: 420px) {
   .projects-section {
     padding-left: 5rem;
   }
@@ -347,9 +357,15 @@ main {
     padding-left: 5rem;
   }
 }
-@media screen and (min-width: 550px) {
-  .projects-main {
+@media only screen and (min-width: 550px) {
+  .projects-main, .about-main {
     margin: auto;
+  }
+  .projects-section, .about-section {
+    padding-left: 0;
+  }
+  .projects-section h1, .about-section h1 {
+    margin-left: 5rem;
   }
   .dwd-bakery {
     margin-left: 2rem;
@@ -424,6 +440,9 @@ main {
   .wedding-page {
     width: 400px;
     height: 250px;
+  }
+  .projects-section {
+    padding-left: 0;
   }
 }
 @media only screen and (min-width: 1200px) {
