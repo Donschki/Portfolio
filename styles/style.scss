@@ -156,11 +156,11 @@ main {
     position: absolute;
     bottom: 0;
     right: 0.5rem;
-    text-align: right;
   }
 
    .adobe-ps::before {
     content: '';
+    
     position: absolute;
     left: -10px;  
     bottom: 5px;
@@ -171,14 +171,13 @@ main {
   
   .adobe-ps::after {
     content: '-- background images created with Adobe PS';
-  
+    
+    position: relative;
     font-size: $fontSizeXS;
     color: rgb(172, 172, 172);
     letter-spacing: 1px;
   }
 }
-
-
 
 .introduction-container {
  transition: 0.5s;
@@ -210,7 +209,7 @@ main {
   gap: 4rem;
   overflow: hidden;
   transition: 0.2s;
-  padding-left: 2rem;
+  padding: 1rem;
 
   background-image: url('/Portfolio/Photos/square-background.png');
   background-position: center;
@@ -273,7 +272,6 @@ main {
   gap: 4rem;
   overflow: hidden;
   transition: 0.2s;
-  padding-left: 2rem;
 
   h1 {
     margin: 2rem 0rem;
@@ -301,17 +299,10 @@ main {
 .reveal.active {
   transform: translateY(0px);
   opacity: 1; 
-
 }
 
 @media only screen and (min-width: 420px) { 
-  .projects-section {
-    padding-left: 5rem;
-  }
-
-  .about-section {
-    padding-left: 5rem;
-  }
+ 
 } 
 
 @media only screen and (min-width: 550px) { 

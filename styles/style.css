@@ -226,7 +226,6 @@ main {
   position: absolute;
   bottom: 0;
   right: 0.5rem;
-  text-align: right;
 }
 .first-introduction-section .adobe-ps::before {
   content: "";
@@ -239,6 +238,7 @@ main {
 }
 .first-introduction-section .adobe-ps::after {
   content: "-- background images created with Adobe PS";
+  position: relative;
   font-size: 0.7rem;
   color: rgb(172, 172, 172);
   letter-spacing: 1px;
@@ -269,7 +269,7 @@ main {
   gap: 4rem;
   overflow: hidden;
   transition: 0.2s;
-  padding-left: 2rem;
+  padding: 1rem;
   background-image: url("/Portfolio/Photos/square-background.png");
   background-position: center;
   background-size: cover;
@@ -324,7 +324,6 @@ main {
   gap: 4rem;
   overflow: hidden;
   transition: 0.2s;
-  padding-left: 2rem;
 }
 .about-section h1 {
   margin: 2rem 0rem;
@@ -349,14 +348,6 @@ main {
   opacity: 1;
 }
 
-@media only screen and (min-width: 420px) {
-  .projects-section {
-    padding-left: 5rem;
-  }
-  .about-section {
-    padding-left: 5rem;
-  }
-}
 @media only screen and (min-width: 550px) {
   .projects-main, .about-main {
     margin: auto;
