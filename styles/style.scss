@@ -173,6 +173,7 @@ section {
 
   h1 {
      font-size: $fontSizeM;
+     margin: 0 2rem;
       transition: 0.5s ;
   }
 }
@@ -317,12 +318,13 @@ section {
   display: grid;
   gap: 1rem;
   min-height: 50vh;
-  padding-left: 30px;
+  
+  .about-main {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 30px;
 
-.about-main {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
   border-left: 1px solid gray;
   padding-left: 20px;
 
