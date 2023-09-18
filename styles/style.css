@@ -222,7 +222,6 @@ section h1 {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 1.5rem;
   padding-left: 1rem;
   transition: 0.5s ease-in-out;
   background-image: url("/Portfolio/Photos/shapes-background.png");
@@ -334,6 +333,7 @@ section h1 {
 
 .about-section {
   min-height: 50vh;
+  letter-spacing: 1.5px;
 }
 .about-section .about-main {
   display: flex;
@@ -355,10 +355,11 @@ section h1 {
 
 .contact-section {
   min-height: 50vh;
+  letter-spacing: 2px;
 }
 .contact-section .contact-main {
   display: grid;
-  gap: 10px;
+  gap: 15px;
 }
 .contact-section .contact-main a {
   display: inline-flex;
@@ -366,8 +367,8 @@ section h1 {
   gap: 10px;
 }
 .contact-section .contact-main a svg {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
 }
 .contact-section .contact-main a span {
   transition: 0.2s ease-in-out;
