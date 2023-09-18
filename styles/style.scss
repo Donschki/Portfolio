@@ -112,7 +112,7 @@ $color-cyan: #39dcf5;
 $color-orange: #fd7e14;
 $color-yellow: #fffb07;
 $color-brown: #f3a43c;
-$color-green: #28a745;
+$color-green: #01ff3c;
 $color-teal: #20c997;
 
 $fontSizeXS: 0.7rem;
@@ -174,7 +174,6 @@ section {
 
   h1 {
      font-size: $fontSizeM;
-     margin: 0 2rem;
       transition: 0.5s ;
         /* Fallback: Set a background color. */
   
@@ -255,6 +254,12 @@ section {
      transition: 0.5s;
 }
 
+.projects-section, .about-section {
+
+  h1 {
+    margin: 0 2rem;
+  }
+}
 
 // PROJECT SECTION
 .projects-section {
@@ -298,11 +303,10 @@ section {
     position: absolute;
     right: -2rem;
     top: -40px;
-    width: 130px;
+    width: 138px;
     letter-spacing: 3px;
     transition: ease-in-out 0.2s;
 
-    color: $fontColor;
     font-size: $fontSizeS;
 }
 }
@@ -367,7 +371,7 @@ section {
     }
 
     .prop {
-      color: $color-yellow;
+      color: $color-green;
     }
 
   }
@@ -500,6 +504,10 @@ section {
 
 .first-introduction-section::before {
   margin: 2.1rem 20.25rem;
+}
+
+.about-section, .contact-section {
+  margin-left: 1rem;
 }
 
 }
