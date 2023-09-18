@@ -206,7 +206,7 @@ body a {
 .gradient-text {
   /* Fallback: Set a background color. */
   /* Create the gradient. */
-  background-image: linear-gradient(to right, #6610f2, #ffc107, #fd7e14);
+  background-image: linear-gradient(to right, #6610f2, #fffb07, #fd7e14);
   /* Set the background size and repeat properties. */
   background-size: 100%;
   background-repeat: repeat;
@@ -365,7 +365,17 @@ h2 {
   gap: 50px;
 }
 .about-section .about-main .about-row .variable-name {
+  color: #007bff;
   width: 100%;
+}
+.about-section .about-main .about-row .suit {
+  color: #39dcf5;
+}
+.about-section .about-main .about-row .scope {
+  color: whitesmoke;
+}
+.about-section .about-main .about-row .prop {
+  color: #fffb07;
 }
 
 .contact-section {
