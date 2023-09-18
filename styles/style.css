@@ -296,7 +296,7 @@ h2 {
 }
 
 .projects-section h1, .about-section h1 {
-  margin: 3rem;
+  margin: 3rem 2rem;
 }
 
 .projects-section {
@@ -486,10 +486,10 @@ h2 {
   }
   .about-section, .contact-section {
     transition: 0.2s;
-    margin-left: 6rem;
   }
   .about-main {
     transition: 0.2s;
+    margin-left: 6rem;
   }
 }
 @media only screen and (min-width: 900px) {
