@@ -225,10 +225,10 @@ main {
 
 section {
   min-height: 100vh;
+  padding-block: 2rem;
 }
 section h1 {
   font-size: 2rem;
-  margin: 2rem 0rem;
   transition: 0.5s;
 }
 
@@ -347,22 +347,23 @@ h2 {
 }
 
 .about-section {
+  display: grid;
+  gap: 1rem;
   min-height: 50vh;
-  letter-spacing: 1.5px;
+  padding-left: 30px;
 }
 .about-section .about-main {
   display: flex;
   flex-direction: column;
   gap: 15px;
   border-left: 1px solid gray;
-  padding-left: 15px;
+  padding-left: 20px;
 }
 .about-section .about-main h1 {
   margin: 3rem 0rem;
 }
 .about-section .about-main .about-row {
   display: inline-flex;
-  gap: 50px;
 }
 .about-section .about-main .about-row .variable-name {
   color: #007bff;
@@ -376,6 +377,11 @@ h2 {
 }
 .about-section .about-main .about-row .prop {
   color: #fffb07;
+}
+.about-section .about-main .about-row::after {
+  content: "" attr(data-line-num);
+  position: absolute;
+  transform: translate(-50px);
 }
 
 .contact-section {
@@ -403,6 +409,9 @@ h2 {
 }
 
 @media only screen and (min-width: 550px) {
+  .introduction-container {
+    max-width: 500px;
+  }
   .projects-main, .about-main, .contact-main {
     margin: auto;
   }
@@ -484,6 +493,11 @@ h2 {
   }
   .projects-section {
     padding-left: 0;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .introduction-container {
+    margin-left: -20rem;
   }
 }
 @media only screen and (min-width: 1400px) {
