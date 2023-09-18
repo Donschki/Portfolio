@@ -257,7 +257,7 @@ section {
 .projects-section, .about-section {
 
   h1 {
-    margin: 0 2rem;
+    margin: 3rem;
   }
 }
 
@@ -265,10 +265,9 @@ section {
 .projects-section {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
   overflow: hidden;
   transition: 0.2s;
-  padding: 2rem 0;
 
   background-image: url('/Portfolio/Photos/square-background.png');
   background-position: center;
@@ -334,9 +333,7 @@ section {
 
 .about-section {
   display: grid;
-  gap: 2rem;
   min-height: 50vh;
-  padding-top: 2rem;
   
   .about-main {
     display: flex;
@@ -344,7 +341,7 @@ section {
     gap: 15px;
     margin-left: 30px;
 
-   border-left: 1px solid $color-teal;
+   border-left: 1px solid $color-yellow;
    padding-left: 20px;
 
 
@@ -507,7 +504,13 @@ section {
 }
 
 .about-section, .contact-section {
-  margin-left: 1rem;
+  transition: 0.2s;
+  margin-left: 6rem;
+}
+
+.about-main {
+  transition: 0.2s;
+
 }
 
 }
