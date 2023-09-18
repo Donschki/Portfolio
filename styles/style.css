@@ -235,6 +235,7 @@ section h1 {
 .first-introduction-section {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   padding-left: 1rem;
   transition: 0.5s ease-in-out;
@@ -268,7 +269,6 @@ section h1 {
 .introduction-container {
   transition: 0.5s;
   display: grid;
-  gap: 1.5rem;
   max-width: 450px;
 }
 .introduction-container h1 {
@@ -407,7 +407,13 @@ h2 {
     margin: auto;
   }
   section h1 {
+    max-width: 1000px;
+  }
+  section h1 span {
     margin-left: 5rem;
+  }
+  section h2 {
+    margin-left: 8rem;
   }
   .dwd-bakery {
     margin-left: 2rem;
@@ -432,7 +438,6 @@ h2 {
 @media only screen and (min-width: 760px) {
   .introduction-container {
     max-width: 500px;
-    margin-left: 8rem;
   }
   .introduction-container h1 {
     margin-left: 0rem;
@@ -454,9 +459,6 @@ h2 {
   }
 }
 @media only screen and (min-width: 900px) {
-  .introduction-container {
-    margin-left: 15rem;
-  }
   .introduction-container h2 {
     margin-left: 8rem;
   }
@@ -486,7 +488,6 @@ h2 {
 }
 @media only screen and (min-width: 1400px) {
   .introduction-container {
-    margin-left: 25rem;
     max-width: 650px;
   }
   .introduction-container h1 {
