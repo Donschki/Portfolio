@@ -206,7 +206,7 @@ body a {
 .gradient-text {
   /* Fallback: Set a background color. */
   /* Create the gradient. */
-  background-image: linear-gradient(45deg, #6f42c1, #ffc107, #fd7e14);
+  background-image: linear-gradient(45deg, #6610f2, #ffc107, #fd7e14);
   /* Set the background size and repeat properties. */
   background-size: 100%;
   background-repeat: repeat;
