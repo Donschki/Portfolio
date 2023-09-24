@@ -223,9 +223,6 @@ main {
   flex-direction: column;
 }
 
-section {
-  min-height: 100vh;
-}
 section h1 {
   font-size: 2rem;
   transition: 0.5s;
@@ -245,15 +242,14 @@ section h1 {
 
 .first-introduction-section {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  padding-left: 1rem;
+  justify-content: space-evenly;
   transition: 0.5s ease-in-out;
   background-image: url("/Portfolio/Photos/shapes-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 100vh;
 }
 .first-introduction-section .adobe-ps-block {
   position: absolute;
@@ -278,33 +274,51 @@ section h1 {
 
 .introduction-container {
   transition: 0.5s;
-  display: grid;
+  display: flex;
   max-width: 450px;
 }
-.introduction-container h1 {
+.introduction-container .title {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+.introduction-container .title h1 {
   font-size: 2rem;
   transition: 0.5s;
 }
-.introduction-container span {
+.introduction-container .title span {
   font-size: 3rem;
   transition: 0.5s;
 }
-
-h2 {
+.introduction-container h2 {
   font-size: 1rem;
   transition: 0.5s;
 }
 
-.projects-section h1, .about-section h1 {
-  margin: 3rem 2rem;
+.svg-block {
+  display: flex;
+}
+.svg-block svg {
+  width: 100px;
+}
+.svg-block svg path {
+  position: relative;
+  top: 10rem;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  margin: 3rem 1rem;
+  text-transform: uppercase;
+  transition: 0.5s;
 }
 
 .projects-section {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
   overflow: hidden;
   transition: 0.2s;
+  display: flex;
+  flex-direction: column;
   background-image: url("/Portfolio/Photos/square-background.png");
   background-position: center;
   background-size: cover;
@@ -318,13 +332,17 @@ h2 {
 }
 
 .projects-main {
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   gap: 7rem;
+  padding-top: 3rem;
 }
 
 .project-container {
   width: 250px;
-  height: 170px;
+  height: 100%;
 }
 .project-container img {
   width: 100%;
@@ -333,19 +351,20 @@ h2 {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.project-container h3 {
+.project-container .project-heading {
   position: absolute;
-  right: -2rem;
-  top: -40px;
-  width: 138px;
-  letter-spacing: 3px;
+  left: 0.5rem;
+  top: -50px;
   transition: ease-in-out 0.2s;
   font-size: 1rem;
+  overflow: visible;
 }
 
-.project-container:hover h3 {
+.project-container:hover .project-heading {
   top: -60px;
-  font-size: 20px;
+  font-size: 1.3rem;
+  height: 300px;
+  letter-spacing: 5px;
 }
 
 .reveal {
@@ -360,101 +379,96 @@ h2 {
 }
 
 .about-section {
-  display: grid;
-  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
 }
 .about-section .about-main {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-left: 30px;
-  border-left: 1px solid #fffb07;
-  padding-left: 20px;
+  padding: 0 3rem;
 }
-.about-section .about-main h1 {
-  margin: 3rem 0rem;
+.about-section .about-main .about-column {
+  padding: 1rem 0.7rem;
+  position: relative;
+  border-left: 2px solid yellow;
 }
-.about-section .about-main .about-row {
-  display: inline-flex;
+.about-section .about-main .about-main-paragraph {
+  padding-bottom: 2rem;
 }
-.about-section .about-main .about-row .variable-name {
-  color: #007bff;
-  width: 100%;
+.about-section .about-main svg {
+  display: none;
 }
-.about-section .about-main .about-row .suit {
-  color: #39dcf5;
-}
-.about-section .about-main .about-row .scope {
-  color: whitesmoke;
-}
-.about-section .about-main .about-row .prop {
-  color: #01ff3c;
-}
-.about-section .about-main .about-row::after {
+.about-section .about-main .about-column p::after {
   content: "" attr(data-line-num);
   position: absolute;
-  transform: translate(-50px);
+  z-index: 10;
+  left: -1.8rem;
 }
 
-.contact-section {
+.socials-section {
   display: flex;
   flex-direction: column;
-  padding-top: 2rem;
   min-height: 50vh;
   letter-spacing: 2px;
-  gap: 2rem;
 }
-.contact-section .contact-main {
-  display: grid;
-  gap: 15px;
-  margin-left: 1rem;
+.socials-section .socials-icon-container {
+  display: flex;
+  flex-direction: column;
 }
-.contact-section .contact-main a {
+.socials-section .socials-icon-container a {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  padding: 1rem;
 }
-.contact-section .contact-main a svg {
-  width: 35px;
-  height: 35px;
+.socials-section .socials-icon-container svg {
+  width: 40px;
+  height: 40px;
   fill: #6610f2;
 }
-.contact-section .contact-main a span {
+.socials-section .socials-icon-container span {
+  margin-left: 2rem;
   transition: 0.2s ease-in-out;
 }
-.contact-section .contact-main a:hover span {
+.socials-section a:hover span {
   margin-left: 1rem;
 }
 
 @media only screen and (min-width: 550px) {
-  .introduction-container {
-    max-width: 500px;
-  }
-  .projects-main, .about-main, .contact-main {
-    margin: auto;
-  }
   section h1 {
     max-width: 1000px;
   }
   section h1 span {
-    margin-left: 5rem;
+    margin-left: 4rem;
   }
   section h2 {
     margin-left: 8rem;
   }
+  .first-introduction-section {
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .first-introduction-section .svg-block {
+    flex-direction: column;
+  }
+  .projects-main, .about-main {
+    margin: auto;
+  }
+  .project-container:hover .project-heading {
+    top: -60px;
+    font-size: 1.3rem;
+  }
   .dwd-bakery {
     margin-left: 2rem;
-    width: 400px;
-    height: 250px;
-    margin-left: 0rem;
+    min-width: 100%;
   }
   .saveur-restaurant {
     width: 280px;
-    height: 400px;
+    height: 350px;
   }
   .blog-page {
-    width: 450px;
-    height: 250px;
+    width: 500px;
   }
   .wedding-page {
     width: 300px;
@@ -462,21 +476,16 @@ h2 {
     margin-left: 6rem;
   }
 }
-@media only screen and (min-width: 760px) {
+@media only screen and (min-width: 700px) {
   .introduction-container {
     max-width: 500px;
   }
-  .introduction-container h1 {
-    margin-left: 0rem;
-  }
   .introduction-container h1 span {
-    margin-left: 4rem;
     font-size: 3rem;
   }
   .introduction-container h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-left: 6rem;
-    width: 100%;
   }
   .first-introduction-section::after {
     padding: 2rem;
@@ -484,29 +493,51 @@ h2 {
   .first-introduction-section::before {
     margin: 2.1rem 20.25rem;
   }
-  .about-section, .contact-section {
+  .projects-main {
+    gap: 7rem;
+  }
+  .blog-page {
+    width: 500px;
+  }
+  .about-section, .socials-section {
     transition: 0.2s;
   }
-  .about-main {
+  .about-section .about-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .about-section .about-main :nth-child(3) {
+    grid-row: 2;
+    grid-column: 2;
+  }
+  .about-section .about-main :nth-child(2) {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  .about-column {
     transition: 0.2s;
-    margin-left: 6rem;
   }
 }
 @media only screen and (min-width: 900px) {
-  .introduction-container h2 {
+  .introduction-container {
     margin-left: 8rem;
   }
   .projects-main {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 300px 1fr;
-    gap: 3rem;
+    grid-template-rows: 500px 1fr;
+    gap: 0rem;
+    padding-top: 0;
   }
   .project-container {
     margin-left: 0;
   }
+  .dwd-bakery {
+    width: 450px;
+  }
   .saveur-restaurant {
     width: 280px;
-    height: 250px;
+    height: 350px;
   }
   .blog-page {
     height: 400px;
@@ -519,30 +550,53 @@ h2 {
   .projects-section {
     padding-left: 0;
   }
+  .about-main {
+    width: 900px;
+    margin: auto;
+  }
 }
 @media only screen and (min-width: 1200px) {
-  .introduction-container {
-    margin-left: -20rem;
+  .heading {
+    margin: 2rem 5rem;
   }
 }
 @media only screen and (min-width: 1400px) {
   .introduction-container {
-    max-width: 650px;
+    min-width: 550px;
+    margin-left: 10rem;
   }
-  .introduction-container h1 {
+  .introduction-container .title h1 {
     margin-left: 2rem;
-    font-size: 3rem;
+    font-size: 2rem;
   }
-  .introduction-container h1 span {
-    font-size: 4.5rem;
+  .introduction-container .title h1 span {
+    font-size: 3rem;
     margin-left: 4rem;
   }
-  section h1 {
-    font-size: 3rem;
+  .introduction-container .title h2 {
+    margin-left: 10rem;
   }
 }
 @media only screen and (min-width: 1600px) {
+  .introduction-container {
+    margin-left: 20rem;
+    min-width: 550px;
+  }
+  .introduction-container .title h1 {
+    margin-left: 2rem;
+    font-size: 3rem;
+  }
+  .introduction-container .title h1 span {
+    font-size: 3.8rem;
+    margin-left: 4rem;
+  }
+  .introduction-container .title h2 {
+    margin-left: 10rem;
+  }
   .projects-section h1 {
     transition: 0.5s;
+  }
+  .heading {
+    margin: 5rem 20rem;
   }
 }/*# sourceMappingURL=style.css.map */
