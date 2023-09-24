@@ -170,6 +170,7 @@ main {
 }
 
 section {
+  transition: 0.1s;
 
   h1 {
      font-size: $fontSizeM;
@@ -200,7 +201,7 @@ section {
    justify-content: space-evenly;
    transition: 0.5s ease-in-out;
    
-   background-image: url('/Portfolio/Photos/shapes-background.png');
+   background-image: url('/Photos/shapes-background.png');
    background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
@@ -209,7 +210,8 @@ section {
    .adobe-ps-block {
     position: absolute;
     bottom: 0;
-    right: 0.5rem;
+    right: 0;
+    margin: 2rem 10PX; 
   }
 
    .adobe-ps::before {
@@ -234,6 +236,7 @@ section {
   }
 }
 
+// FIRST CONTAINER WITH MAIN TITLE
 .introduction-container {
  transition: 0.5s;
  display: flex;
@@ -265,11 +268,12 @@ section {
 
 }
 
+// 3 SVG ICONS AT BOTTOM OF FIRST PAGE
 .svg-block {
   display: flex;
   justify-content: space-evenly;
 
-  svg {
+ svg {
     width: 100px;
 
     path {
@@ -278,7 +282,26 @@ section {
       width: 100%;
       top: 10rem;
     }
-  }
+    
+}
+
+ svg:nth-child(1) {
+    path {
+     fill: $color-purple;
+   }
+}
+
+ svg:nth-child(2) {
+    path {
+     fill: $color-yellow;
+   }
+}
+
+ svg:nth-child(3) {
+    path {
+     fill: $color-orange;
+   }
+}
 }
 
 .heading {
@@ -296,7 +319,7 @@ section {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-  background-image: url('/Portfolio/Photos/square-background.png');
+  background-image: url('/Photos/square-background.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -437,7 +460,7 @@ section {
     a {
       display: inline-flex;
       align-items: center;
-      padding: 1rem;
+      padding: 0.5rem;
 
     }
 
@@ -559,10 +582,6 @@ section {
   width: 500px; 
 }
 
-.about-section, .socials-section {
-  transition: 0.2s;
-}
-
 .about-section {
 
    .about-main {
@@ -587,10 +606,24 @@ section {
 }
 
 .socials-section {
+  flex-direction: row;
+  min-height: 40vh;
 
    .socials-icon-container {
-     flex-direction: column;
-     justify-content: space-between;
+     flex-direction: row;
+
+     a {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+
+        span {
+          margin-left: 0;
+          font-size: $fontSizeXS;
+        }
+     }
 }
 
 }
@@ -652,6 +685,7 @@ section {
 
 @media only screen and (min-width: 1400px) {
 
+  
  .introduction-container {
    min-width: 550px;
    margin-left: 10rem;

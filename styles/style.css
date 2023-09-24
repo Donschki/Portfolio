@@ -223,6 +223,9 @@ main {
   flex-direction: column;
 }
 
+section {
+  transition: 0.1s;
+}
 section h1 {
   font-size: 2rem;
   transition: 0.5s;
@@ -245,7 +248,7 @@ section h1 {
   flex-direction: column;
   justify-content: space-evenly;
   transition: 0.5s ease-in-out;
-  background-image: url("/Portfolio/Photos/shapes-background.png");
+  background-image: url("/Photos/shapes-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -254,7 +257,8 @@ section h1 {
 .first-introduction-section .adobe-ps-block {
   position: absolute;
   bottom: 0;
-  right: 0.5rem;
+  right: 0;
+  margin: 2rem 10PX;
 }
 .first-introduction-section .adobe-ps::before {
   content: "";
@@ -308,6 +312,15 @@ section h1 {
   width: 100%;
   top: 10rem;
 }
+.svg-block svg:nth-child(1) path {
+  fill: #6f42c1;
+}
+.svg-block svg:nth-child(2) path {
+  fill: #fffb07;
+}
+.svg-block svg:nth-child(3) path {
+  fill: #fd7e14;
+}
 
 .heading {
   display: flex;
@@ -322,7 +335,7 @@ section h1 {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-  background-image: url("/Portfolio/Photos/square-background.png");
+  background-image: url("/Photos/square-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -420,7 +433,7 @@ section h1 {
 .socials-section .socials-icon-container a {
   display: inline-flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 .socials-section .socials-icon-container svg {
   width: 40px;
@@ -504,9 +517,6 @@ section h1 {
   .blog-page {
     width: 500px;
   }
-  .about-section, .socials-section {
-    transition: 0.2s;
-  }
   .about-section .about-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -522,9 +532,23 @@ section h1 {
   .about-column {
     transition: 0.2s;
   }
+  .socials-section {
+    flex-direction: row;
+    min-height: 40vh;
+  }
   .socials-section .socials-icon-container {
+    flex-direction: row;
+  }
+  .socials-section .socials-icon-container a {
+    align-items: center;
+    display: flex;
+    justify-content: center;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 5px;
+  }
+  .socials-section .socials-icon-container a span {
+    margin-left: 0;
+    font-size: 0.7rem;
   }
 }
 @media only screen and (min-width: 900px) {
