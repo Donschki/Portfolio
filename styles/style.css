@@ -297,12 +297,15 @@ section h1 {
 
 .svg-block {
   display: flex;
+  justify-content: space-evenly;
 }
 .svg-block svg {
   width: 100px;
 }
 .svg-block svg path {
+  fill: rgba(245, 245, 245, 0.521);
   position: relative;
+  width: 100%;
   top: 10rem;
 }
 
@@ -444,12 +447,15 @@ section h1 {
   }
   .first-introduction-section {
     flex-direction: row;
-    height: 100%;
     align-items: center;
     justify-content: space-between;
   }
   .first-introduction-section .svg-block {
     flex-direction: column;
+    gap: 3rem;
+  }
+  .first-introduction-section .adobe-ps-block {
+    margin: 1rem;
   }
   .projects-main, .about-main {
     margin: auto;

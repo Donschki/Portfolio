@@ -258,19 +258,24 @@ section {
 }
 
  h2 {
-  font-size: $fontSizeS;
-     transition: 0.5s;
+
+   font-size: $fontSizeS;
+   transition: 0.5s;
 }
+
 }
 
 .svg-block {
   display: flex;
+  justify-content: space-evenly;
 
   svg {
     width: 100px;
 
     path {
+      fill: $fontColor;    
       position: relative;
+      width: 100%;
       top: 10rem;
     }
   }
@@ -478,12 +483,16 @@ section {
 .first-introduction-section {
 
   flex-direction: row;
-  height: 100%;
   align-items: center;
   justify-content: space-between;
 
   .svg-block {
     flex-direction: column;
+    gap: 3rem;
+  }
+
+  .adobe-ps-block {
+      margin: 1rem;
   }
 }  
 
@@ -590,8 +599,7 @@ section {
 @media only screen and (min-width: 900px) { 
 
    .introduction-container {
-
-    margin-left: 8rem;
+     margin-left: 8rem;
 }
 
   .projects-main {
