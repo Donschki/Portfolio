@@ -366,6 +366,7 @@ section h1 {
   z-index: -1;
   -o-object-fit: cover;
      object-fit: cover;
+  box-shadow: 40px 40px 10px #1a1527;
 }
 .project-container .project-heading {
   position: absolute;
