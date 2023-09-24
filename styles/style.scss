@@ -282,7 +282,6 @@ section {
   margin: 3rem 1rem;
   text-transform: uppercase;
   transition: 0.5s ;
-
 }
 
 // PROJECT SECTION
@@ -365,12 +364,12 @@ section {
    display: flex;
    flex-direction: column;
 
-   padding: 0 3rem;
+   padding: 0 2.5rem;
 
    .about-column {
     padding: 1rem 0.7rem;
     position: relative;
-    border-left: 2px solid yellow;
+    border-left: 1px solid yellow;
   }
 
    .about-main-paragraph {
@@ -421,14 +420,12 @@ section {
 // SOCIALS SECTION
 
 .socials-section {
-  display: flex;
-  flex-direction: column;
-  
-  min-height: 50vh;
-  letter-spacing: 2px;
+ display: flex;
+ flex-direction: column;
+ letter-spacing: 2px;
     
     // SOCIALS ICONS CONTAINER 
-    .socials-icon-container {
+   .socials-icon-container {
       display: flex;
       flex-direction: column;
       
@@ -450,11 +447,11 @@ section {
      transition: 0.2s ease-in-out;
     }
 
-    }
+  }
     
-    a:hover span {
+   a:hover span {
       margin-left: 1rem;
-    }
+  }
   }
 
 @media only screen and (min-width: 420px) { 
@@ -462,6 +459,7 @@ section {
 } 
 
 @media only screen and (min-width: 550px) { 
+
 section {
 
   h1 {
@@ -496,9 +494,7 @@ section {
 .project-container:hover .project-heading {
   top: -60px;
   font-size: 1.3rem;
- }
-
-
+}
 
 .dwd-bakery {
  margin-left: 2rem;
@@ -523,14 +519,13 @@ section {
 @media only screen and (min-width: 700px) { 
 
 .introduction-container {
-  max-width: 500px;
+   max-width: 500px;
 
    h1 {
   
       span {
-        font-size: $fontSizeL;
+       font-size: $fontSizeL;
       }
-
   }
 
    h2 {
@@ -582,6 +577,14 @@ section {
   transition: 0.2s;
 }
 
+.socials-section {
+
+   .socials-icon-container {
+     flex-direction: column;
+     justify-content: space-between;
+}
+
+}
 }
 
 @media only screen and (min-width: 900px) { 
@@ -663,8 +666,6 @@ section {
 
     }
 }
-
-
 }
 
 @media only screen and (min-width: 1600px) {
@@ -672,7 +673,7 @@ section {
  .introduction-container {
     margin-left: 20rem;
     min-width: 550px;
-    
+
     .title {
 
        h1 {
@@ -691,6 +692,7 @@ section {
 
       }
 }
+
 .projects-section {
 
   h1 {

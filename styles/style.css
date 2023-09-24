@@ -385,12 +385,12 @@ section h1 {
 .about-section .about-main {
   display: flex;
   flex-direction: column;
-  padding: 0 3rem;
+  padding: 0 2.5rem;
 }
 .about-section .about-main .about-column {
   padding: 1rem 0.7rem;
   position: relative;
-  border-left: 2px solid yellow;
+  border-left: 1px solid yellow;
 }
 .about-section .about-main .about-main-paragraph {
   padding-bottom: 2rem;
@@ -408,7 +408,6 @@ section h1 {
 .socials-section {
   display: flex;
   flex-direction: column;
-  min-height: 50vh;
   letter-spacing: 2px;
 }
 .socials-section .socials-icon-container {
@@ -516,6 +515,10 @@ section h1 {
   }
   .about-column {
     transition: 0.2s;
+  }
+  .socials-section .socials-icon-container {
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 @media only screen and (min-width: 900px) {
