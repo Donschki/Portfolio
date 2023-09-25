@@ -96,6 +96,7 @@
     grid-column: 1;
     grid-row: 1;
     overflow: scroll;
+    overflow-x: hidden;
   }
 }
 .lightMode {
