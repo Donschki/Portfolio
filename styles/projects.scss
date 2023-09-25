@@ -1,56 +1,72 @@
 
-.projectSection {
-  padding: 0 1rem;
-  gap: 2rem;
-}
-
-.banner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.projectContainers {
-  grid-template-columns: 1fr;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-gap: 1rem;
-  justify-content: center;
-}
-
-.projectContainer {
- background-color:  #242f33;
+//MIXINS
+ @mixin flexCenter {
  display: flex;
+ justify-content: center;
  align-items: center;
- padding-left: 3rem;
 }
 
-
-//  .fioriCakes3D::before {
-//    content: "";
-//    height: 100%;
-//    width: 14.4px;
-//    left: -14px;
-//    top: 0;
-//    position: absolute;
-//    transform: skewY(35deg);
-//    background-color: #2da8d8;
-//    transform-origin: right;
-//    transition: all 0.7s;
-//   }
+ .project-wrap {
+ display: flex;
+ flex-direction: column;
+ min-height: 70vh;
+ gap: 1rem;
+ padding: 1rem;
  
-//  .fioriCakes3D::after {
-//    content: "";
-//    height: 10px;
-//    width: 100%;
-//    position: absolute;
-//    transform: skewX(55deg);
-//    background-color: #d9524e;
-//    transform-origin: bottom;
-//    top: -10px;
-//    left: 0;
-//    transition: all 0.7s;
-//   }
+ button {
+ width: 70px;
+ background: 0;
+ border: 0;
+ 
+ i {
+   font-size: 2rem;
+}
+}
 
+.tags {
 
+}
+
+h2 {
+margin-left: 0;
+}
+
+p {
+}
+
+a {
+
+}
+
+}
+
+ .project-screenshots {
+   min-height: 100vh;
+   width: 100%;
+
+ img {
+   width: 100%;
+   background-size: cover;
+   background-position: center;
+ }
+}
+
+@media only screen and (min-width: 700px) { 
+
+ .project-info {
+   display: grid;
+   grid-template-columns: 70% 30%;
+   height: 100vh;
+  }
+
+ .project-wrap {
+  grid-column: 2;
+}
+
+.project-screenshots {
+  grid-column: 1;
+  grid-row: 1;
+  
+  overflow: scroll;
+ }
+}

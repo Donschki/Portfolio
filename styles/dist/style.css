@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald&family=Source+Code+Pro:wght@200&family=Tapestry&display=swap");
-/* SIDEBAR START */
 @import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
+/* SIDEBAR START */
 .hoverMenu {
   transform: skewY(-10deg);
   width: 100%;
@@ -55,6 +55,10 @@
   transition: 0.5s;
 }
 
+.project-wrap {
+  display: flex;
+  min-height: 100vh;
+}
 .lightMode {
   background: lightgray;
   transition: all 0.5s ease;
@@ -188,17 +192,30 @@ header {
 }
 
 body {
-  background-color: #251f36;
-  color: whitesmoke;
-  font-family: "Oswald", sans-serif;
-  font-family: "Tapestry", cursive;
-  font-family: "Edu NSW ACT Foundation", cursive;
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  -ms-overflow-style: none;
-  /* IE and Edge */
+  background-color: #1a1527;
+  color: rgba(245, 245, 245, 0.521);
   font-family: "Handjet", cursive;
   font-family: "Kanit", sans-serif;
   font-family: "Tektur", cursive;
+}
+body a {
+  text-decoration: none;
+  color: rgba(245, 245, 245, 0.521);
+}
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+  /* Create the gradient. */
+  background-image: linear-gradient(to right, #6610f2, #fffb07, #fd7e14);
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
 main {
@@ -206,38 +223,54 @@ main {
   flex-direction: column;
 }
 
+section {
+  transition: 0.1s;
+}
+section h1 {
+  font-size: 2rem;
+  transition: 0.5s;
+  /* Fallback: Set a background color. */
+  /* Create the gradient. */
+  background-image: linear-gradient(to right, #fd7e14, #6610f2, #fffb07);
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
 .first-introduction-section {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  gap: 1.5rem;
-  height: 100vh;
-  padding-left: 1rem;
+  justify-content: space-evenly;
   transition: 0.5s ease-in-out;
-  background-image: url("/Portfolio/Photos/shapes-background.png");
+  background-image: url("/Photos/shapes-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 100vh;
 }
-
-.first-introduction-section::before {
+.first-introduction-section .adobe-ps-block {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 2rem 10PX;
+}
+.first-introduction-section .adobe-ps::before {
   content: "";
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 5px;
-  height: 5px;
-  margin: 1.2rem 19.2rem;
-  border-radius: 50%;
+  left: -10px;
+  bottom: 5px;
+  padding: 2px;
   border: solid 2px white;
+  border-radius: 50%;
 }
-
-.first-introduction-section::after {
+.first-introduction-section .adobe-ps::after {
   content: "-- background images created with Adobe PS";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 1rem;
   font-size: 0.7rem;
   color: #acacac;
   letter-spacing: 1px;
@@ -245,15 +278,19 @@ main {
 
 .introduction-container {
   transition: 0.5s;
-  display: grid;
-  gap: 1.5rem;
+  display: flex;
   max-width: 450px;
 }
-.introduction-container h1 {
+.introduction-container .title {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+.introduction-container .title h1 {
   font-size: 2rem;
   transition: 0.5s;
 }
-.introduction-container h1 span {
+.introduction-container .title span {
   font-size: 3rem;
   transition: 0.5s;
 }
@@ -262,66 +299,88 @@ main {
   transition: 0.5s;
 }
 
-.projects-section {
+.svg-block {
   display: flex;
-  flex-direction: column;
-  gap: 4rem;
+  justify-content: space-evenly;
+}
+.svg-block svg {
+  width: 100px;
+}
+.svg-block svg path {
+  fill: rgba(245, 245, 245, 0.521);
+  position: relative;
+  width: 100%;
+  top: 10rem;
+}
+.svg-block svg:nth-child(1) path {
+  fill: #6f42c1;
+}
+.svg-block svg:nth-child(2) path {
+  fill: #fffb07;
+}
+.svg-block svg:nth-child(3) path {
+  fill: #fd7e14;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  margin: 3rem 1rem;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.projects-section {
   overflow: hidden;
   transition: 0.2s;
-  padding-left: 2rem;
-  background-image: url("/Portfolio/Photos/square-background.png");
+  display: flex;
+  flex-direction: column;
+  background-image: url("/Photos/square-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .projects-section a {
-  width: 0%;
-}
-.projects-section h1 {
-  margin: 2rem 0rem;
-  transition: 0.5s;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .projects-main {
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   gap: 7rem;
+  padding-block: 3rem;
 }
 
 .project-container {
   width: 250px;
-  height: 170px;
+  height: 100%;
 }
 .project-container img {
   width: 100%;
   height: 100%;
   z-index: -1;
   object-fit: cover;
+  box-shadow: 40px 40px 50px 10px #1a1527;
 }
-.project-container h3 {
+.project-container .project-heading {
   position: absolute;
-  right: -2rem;
-  top: -40px;
-  width: 130px;
-  letter-spacing: 3px;
+  left: 0.5rem;
+  top: -50px;
   transition: ease-in-out 0.2s;
-  color: whitesmoke;
   font-size: 1rem;
+  overflow: visible;
 }
 
-.project-container:hover h3 {
+.project-container:hover .project-heading {
   top: -60px;
-  font-size: 20px;
-}
-
-.about-section {
-  padding-left: 2rem;
-}
-
-.about-container {
-  height: 100vh;
-}
-.about-container h1 {
-  margin: 3rem 0rem;
+  font-size: 1.3rem;
+  height: 300px;
+  letter-spacing: 5px;
 }
 
 .reveal {
@@ -335,35 +394,106 @@ main {
   opacity: 1;
 }
 
-@media screen and (min-width: 420px) {
-  .projects-section {
-    padding-left: 5rem;
+.about-section {
+  display: flex;
+  min-height: 70vh;
+  flex-direction: column;
+}
+.about-section .about-main {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2.5rem;
+}
+.about-section .about-main .about-column {
+  padding: 1rem 0.7rem;
+  position: relative;
+  border-left: 1px solid yellow;
+}
+.about-section .about-main .about-main-paragraph {
+  padding-bottom: 2rem;
+}
+.about-section .about-main svg {
+  display: none;
+}
+.about-section .about-main .about-column p::after {
+  content: "" attr(data-line-num);
+  position: absolute;
+  z-index: 10;
+  left: -1.8rem;
+}
+
+.socials-section {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 2px;
+}
+.socials-section .socials-icon-container {
+  display: flex;
+  flex-direction: column;
+}
+.socials-section .socials-icon-container a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+.socials-section .socials-icon-container svg {
+  width: 40px;
+  height: 40px;
+  fill: #6610f2;
+}
+.socials-section .socials-icon-container span {
+  margin-left: 2rem;
+  transition: 0.2s ease-in-out;
+}
+.socials-section a:hover span {
+  margin-left: 1rem;
+}
+
+@media only screen and (min-width: 550px) {
+  section h1 {
+    max-width: 1000px;
+  }
+  section h1 span {
+    margin-left: 4rem;
+  }
+  section h2 {
+    margin-left: 8rem;
   }
 
-  .about-section {
-    padding-left: 5rem;
+  .first-introduction-section {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
-}
-@media screen and (min-width: 550px) {
-  .projects-main {
+  .first-introduction-section .svg-block {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .first-introduction-section .adobe-ps-block {
+    margin: 1rem;
+  }
+
+  .projects-main, .about-main {
     margin: auto;
+  }
+
+  .project-container:hover .project-heading {
+    top: -60px;
+    font-size: 1.3rem;
   }
 
   .dwd-bakery {
     margin-left: 2rem;
-    width: 400px;
-    height: 250px;
-    margin-left: 0rem;
+    min-width: 100%;
   }
 
   .saveur-restaurant {
     width: 280px;
-    height: 400px;
+    height: 350px;
   }
 
   .blog-page {
-    width: 450px;
-    height: 250px;
+    width: 500px;
   }
 
   .wedding-page {
@@ -372,22 +502,16 @@ main {
     margin-left: 6rem;
   }
 }
-@media only screen and (min-width: 760px) {
+@media only screen and (min-width: 700px) {
   .introduction-container {
     max-width: 500px;
-    margin-left: 8rem;
-  }
-  .introduction-container h1 {
-    margin-left: 0rem;
   }
   .introduction-container h1 span {
-    margin-left: 4rem;
     font-size: 3rem;
   }
   .introduction-container h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-left: 6rem;
-    width: 100%;
   }
 
   .first-introduction-section::after {
@@ -398,31 +522,77 @@ main {
     margin: 2.1rem 20.25rem;
   }
 
-  .projects-section h1 {
-    font-size: 2rem;
+  .projects-main {
+    gap: 7rem;
+  }
+
+  .blog-page {
+    width: 500px;
+  }
+
+  .about-section .about-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .about-section .about-main-paragraph {
+    grid-column: 1/3;
+  }
+  .about-section .about-main :nth-child(3) {
+    grid-row: 2;
+    grid-column: 2;
+  }
+  .about-section .about-main :nth-child(2) {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .about-column {
+    transition: 0.2s;
+  }
+
+  .socials-section {
+    flex-direction: row;
+    min-height: 200px;
+  }
+  .socials-section .socials-icon-container {
+    flex-direction: row;
+  }
+  .socials-section .socials-icon-container a {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .socials-section .socials-icon-container a span {
+    margin-left: 0;
+    font-size: 0.7rem;
   }
 }
 @media only screen and (min-width: 900px) {
   .introduction-container {
-    margin-left: 15rem;
-  }
-  .introduction-container h2 {
     margin-left: 8rem;
   }
 
   .projects-main {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 300px 1fr;
-    gap: 3rem;
+    grid-template-rows: 500px 1fr;
+    gap: 0rem;
+    padding-top: 0;
   }
 
   .project-container {
     margin-left: 0;
   }
 
+  .dwd-bakery {
+    width: 450px;
+  }
+
   .saveur-restaurant {
     width: 280px;
-    height: 250px;
+    height: 350px;
   }
 
   .blog-page {
@@ -434,29 +604,65 @@ main {
     width: 400px;
     height: 250px;
   }
+
+  .projects-section {
+    padding-left: 0;
+  }
+
+  .about-main {
+    width: 900px;
+    margin: auto;
+  }
 }
 @media only screen and (min-width: 1200px) {
-  .projects-section h1, .about-section h1 {
-    margin: 3rem;
-    font-size: 3rem;
+  .heading {
+    margin-top: 3rem;
+    margin-left: 5rem;
   }
 }
 @media only screen and (min-width: 1400px) {
   .introduction-container {
-    margin-left: 25rem;
-    max-width: 650px;
+    min-width: 550px;
+    margin-left: 10rem;
   }
-  .introduction-container h1 {
+  .introduction-container .title h1 {
     margin-left: 2rem;
-    font-size: 3rem;
+    font-size: 2rem;
   }
-  .introduction-container h1 span {
-    font-size: 4.5rem;
+  .introduction-container .title h1 span {
+    font-size: 3rem;
     margin-left: 4rem;
+  }
+  .introduction-container .title h2 {
+    margin-left: 10rem;
   }
 }
 @media only screen and (min-width: 1600px) {
+  .introduction-container {
+    margin-left: 20rem;
+    min-width: 550px;
+  }
+  .introduction-container .title h1 {
+    margin-left: 2rem;
+    font-size: 3rem;
+  }
+  .introduction-container .title h1 span {
+    font-size: 3.8rem;
+    margin-left: 4rem;
+  }
+  .introduction-container .title h2 {
+    margin-left: 10rem;
+  }
+
   .projects-section h1 {
     transition: 0.5s;
+  }
+
+  .heading {
+    margin: 3rem 5rem;
+  }
+
+  .about-section, .socials-section {
+    padding: 5rem;
   }
 }
