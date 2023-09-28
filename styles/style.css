@@ -289,10 +289,9 @@ section h1 {
 
 .first-introduction-section {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   transition: 0.5s ease-in-out;
-  background-image: url("/Photos/shapes-background.png");
+  background-image: url("Portfolio/Photos/shapes-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -322,8 +321,8 @@ section h1 {
 
 .introduction-container {
   transition: 0.5s;
-  display: flex;
   max-width: 450px;
+  margin: auto;
 }
 .introduction-container .title {
   display: flex;
@@ -344,25 +343,39 @@ section h1 {
 }
 
 .svg-block {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
   display: flex;
+  gap: 3rem;
   justify-content: space-evenly;
+  text-align: center;
 }
-.svg-block svg {
-  width: 100px;
+.svg-block .svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 10px;
+  color: rgba(128, 128, 128, 0.37);
 }
-.svg-block svg path {
-  fill: rgba(245, 245, 245, 0.521);
+.svg-block .svg-container span {
   position: relative;
-  width: 100%;
-  top: 10rem;
 }
-.svg-block svg:nth-child(1) path {
+.svg-block .svg-container svg path {
+  fill: rgba(110, 66, 193, 0.1647058824);
+}
+
+svg:nth-child(1) path {
   fill: #6f42c1;
 }
-.svg-block svg:nth-child(2) path {
+
+svg:nth-child(2) path {
   fill: #fffb07;
 }
-.svg-block svg:nth-child(3) path {
+
+svg:nth-child(3) path {
   fill: #fd7e14;
 }
 
@@ -379,7 +392,7 @@ section h1 {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-  background-image: url("/Photos/square-background.png");
+  background-image: url("Portfolio/Photos/square-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -505,13 +518,7 @@ section h1 {
     margin-left: 8rem;
   }
   .first-introduction-section {
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-  }
-  .first-introduction-section .svg-block {
-    flex-direction: column;
-    gap: 3rem;
   }
   .first-introduction-section .adobe-ps-block {
     margin: 1rem;
@@ -541,21 +548,11 @@ section h1 {
   }
 }
 @media only screen and (min-width: 700px) {
-  .introduction-container {
-    max-width: 500px;
+  section h1 span {
+    margin-left: 2ch;
   }
-  .introduction-container h1 span {
-    font-size: 3rem;
-  }
-  .introduction-container h2 {
-    font-size: 1.5rem;
-    margin-left: 6rem;
-  }
-  .first-introduction-section::after {
-    padding: 2rem;
-  }
-  .first-introduction-section::before {
-    margin: 2.1rem 20.25rem;
+  section h2 {
+    margin-left: 12rem;
   }
   .projects-main {
     gap: 7rem;
@@ -599,11 +596,21 @@ section h1 {
     margin-left: 0;
     font-size: 0.7rem;
   }
-}
-@media only screen and (min-width: 900px) {
   .introduction-container {
     margin-left: 8rem;
   }
+  .svg-block {
+    display: inline-flex;
+    gap: 1.5rem;
+    position: relative;
+    flex-direction: column;
+    margin: 0 3rem;
+  }
+  .svg-block .svg-container {
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 800px) {
   .projects-main {
     display: grid;
     grid-template-columns: 1fr 1fr;

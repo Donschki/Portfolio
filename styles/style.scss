@@ -198,11 +198,10 @@ section {
 // Donnay Krog > Heading Container
 .first-introduction-section {
    display: flex;
-   flex-direction: column;
-   justify-content: space-evenly;
+   justify-content: center;
    transition: 0.5s ease-in-out;
    
-   background-image: url('/Portfolio/Photos/shapes-background.png');
+   background-image: url('Portfolio/Photos/shapes-background.png');
    background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
@@ -240,9 +239,8 @@ section {
 // FIRST CONTAINER WITH MAIN TITLE
 .introduction-container {
  transition: 0.5s;
- display: flex;
-
  max-width: 450px;
+ margin: auto;
 
  .title {
   display: flex;
@@ -271,21 +269,42 @@ section {
 
 // 3 SVG ICONS AT BOTTOM OF FIRST PAGE
 .svg-block {
-  display: flex;
-  justify-content: space-evenly;
 
- svg {
-    width: 100px;
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  
 
-    path {
-      fill: $fontColor;    
-      position: relative;
-      width: 100%;
-      top: 10rem;
-    }
+    display: flex;
+    gap: 3rem;
+    justify-content: space-evenly;
+    text-align: center;
+
+    .svg-container {
+      @include flexCenter();
+      flex-direction: column;
+      font-size: 10px;
+
+      color: rgba(128, 128, 128, 0.37);
+
+
+      span{
+        position: relative;
+      };
     
-}
+    svg {
+     
+      path {
+        fill: #6e42c12a;;    
+        
+      }
+      
+    }
+   }
+   }
 
+// Color of each icon
  svg:nth-child(1) {
     path {
      fill: $color-purple;
@@ -303,7 +322,6 @@ section {
      fill: $color-orange;
    }
 }
-}
 
 .heading {
   display: flex;
@@ -313,6 +331,8 @@ section {
   transition: 0.5s ;
 }
 
+
+
 // PROJECT SECTION
 
 .projects-section {
@@ -320,7 +340,7 @@ section {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-  background-image: url('/Portfolio/Photos/square-background.png');
+  background-image: url('Portfolio/Photos/square-background.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -504,15 +524,7 @@ section {
 }
 
 .first-introduction-section {
-
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-
-  .svg-block {
-    flex-direction: column;
-    gap: 3rem;
-  }
 
   .adobe-ps-block {
       margin: 1rem;
@@ -550,28 +562,18 @@ section {
 
 @media only screen and (min-width: 700px) { 
 
-.introduction-container {
-   max-width: 500px;
+section {
 
-   h1 {
-  
-      span {
-       font-size: $fontSizeL;
-      }
+  h1 {
+
+    span {
+    margin-left: 2ch;
+    }
   }
 
-   h2 {
-       font-size: 1.5rem;
-       margin-left: 6rem;
+  h2 {
+    margin-left: 12rem;
   }
-}
-
-.first-introduction-section::after {
-  padding: 2rem;
-}
-
-.first-introduction-section::before {
-  margin: 2.1rem 20.25rem;
 }
 
 .projects-main {
@@ -631,13 +633,26 @@ section {
       }
 }
 }
+
+.introduction-container {
+  margin-left: 8rem;
 }
 
-@media only screen and (min-width: 900px) { 
-
- .introduction-container {
-     margin-left: 8rem;
+.svg-block {
+  display: inline-flex;
+  gap: 1.5rem;
+  position: relative;
+  flex-direction: column;
+  margin: 0 3rem;
+  
+  .svg-container {
+     height: 100%;
+   }
 }
+}
+
+@media only screen and (min-width: 800px) { 
+
  
  .projects-main {
     display: grid;
