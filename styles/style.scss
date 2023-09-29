@@ -338,6 +338,10 @@ section {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
+  background-image: url('/Portfolio/Photos/background-3.2.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   a {
      width: 100%;
