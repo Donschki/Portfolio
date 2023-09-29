@@ -392,11 +392,7 @@ svg:nth-child(3) path {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  background-image: url("/Photos/square-background.png");
-=======
-  background-image: url("/Portfolio/Photos/background-3.png");
->>>>>>> ab7f06be6268f90e9058dfb96adc3454671d8cbc
+  background-image: url("/Photos/background-3.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
