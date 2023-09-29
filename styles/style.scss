@@ -340,15 +340,6 @@ section {
   flex-direction: column;
 
 
-<<<<<<< HEAD
-  background-image: url('Portfolio/Photos/background-3.png');
-=======
-  background-image: url('/Photos/background-3.2.png');
->>>>>>> 4399819e9cc9d58bec8ae1d116e176a00345c70a
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-
   a {
      width: 100%;
      @include flexCenter();
