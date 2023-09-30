@@ -3,9 +3,9 @@
 
 @import "./hoverMenu";
 @import "./animations";
-@import "./projects";
 @import "./toggleLight";
 @import "./form";
+@import "./prefixes";
 
 * {
     padding: 0;
@@ -103,30 +103,6 @@ a {///////////////////////SIDEBAR_LINKS
   box-shadow: -50px 20px 5px rgba(0, 0, 0, 0.281);
 }
 
-$background-color-primary: #1a1527;
-$background-color-secondary: #251f36;
-$fontColor: rgba(245, 245, 245, 0.521);
-$color-indigo: #6610f2;
-$color-purple: #6f42c1;
-$color-blue: #007bff;
-$color-cyan: #39dcf5;
-$color-orange: #fd7e14;
-$color-yellow: #fffb07;
-$color-brown: #f3a43c;
-$color-green: #01ff3c;
-$color-teal: #20c997;
-
-$fontSizeXS: 0.7rem;
-$fontSizeS: 1rem;
-$fontSizeM: 2rem;
-$fontSizeL: 3rem;
-$fontSizeXL: 3.8rem;
-
-$breakpoint-XS: 0;
-$breakpoint-S: 420px;
-$breakpoint-M: 768px;
-$breakpoint-L: 900px;
-$breakpoint-XL: 1200px;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 header {
@@ -140,6 +116,8 @@ body {
  font-family: 'Handjet', cursive;
  font-family: 'Kanit', sans-serif;
  font-family: 'Tektur', cursive;
+ overflow-x: hidden;
+
 
  a {
   text-decoration: none;
@@ -501,35 +479,69 @@ section {
 
 // PROJECT INFO > SIDEBAR
 
+.project-info {
+
+  h2 {
+    margin-left: 0;
+  }
+
 .project-wrap {
-min-height: 50vh;
-  button {
-    @include flexCenter();
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+ 
+  gap: 1rem;
+  padding: 1rem;
+  
+   min-height: 50vh;
+
+
+   p {
+     letter-spacing: 2px;
+
+   }
+   
+   button {
+    display: flex;
+    justify-content: center;
     cursor: pointer;
-    width: fit-content;
+    background: 0;
+    border: 0;
+    font-size: 1.5rem;
+    padding: 2rem 0;
+
+    span {
+      transition: 0.2s ease-in-out;
+     }
   }
   
+   .back-button {
+     width: 120px;
+  }
+
+  .back-button:hover span{
+     margin-left: -1rem;
+  }
   
-  .back-button {
-    color: $fontColor;
-      width: 120px;
-  }
-
-  p {
-    color: $fontColor;
-  }
-
   .visit-button {
-    padding: 1.5rem 3rem;
-    font-size: $fontSizeS;
-    color: $fontColor;
+    width: 130px;
+  }
 
+  .visit-button:hover span{
+     margin-left: 1rem;
   }
   
   .visit-button:hover {
-    
+    transition: 1s ease-in-out;
   }
+}
 
+.project-screenshots {
+
+  img {
+    width: 100%;
+  }
+ }
 }
 
 @media only screen and (min-width: 420px) { 
@@ -608,6 +620,25 @@ section {
 
 .projects-main {
   gap: 7rem;
+}
+
+.project-info {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  height: 100vh;
+ }
+
+.project-wrap {
+ grid-column: 2;
+}
+
+.project-screenshots {
+ grid-column: 1;
+ grid-row: 1;
+ 
+ overflow: scroll;
+ overflow-x: hidden;
+
 }
 
 .blog-page {

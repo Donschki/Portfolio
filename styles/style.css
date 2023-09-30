@@ -55,50 +55,6 @@
   transition: 0.5s;
 }
 
-.project-wrap {
-  display: flex;
-  flex-direction: column;
-  min-height: 70vh;
-  gap: 1rem;
-  padding: 1rem;
-}
-.project-wrap button {
-  width: 70px;
-  background: 0;
-  border: 0;
-}
-.project-wrap button i {
-  font-size: 2rem;
-}
-.project-wrap h2 {
-  margin-left: 0;
-}
-.project-screenshots {
-  min-height: 100vh;
-  width: 100%;
-}
-.project-screenshots img {
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-}
-
-@media only screen and (min-width: 700px) {
-  .project-info {
-    display: grid;
-    grid-template-columns: 70% 30%;
-    height: 100vh;
-  }
-  .project-wrap {
-    grid-column: 2;
-  }
-  .project-screenshots {
-    grid-column: 1;
-    grid-row: 1;
-    overflow: scroll;
-    overflow-x: hidden;
-  }
-}
 .lightMode {
   background: rgb(211, 211, 211);
   transition: all 0.5s ease;
@@ -241,6 +197,7 @@ body {
   font-family: "Handjet", cursive;
   font-family: "Kanit", sans-serif;
   font-family: "Tektur", cursive;
+  overflow-x: hidden;
 }
 body a {
   text-decoration: none;
@@ -250,7 +207,7 @@ body a {
 .gradient-text {
   /* Fallback: Set a background color. */
   /* Create the gradient. */
-  background-image: linear-gradient(to right, #6610f2, #fffb07, #fd7e14);
+  background-image: linear-gradient(to right, #6305fa, #fffb07, #fd7e14);
   /* Set the background size and repeat properties. */
   background-size: 100%;
   background-repeat: repeat;
@@ -275,7 +232,7 @@ section h1 {
   transition: 0.5s;
   /* Fallback: Set a background color. */
   /* Create the gradient. */
-  background-image: linear-gradient(to right, #fd7e14, #6610f2, #fffb07);
+  background-image: linear-gradient(to right, #fd7e14, #6305fa, #fffb07);
   /* Set the background size and repeat properties. */
   background-size: 100%;
   background-repeat: repeat;
@@ -496,7 +453,7 @@ svg:nth-child(3) path {
 .socials-section .socials-icon-container svg {
   width: 40px;
   height: 40px;
-  fill: #6610f2;
+  fill: #6305fa;
 }
 .socials-section .socials-icon-container span {
   margin-left: 2rem;
@@ -506,29 +463,51 @@ svg:nth-child(3) path {
   margin-left: 1rem;
 }
 
-.project-wrap {
+.project-info h2 {
+  margin-left: 0;
+}
+.project-info .project-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  gap: 1rem;
+  padding: 1rem;
   min-height: 50vh;
 }
-.project-wrap button {
+.project-info .project-wrap p {
+  letter-spacing: 2px;
+}
+.project-info .project-wrap button {
   display: flex;
   justify-content: center;
-  align-items: center;
   cursor: pointer;
-  width: -moz-fit-content;
-  width: fit-content;
+  background: 0;
+  border: 0;
+  font-size: 1.5rem;
+  padding: 2rem 0;
 }
-.project-wrap .back-button {
-  color: rgba(245, 245, 245, 0.521);
+.project-info .project-wrap button span {
+  transition: 0.2s ease-in-out;
+}
+.project-info .project-wrap .back-button {
   width: 120px;
 }
-.project-wrap p {
-  color: rgba(245, 245, 245, 0.521);
+.project-info .project-wrap .back-button:hover span {
+  margin-left: -1rem;
 }
-.project-wrap .visit-button {
-  padding: 1.5rem 3rem;
-  font-size: 1rem;
-  color: rgba(245, 245, 245, 0.521);
+.project-info .project-wrap .visit-button {
+  width: 130px;
 }
+.project-info .project-wrap .visit-button:hover span {
+  margin-left: 1rem;
+}
+.project-info .project-wrap .visit-button:hover {
+  transition: 1s ease-in-out;
+}
+.project-info .project-screenshots img {
+  width: 100%;
+}
+
 @media only screen and (min-width: 550px) {
   section h1 {
     max-width: 1000px;
@@ -578,6 +557,20 @@ svg:nth-child(3) path {
   }
   .projects-main {
     gap: 7rem;
+  }
+  .project-info {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    height: 100vh;
+  }
+  .project-wrap {
+    grid-column: 2;
+  }
+  .project-screenshots {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: scroll;
+    overflow-x: hidden;
   }
   .blog-page {
     width: 500px;
