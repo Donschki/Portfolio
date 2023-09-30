@@ -201,7 +201,7 @@ section {
    justify-content: center;
    transition: 0.5s ease-in-out;
    
-   background-image: url('/Portfolio/Photos/shapes-background.png');
+   background-image: url('/Photos/shapes-background.png');
    background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
@@ -338,7 +338,7 @@ section {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-  background-image: url('/Portfolio/Photos/background-3.2.png');
+  background-image: url('/Photos/background-3.2.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -497,6 +497,39 @@ section {
    a:hover span {
       margin-left: 1rem;
   }
+}
+
+// PROJECT INFO > SIDEBAR
+
+.project-wrap {
+min-height: 50vh;
+  button {
+    @include flexCenter();
+    cursor: pointer;
+    width: fit-content;
+  }
+  
+  
+  .back-button {
+    color: $fontColor;
+      width: 120px;
+  }
+
+  p {
+    color: $fontColor;
+  }
+
+  .visit-button {
+    padding: 1.5rem 3rem;
+    font-size: $fontSizeS;
+    color: $fontColor;
+
+  }
+  
+  .visit-button:hover {
+    
+  }
+
 }
 
 @media only screen and (min-width: 420px) { 
