@@ -494,15 +494,22 @@ svg:nth-child(3) path {
 }
 .project-info .project-wrap .back-button:hover span {
   margin-left: -1rem;
+  background-image: linear-gradient(to right, #6305fa, #fffb07, #fd7e14);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 .project-info .project-wrap .visit-button {
   width: 130px;
 }
 .project-info .project-wrap .visit-button:hover span {
   margin-left: 1rem;
-}
-.project-info .project-wrap .visit-button:hover {
-  transition: 1s ease-in-out;
+  background-image: linear-gradient(to right, #6305fa, #fffb07, #fd7e14);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 .project-info .project-screenshots img {
   width: 100%;

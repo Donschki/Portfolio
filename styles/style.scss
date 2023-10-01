@@ -497,10 +497,9 @@ section {
 
 
    p {
-     letter-spacing: 2px;
-
+   letter-spacing: 2px;
    }
-   
+
    button {
     display: flex;
     justify-content: center;
@@ -509,8 +508,8 @@ section {
     border: 0;
     font-size: 1.5rem;
     padding: 2rem 0;
-
-    span {
+    
+     span {
       transition: 0.2s ease-in-out;
      }
   }
@@ -519,20 +518,26 @@ section {
      width: 120px;
   }
 
-  .back-button:hover span{
+   .back-button:hover span{
      margin-left: -1rem;
+     background-image: linear-gradient(to right, $color-indigo, $color-yellow, $color-orange);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent; 
+     -moz-background-clip: text;
+     -moz-text-fill-color: transparent;
   }
   
-  .visit-button {
-    width: 130px;
+   .visit-button {
+     width: 130px;
   }
 
-  .visit-button:hover span{
+   .visit-button:hover span{
      margin-left: 1rem;
-  }
-  
-  .visit-button:hover {
-    transition: 1s ease-in-out;
+     background-image: linear-gradient(to right, $color-indigo, $color-yellow, $color-orange);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent; 
+     -moz-background-clip: text;
+     -moz-text-fill-color: transparent;
   }
 }
 
