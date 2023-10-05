@@ -135,10 +135,6 @@
   color: white;
 }
 
-.inputBox ::-moz-placeholder {
-  color: #999;
-}
-
 .inputBox ::placeholder {
   color: #999;
 }
@@ -248,7 +244,7 @@ section h1 {
   display: flex;
   justify-content: center;
   transition: 0.5s ease-in-out;
-  background-image: url("/Photos/shapes-background.png");
+  background-image: url("/Portfolio/Photos/shapes-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -349,7 +345,7 @@ svg:nth-child(3) path {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-  background-image: url("/Photos/background-3.2.png");
+  background-image: url("/Portfolio/Photos/background-3.2.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -378,8 +374,7 @@ svg:nth-child(3) path {
   width: 100%;
   height: 100%;
   z-index: -1;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   box-shadow: 40px 40px 50px 10px #1a1527;
 }
 .project-container .project-heading {
