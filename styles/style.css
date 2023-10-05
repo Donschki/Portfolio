@@ -345,7 +345,7 @@ svg:nth-child(3) path {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-  background-image: url("/Portfolio/Photos/background-3.2.png");
+  background-image: url("/Portfolio/Photos/shapes-background-2.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
