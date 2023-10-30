@@ -244,7 +244,7 @@ section h1 {
   -moz-text-fill-color: transparent;
 }
 
-.first-introduction-section {
+.introduction-section {
   display: flex;
   justify-content: center;
   transition: 0.5s ease-in-out;
@@ -254,13 +254,13 @@ section h1 {
   background-repeat: no-repeat;
   min-height: 100vh;
 }
-.first-introduction-section .adobe-ps-block {
+.introduction-section .adobe-ps-block {
   position: absolute;
   bottom: 0;
   right: 0;
   margin: 2rem 10PX;
 }
-.first-introduction-section .adobe-ps::before {
+.introduction-section .adobe-ps::before {
   content: "";
   position: absolute;
   left: -10px;
@@ -269,7 +269,7 @@ section h1 {
   border: solid 2px white;
   border-radius: 50%;
 }
-.first-introduction-section .adobe-ps::after {
+.introduction-section .adobe-ps::after {
   content: "-- background images created with Adobe PS";
   font-size: 0.7rem;
   color: rgb(172, 172, 172);
@@ -383,29 +383,12 @@ svg:nth-child(3) path {
   box-shadow: 40px 40px 50px 10px #1a1527;
 }
 .project-container .project-heading {
-  position: absolute;
-  left: 0.5rem;
-  top: -50px;
   transition: ease-in-out 0.2s;
-  font-size: 1rem;
-  overflow: visible;
+  text-transform: uppercase;
 }
 
 .project-container:hover .project-heading {
-  top: -60px;
-  font-size: 1.3rem;
   letter-spacing: 5px;
-}
-
-.reveal {
-  transform: translateX(-100px);
-  opacity: 0;
-  transition: 1s all ease;
-}
-
-.reveal.active {
-  transform: translateY(0px);
-  opacity: 1;
 }
 
 .about-section {
@@ -515,6 +498,18 @@ svg:nth-child(3) path {
   width: 100%;
 }
 
+@media only screen and (min-width: 420px) {
+  .dwd-bakery {
+    margin-left: -2rem;
+    width: 350px;
+    height: 400px;
+  }
+  .wedding-page {
+    width: 300px;
+    height: 400px;
+    margin-left: 3rem;
+  }
+}
 @media only screen and (min-width: 550px) {
   section h1 {
     max-width: 1000px;
@@ -525,34 +520,17 @@ svg:nth-child(3) path {
   section h2 {
     margin-left: 8rem;
   }
-  .first-introduction-section {
+  .introduction-section {
     align-items: center;
   }
-  .first-introduction-section .adobe-ps-block {
+  .introduction-section .adobe-ps-block {
     margin: 1rem;
   }
   .projects-main, .about-main {
     margin: auto;
   }
   .project-container:hover .project-heading {
-    top: -60px;
-    font-size: 1.3rem;
-  }
-  .dwd-bakery {
-    margin-left: 2rem;
-    min-width: 100%;
-  }
-  .saveur-restaurant {
-    width: 280px;
-    height: 350px;
-  }
-  .blog-page {
-    width: 500px;
-  }
-  .wedding-page {
-    width: 300px;
-    height: 400px;
-    margin-left: 6rem;
+    width: 100%;
   }
 }
 @media only screen and (min-width: 700px) {
@@ -572,15 +550,6 @@ svg:nth-child(3) path {
   }
   .project-wrap {
     grid-column: 2;
-  }
-  .project-screenshots {
-    grid-column: 1;
-    grid-row: 1;
-    overflow: scroll;
-    overflow-x: hidden;
-  }
-  .blog-page {
-    width: 500px;
   }
   .about-section .about-main {
     display: grid;
@@ -643,20 +612,10 @@ svg:nth-child(3) path {
   .project-container {
     margin-left: 0;
   }
-  .dwd-bakery {
-    width: 450px;
-  }
-  .saveur-restaurant {
-    width: 280px;
-    height: 350px;
-  }
-  .blog-page {
-    height: 400px;
-    width: 300px;
-  }
   .wedding-page {
-    width: 400px;
-    height: 250px;
+    width: 350px;
+    height: 450px;
+    margin-left: 2rem;
   }
   .projects-section {
     padding-left: 0;
