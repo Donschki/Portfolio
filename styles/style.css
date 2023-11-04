@@ -305,7 +305,6 @@ section h1 {
   left: 0;
   right: 0;
   display: flex;
-  gap: 3rem;
   justify-content: space-evenly;
   text-align: center;
 }
@@ -319,6 +318,9 @@ section h1 {
 }
 .svg-block .svg-container span {
   position: relative;
+}
+.svg-block .svg-container svg {
+  font-size: 5px;
 }
 .svg-block .svg-container svg path {
   fill: rgba(110, 66, 193, 0.1647058824);
@@ -498,16 +500,10 @@ svg:nth-child(3) path {
   width: 100%;
 }
 
-@media only screen and (min-width: 420px) {
-  .dwd-bakery {
-    margin-left: -2rem;
-    width: 350px;
-    height: 400px;
-  }
-  .wedding-page {
+@media only screen and (min-width: 375px) {
+  .project-container {
     width: 300px;
     height: 400px;
-    margin-left: 3rem;
   }
 }
 @media only screen and (min-width: 550px) {
@@ -586,9 +582,6 @@ svg:nth-child(3) path {
   .socials-section .socials-icon-container a span {
     margin-left: 0;
     font-size: 0.7rem;
-  }
-  .introduction-container {
-    margin-left: 8rem;
   }
   .svg-block {
     display: inline-flex;
