@@ -179,7 +179,7 @@ section {
    justify-content: center;
    transition: 0.5s ease-in-out;
    
-   background-image: url('./Photos/shapes-background-2.png');
+   background-image: url('Portfolio/Photos/shapes-background-2.png');
    background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
@@ -315,7 +315,7 @@ section {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-  background-image: url('./Photos/background-3.png');
+  background-image: url('Portfolio/Photos/background-3.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -679,31 +679,7 @@ section {
 
 }
 
-@media only screen and (min-width: 1400px) {
 
- .introduction-container {
-   min-width: 550px;
-   margin-left: 10rem;
-    
-     .title {
-
-       h1 {
-         margin-left: 2rem;
-         font-size: $fontSizeM;
-     
-         span {
-           font-size:$fontSizeL;
-           margin-left: 4rem;
-        }
-      }
-
-      h2 {
-       margin-left: 10rem;
-      }
-
-    }
-}
-}
 
 @media only screen and (min-width: 1600px) {
 
