@@ -578,8 +578,6 @@ section {
   gap: 7rem;
 }
 
-
-
 .about-section {
 
    .about-main {
@@ -654,7 +652,9 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 500px 1fr;
-    gap: 0rem;
+
+    width: 500px;
+    margin: auto;
 }
  
  .project-container {

@@ -584,7 +584,8 @@ svg:nth-child(3) path {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 500px 1fr;
-    gap: 0rem;
+    width: 500px;
+    margin: auto;
   }
   .project-container {
     margin-left: 0;
