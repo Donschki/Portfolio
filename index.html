@@ -180,14 +180,63 @@
                   <p data-line-num ="02">2023 : Wedding Invitation </p><br>
              </div> 
 
-         </div>
+             <button id="showFormBtn">Show Form 
+                
+             <script>
+                const gradientButton = document.getElementById("showFormBtn");
+            
+                gradientButton.addEventListener("click", () => {
+                    gradientButton.classList.add("clicked");
+                    setTimeout(() => {
+                        gradientButton.classList.remove("clicked");
+                    }, 300);
+                });
+            </script>
+            
+             </button>
 
-         <!-- Clickable Button -->
-         <button class="clickable-button" onclick="clickButtonEffect()">Get in contact!!</button>
+<!------------------ FORM WITH OVERLAY -->
+             <div id="overlay">
+
+                 <div id="form-container">
+                     
+                     <form> 
+                         <h2>Hello, Let's connect !</h2>Hello, my name is   
+
+                         <!-- Your form fields go here -->
+                         <input type="text" placeholder="name" id="name" name="name" required> & my email 
+                         
+                         <input type="email" placeholder="email" id="email" name="email" required> . <br> My reason for contact is <br>
+
+                         <input type="text" placeholder="reason" id="reason" name="reason" required> . <br> Thank you so much! I'll get back to you soonest. 😄 <br>
+                         <br>
+
+                         <button type="submit">Submit</button>
+
+                         <span id="close-btn" onclick="closeForm()">X</span>
+
+                     </form>
+
+                 </div>
+
+             </div>
+
+             <script>
+   const overlay = document.getElementById("overlay");
+   const showFormBtn = document.getElementById("showFormBtn");
+
+   showFormBtn.addEventListener("click", () => {
+       overlay.style.display = "flex";
+   });
+
+   function closeForm() {
+       overlay.style.display = "none";
+   }
+             </script>
+
+         </div>
              
      </section>
-
-     
 
 </main>
 

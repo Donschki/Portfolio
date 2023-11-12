@@ -459,27 +459,86 @@ section {
   }
 }
 
- /* Add button styles */
- .clickable-button {
-    width: 150px; height: 70px;
-    margin: auto;
-    padding: 1rem;
-    border-radius: 50px;
-    background-color: #3498db;
-    font-size: 1rem;
+   #overlay {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(30, 1, 54, 0.856);
+   align-items: center;
+   justify-content: center;
+}
+
+#form-container {
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100vw;
+    letter-spacing: 2px;
+
     color: #fff;
-    border: none;
+    
+    form {
+      font-size: 1rem;
+
+      h2 {
+        font-size: 2rem;
+        padding-block: 1rem;
+      }
+
+      input {
+       background: transparent;
+       border: none;
+       width: 150px; height: 30px;
+       text-align: center;
+       font-size: 1rem;
+       color: white;
+       border: 1px 2px solid white;
+      }
+
+       ::placeholder {
+       color: rgba(255, 255, 255, 0.753);
+      }
+
+      #reason {
+       width: 300px; height: 50px;
+      }
+}
+}
+
+#close-btn {
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2rem;
+    font-size: 4rem;
+    color: rgb(0, 217, 255);
+}
 
-   .clickable-button:hover {
-    background-color: #2980b9;
-  }
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    width: 150px;
+    height: 80px;
+    cursor: pointer;
+    margin: 3rem;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    transition: background 0.3s ease-in-out;
+    color: white;
+    border: none;
+}
 
-   .clickable-button:active {
-    background-color: #1f618d;
-  }
+button:hover {
+  background: linear-gradient(to right, #2ecc71, #3498db);
+}
+
+button.clicked {
+  background-position: right center;
+  transition: background 0.3s ease-in-out;
+}
 
 // PROJECT INFO > SIDEBAR
 
@@ -558,8 +617,9 @@ section {
 
 @media only screen and (min-width: 550px) { 
 
-section {
-
+.introduction-section {
+  align-items: center;
+  
   h1 {
     max-width: 1000px;
 
@@ -571,10 +631,6 @@ section {
   h2 {
     margin-left: 8rem;
   }
-}
-
-.introduction-section {
-  align-items: center;
 
   .adobe-ps-block {
       margin: 1rem;
@@ -588,7 +644,7 @@ section {
 
 @media only screen and (min-width: 700px) { 
 
-section {
+.introduction-container {
 
   h1 {
 
@@ -602,10 +658,6 @@ section {
   }
 }
 
-.clickable-button {
-  margin: 3rem 3rem;
-
-}
 
 .projects-main {
   gap: 7rem;
@@ -748,9 +800,7 @@ section {
    margin: 3rem 5rem;
 }
 
- .about-section, .socials-section {
-  padding: 5rem ;
-}}
+}
 
 
 
