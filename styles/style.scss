@@ -361,7 +361,7 @@ section {
 
 // ABOUT SECTION
 
- .about-section {
+.about-section {
  display: flex;
  min-height: 70vh;
  flex-direction: column;
@@ -461,6 +461,7 @@ section {
 
 #overlay {
    display: none;
+   
    position: fixed;
    top: 0;
    left: 0;
@@ -529,10 +530,7 @@ button {
     transition: background 0.3s ease-in-out;
     color: white;
     border: none;
-}
-
-#showFormBtn {
-  border-radius: 50px;
+    border-radius: 50px;
 }
 
 button:hover {
