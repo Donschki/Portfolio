@@ -513,6 +513,10 @@ button {
   border: none;
 }
 
+#showFormBtn {
+  border-radius: 50px;
+}
+
 button:hover {
   background: linear-gradient(to right, #2ecc71, #3498db);
 }

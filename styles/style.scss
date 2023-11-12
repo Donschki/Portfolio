@@ -459,7 +459,7 @@ section {
   }
 }
 
-   #overlay {
+#overlay {
    display: none;
    position: fixed;
    top: 0;
@@ -529,6 +529,10 @@ button {
     transition: background 0.3s ease-in-out;
     color: white;
     border: none;
+}
+
+#showFormBtn {
+  border-radius: 50px;
 }
 
 button:hover {
