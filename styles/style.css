@@ -344,7 +344,6 @@ svg:nth-child(3) path {
 
 .projects-section {
   overflow: hidden;
-  padding-block: 4rem;
   transition: 0.2s;
   display: flex;
   flex-direction: column;
@@ -363,12 +362,16 @@ svg:nth-child(3) path {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 7rem;
+  gap: 5rem;
 }
 
 .project-container {
   width: 250px;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  opacity: 0; /* Initially hidden */
+  transform: translateX(-50%);
+  transition: opacity 0.5s, transform 0.5s;
 }
 .project-container img {
   width: 100%;
@@ -376,6 +379,7 @@ svg:nth-child(3) path {
   z-index: -1;
   object-fit: cover;
   box-shadow: 40px 40px 50px 10px #1a1527;
+  border-radius: 2.5px;
 }
 .project-container .project-heading {
   transition: ease-in-out 0.2s;
@@ -439,6 +443,29 @@ svg:nth-child(3) path {
 }
 .socials-section a:hover span {
   margin-left: 1rem;
+}
+
+/* Add button styles */
+.clickable-button {
+  width: 150px;
+  height: 70px;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 50px;
+  background-color: #3498db;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.clickable-button:hover {
+  background-color: #2980b9;
+}
+
+.clickable-button:active {
+  background-color: #1f618d;
 }
 
 .project-info h2 {
@@ -524,6 +551,9 @@ svg:nth-child(3) path {
   section h2 {
     margin-left: 12rem;
   }
+  .clickable-button {
+    margin: 3rem 3rem;
+  }
   .projects-main {
     gap: 7rem;
   }
@@ -583,7 +613,7 @@ svg:nth-child(3) path {
   .projects-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 500px 1fr;
+    padding-block: 2rem;
     width: 500px;
     margin: auto;
   }

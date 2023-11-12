@@ -311,7 +311,6 @@ section {
 
 .projects-section {
   overflow: hidden;
-  padding-block: 4rem;
   transition: 0.2s;
   display: flex;
   flex-direction: column;
@@ -329,18 +328,25 @@ section {
 .projects-main {
   @include flexCenter();
   flex-direction: column;
-  gap: 7rem;
+  gap: 5rem;
 }
 
 .project-container {
      width: 250px;
-     height: 100%;
+     display: flex;
+     flex-direction: column;
+     opacity: 0; /* Initially hidden */
+            transform: translateX(-50%);
+            transition: opacity 0.5s, transform 0.5s;
+     
 
   img {
     width: 100%; height: 100%;
     z-index: -1;
     object-fit: cover;
     box-shadow: 40px 40px 50px 10px $background-color-primary;
+    border-radius: 2.5px;
+
   }
 
    .project-heading {
@@ -452,6 +458,28 @@ section {
       margin-left: 1rem;
   }
 }
+
+ /* Add button styles */
+ .clickable-button {
+    width: 150px; height: 70px;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 50px;
+    background-color: #3498db;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+   .clickable-button:hover {
+    background-color: #2980b9;
+  }
+
+   .clickable-button:active {
+    background-color: #1f618d;
+  }
 
 // PROJECT INFO > SIDEBAR
 
@@ -574,6 +602,11 @@ section {
   }
 }
 
+.clickable-button {
+  margin: 3rem 3rem;
+
+}
+
 .projects-main {
   gap: 7rem;
 }
@@ -651,7 +684,7 @@ section {
  .projects-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 500px 1fr;
+    padding-block: 2rem;
 
     width: 500px;
     margin: auto;
@@ -678,8 +711,6 @@ section {
 }
 
 }
-
-
 
 @media only screen and (min-width: 1600px) {
 

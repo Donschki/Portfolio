@@ -13,25 +13,35 @@ hamburger.addEventListener("click", () => {
     
 });
 
-// //CLICK TO REMOVE SIDE BAR
 
-// document.querySelector('.one').addEventListener('click', () => {
-//   sideBar.classList.remove('change');
-// });
+// PROJECT CONTAINERS SLIDE IN ON SCROLL
 
-// document.querySelector('.two').addEventListener('click', () => {
-//   sideBar.classList.remove('change');
-// });
+document.addEventListener("DOMContentLoaded", function () {
+    const animatedElements = document.querySelectorAll(".project-container");
 
-// //PROJECT SECTION -> CONTAINER ANIMATE ON SCROLL 
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Get the data-animate attribute to determine the animation delay
+                const animationDelay = entry.target.getAttribute("data-animate");
 
-// const projectContainer = document.querySelectorAll('.project-container');
+                // Apply different delays to create a staggered effect
+                entry.target.style.transitionDelay = `${animationDelay * 0.5}s`;
 
-// const whiteWash = document.getElementsByClassName ('white-wash-animation');
+                // Make the element visible
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, {
+        threshold: 0.5 // Adjust the threshold as needed
+    });
 
-// projectContainer.addEventListener('click', function(){
-//    whiteWash.classList.toggle ('')
-// });
+    // Start observing each target element
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+});
 
 
 

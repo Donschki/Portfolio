@@ -102,44 +102,41 @@
  
      <section class="projects-section section ">    
 
+
  <!----------------- PROJECTS SECTION MAIN HEADING -->
              <div class="project-heading heading">
                  <h1>< -- Projects -- ></h1>  
              </div>
+
              
  <!----------------- CONTAINS ALL PROJECTS -->
              <div class="projects-main" id="projects">
+
                 
 <!----------------- DOWN WITH DOUGH PROJECT -->
-                 <a href="./Down-With-Dough.html">
+                 <a class="project-container" id="projectContainer" href="./Down-With-Dough.html">
 
-                     <div class="dwd-bakery project-container">
-                        <div class="project-heading">
+                         <div class="project-heading">
 
                              <h3 class="gradient-text">Down With <br> Dough Bakery</h3> 
 
-                        </div>
+                         </div>
 
                          <img src="./Photos/dwdHomePage.JPG" alt="">
-
-                     </div>
 
                  </a>
 
 
 <!----------------- WEDDING PAGE PROJECT -->
-                 <a href="https://donschki.github.io/Wedding-page/"> 
+                 <a class="project-container" id="projectContainer" href="https://donschki.github.io/Wedding-page/"> 
                  
-                     <div class="wedding-page project-container">
-                        <div class="project-heading">
+                         <div class="project-heading">
 
                              <h3 class="gradient-text">Wedding <br>Invitation</h3> 
 
-                        </div>
+                         </div>
 
                          <img src="./Photos/img-4.png" alt="">
-
-                     </div>
 
                  </a>
 
@@ -184,37 +181,14 @@
              </div> 
 
          </div>
-            
+
+         <!-- Clickable Button -->
+         <button class="clickable-button" onclick="clickButtonEffect()">Get in contact!!</button>
+             
      </section>
+
      
-     <style>
-        /* Add button styles */
-        .clickable-button {
-            width: 150px; height: 80px;
-          padding: 10px;
-          background-color: #3498db;
-          color: #fff;
-          border: none;
-          cursor: pointer;
-          transition: background-color 0.3s ease-in-out;
-        }
-    
-        .clickable-button:hover {
-          background-color: #2980b9;
-        }
-    
-        .clickable-button:active {
-          background-color: #1f618d;
-        }
-      </style>
-    
-    <!-- Clickable Button -->
-    <button class="clickable-button" onclick="clickButtonEffect()">Get in contact!!</button>
-    
-  
-    
-    
-    
+
 </main>
 
 <footer>
