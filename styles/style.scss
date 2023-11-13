@@ -185,12 +185,16 @@ section {
    background-repeat: no-repeat;
    min-height: 100vh;
 
+   
    .adobe-ps-block {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 2rem 10PX; 
+    bottom: -5rem;
+    right: -7rem;
+    z-index: 10; 
+    transform: rotateZ(90deg);
+    font-size: 12px;
   }
+
 
    .adobe-ps::before {
     content: '';
@@ -219,6 +223,8 @@ section {
  transition: 0.5s;
  max-width: 450px;
  margin: auto;
+ position: relative;
+
 
  .title {
   display: flex;
@@ -467,9 +473,10 @@ section {
    left: 0;
    width: 100%;
    height: 100%;
-   background: rgba(30, 1, 54, 0.856);
+   background: rgba(30, 1, 54, 0.849);
    align-items: center;
    justify-content: center;
+   z-index: 10;
 }
 
 #form-container {

@@ -252,9 +252,11 @@ section h1 {
 }
 .introduction-section .adobe-ps-block {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 2rem 10PX;
+  bottom: -5rem;
+  right: -7rem;
+  z-index: 10;
+  transform: rotateZ(90deg);
+  font-size: 12px;
 }
 .introduction-section .adobe-ps::before {
   content: "";
@@ -276,6 +278,7 @@ section h1 {
   transition: 0.5s;
   max-width: 450px;
   margin: auto;
+  position: relative;
 }
 .introduction-container .title {
   display: flex;
@@ -452,9 +455,10 @@ svg:nth-child(3) path {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(30, 1, 54, 0.856);
+  background: rgba(30, 1, 54, 0.849);
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 #form-container {
