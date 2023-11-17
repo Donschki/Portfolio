@@ -270,7 +270,7 @@ section h1 {
 .introduction-section .adobe-ps-block {
   position: absolute;
   bottom: -12rem;
-  right: -9rem;
+  right: -8.2rem;
   z-index: 10;
   transform: rotateZ(90deg);
   font-size: 12px;
@@ -517,9 +517,11 @@ svg:nth-child(3) path {
 }
 #form-container form ::-moz-placeholder {
   color: rgba(255, 255, 255, 0.753);
+  font-size: 12px;
 }
 #form-container form ::placeholder {
   color: rgba(255, 255, 255, 0.753);
+  font-size: 12px;
 }
 #form-container form #reason {
   max-width: 300px;

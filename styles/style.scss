@@ -206,7 +206,7 @@ section {
 
  position: absolute;
  bottom: -12rem;
- right: -9rem;
+ right: -8.2rem;
  z-index: 10; 
  transform: rotateZ(90deg);
  font-size: 12px;
@@ -515,7 +515,6 @@ section {
       font-family: 'Tektur', cursive;
 
       overflow: scroll;
-
       
       h2 {
         font-size: 1.5rem;
@@ -538,6 +537,7 @@ section {
 
        ::placeholder {
        color: rgba(255, 255, 255, 0.753);
+       font-size: 12px;
       }
 
       #reason {
