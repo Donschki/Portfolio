@@ -561,7 +561,7 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(to right, #2ecc71, #3498db);
+  background: linear-gradient(to right, #2ecc7091, #3498db88);
 }
 
 button.clicked {
@@ -670,9 +670,6 @@ button.clicked {
 .project-container:hover .project-heading {
  width: 100%;
 }
-}
-
-@media only screen and (max-width: 768px) {
 }
 
 @media only screen and (min-width: 767px) { 
@@ -785,6 +782,13 @@ button.clicked {
  .about-main {
   margin: auto;
 }
+}
+
+@media only screen and (max-width: 850px) {
+
+  #customCursor {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
