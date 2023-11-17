@@ -205,14 +205,14 @@ section {
  .adobe-ps-block {
 
  position: absolute;
- bottom: -5rem;
- right: -7rem;
+ bottom: -12rem;
+ right: -9rem;
  z-index: 10; 
  transform: rotateZ(90deg);
  font-size: 12px;
 }
 
- .adobe-ps::before {
+ .adobe-ps-block::before {
  content: '';
  
  position: absolute;
@@ -223,7 +223,7 @@ section {
  border-radius: 50%;
 }
   
- .adobe-ps::after {
+ .adobe-ps-block::after {
  content: '-- background images created with Adobe PS';
  
  font-size: $fontSizeXS;
@@ -298,7 +298,7 @@ section {
       
     }
    }
-   }
+}
 
 // Color of each icon
  svg:nth-child(1) {
@@ -379,7 +379,7 @@ section {
 
 .project-container:hover .project-heading {
   letter-spacing: 5px;
- }
+}
 
 // ABOUT SECTION
 
