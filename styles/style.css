@@ -210,7 +210,7 @@ body a {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: -10;
+  z-index: -1;
 }
 #customCursor-overlay #customCursor {
   position: absolute;
@@ -224,14 +224,9 @@ body a {
 }
 
 .gradient-text {
-  /* Fallback: Set a background color. */
-  /* Create the gradient. */
   background-image: linear-gradient(to right, #6305fa, #fffb07, #fd7e14);
-  /* Set the background size and repeat properties. */
   background-size: 100%;
   background-repeat: repeat;
-  /* Use the text as a mask for the background. */
-  /* This will show the gradient as a text color rather than element bg. */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
@@ -250,7 +245,6 @@ section h1 {
   font-size: 2rem;
   transition: 0.5s;
   /* Fallback: Set a background color. */
-  /* Create the gradient. */
   background-image: linear-gradient(to right, #fd7e14, #6305fa, #fffb07);
   /* Set the background size and repeat properties. */
   background-size: 100%;
@@ -389,6 +383,7 @@ svg:nth-child(3) path {
   align-items: center;
   flex-direction: column;
   gap: 5rem;
+  padding-block: 2rem;
 }
 
 .project-container {
@@ -526,7 +521,6 @@ svg:nth-child(3) path {
 }
 
 #close-btn {
-  cursor: pointer;
   position: absolute;
   top: 0;
   right: 0;
@@ -540,7 +534,7 @@ button {
   font-size: 1rem;
   width: 150px;
   height: 80px;
-  cursor: pointer;
+  cursor: none;
   margin: 3rem;
   background: linear-gradient(to right, #3498db, #2ecc71);
   transition: background 0.3s ease-in-out;
@@ -572,8 +566,8 @@ button.clicked {
 }
 .project-info .project-wrap button {
   display: flex;
+  cursor: none;
   justify-content: center;
-  cursor: pointer;
   background: 0;
   border: 0;
   font-size: 1.5rem;
@@ -634,7 +628,7 @@ button.clicked {
     width: 100%;
   }
 }
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 767px) {
   .introduction-container h1 span {
     margin-left: 2ch;
   }

@@ -15,14 +15,13 @@
 }
 
 
- 
 //MIXINS
-@mixin flexCenter {
+
+@mixin flexCenter { //ADDS FLEX, JUSTIFY, ALIGN
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 @mixin navBar {/////////NAV_BAR
   display: grid;
   flex-direction: column;
@@ -31,7 +30,6 @@
   top: 0;
   box-shadow: 0 0 3px 1px black;
 }
-
 @mixin sideBar {//////////SIDE_BAR
   @include flexCenter();
   width: 14em;
@@ -42,12 +40,10 @@
   left: -15em;
   z-index: 100;
 }
-
 @mixin hamburger {//////////HAMBURGER
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  cursor: pointer;
   list-style: none;
   height: 3em;
   padding: 10px;
@@ -91,7 +87,6 @@ a {///////////////////////SIDEBAR_LINKS
   width: 4em;
   
 &:hover {///////////////LIST_ITEM_HOVER
-  cursor: pointer;
   color: white;
   border-radius: 6px;
 }}}
@@ -103,7 +98,7 @@ a {///////////////////////SIDEBAR_LINKS
 html {
   scroll-behavior: smooth;
   -ms-scrollbar-style: smooth;
- }
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 header {
@@ -130,38 +125,35 @@ body {
 }
 
 
+// CUSTOMIZED MOUSE CURSOR + OVERLAY
 #customCursor-overlay {
-width: 100vw; height: 100vh;
-position: fixed;
-z-index: -10;
+ width: 100vw; height: 100vh;
+ position: fixed;
+ z-index: -1;
+
 
 #customCursor {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background-color: red; /* Set the color or background of your custom cursor */
-  border-radius: 30% 70% 30% 70% / 70% 30% 70% 30%; 
-
-  pointer-events: none; /* Allow the cursor to pass through the element */
-  transition: transform 0.1s ease-out;
-  transform-origin: 100% 100%;
-}
+ position: absolute;
+ width: 25px;
+ height: 25px;
+ background-color: red; /* Set the color or background of your custom cursor */
+ border-radius: 30% 70% 30% 70% / 70% 30% 70% 30%; 
+ pointer-events: none; /* Allow the cursor to pass through the element */
+ transition: transform 0.1s ease-out;
+ transform-origin: 100% 100%;
 
 }
 
+}
 
+// COLORFUL TITLES & SUBTITLES
 .gradient-text {
-  /* Fallback: Set a background color. */
   
-  /* Create the gradient. */
   background-image: linear-gradient(to right, $color-indigo, $color-yellow, $color-orange);
   
-  /* Set the background size and repeat properties. */
   background-size: 100%;
   background-repeat: repeat;
 
-  /* Use the text as a mask for the background. */
-  /* This will show the gradient as a text color rather than element bg. */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
   -moz-background-clip: text;
@@ -174,14 +166,13 @@ main {
 }
 
 section {
-  transition: 0.1s;
+ transition: 0.1s;
 
-  h1 {
+   h1 {
      font-size: $fontSizeM;
       transition: 0.5s ;
         /* Fallback: Set a background color. */
   
-  /* Create the gradient. */
   background-image: linear-gradient(to right, $color-orange, $color-indigo, $color-yellow, );
   
   /* Set the background size and repeat properties. */
@@ -199,48 +190,47 @@ section {
 }
 
 // Donnay Krog > Heading Container
-.introduction-section {
-   display: flex;
-   justify-content: center;
-   transition: 0.5s ease-in-out;
+ .introduction-section {
+
+ display: flex;
+ justify-content: center;
+ transition: 0.5s ease-in-out;
+ 
+ background-image: url('/Portfolio/Photos/shapes-background-2.png');
+ background-position: center;
+ background-size: cover;
+ background-repeat: no-repeat;
+ min-height: 100vh;
    
-   background-image: url('/Portfolio/Photos/shapes-background-2.png');
-   background-position: center;
-   background-size: cover;
-   background-repeat: no-repeat;
-   min-height: 100vh;
+ .adobe-ps-block {
 
-   
-   .adobe-ps-block {
-    position: absolute;
-    bottom: -5rem;
-    right: -7rem;
-    z-index: 10; 
-    transform: rotateZ(90deg);
-    font-size: 12px;
-  }
+ position: absolute;
+ bottom: -5rem;
+ right: -7rem;
+ z-index: 10; 
+ transform: rotateZ(90deg);
+ font-size: 12px;
+}
 
-
-   .adobe-ps::before {
-    content: '';
-    
-    position: absolute;
-    left: -10px;  
-    bottom: 5px;
-    padding: 2px ;
-    border: solid 2px white;
-    border-radius: 50%;
-    
-  }
+ .adobe-ps::before {
+ content: '';
+ 
+ position: absolute;
+ left: -10px;  
+ bottom: 5px;
+ padding: 2px ;
+ border: solid 2px white;
+ border-radius: 50%;
+}
   
-   .adobe-ps::after {
-    
-    content: '-- background images created with Adobe PS';
-    
-    font-size: $fontSizeXS;
-    color: rgb(172, 172, 172);
-    letter-spacing: 1px;
+ .adobe-ps::after {
+ content: '-- background images created with Adobe PS';
+ 
+ font-size: $fontSizeXS;
+ color: rgb(172, 172, 172);
+ letter-spacing: 1px;
   }
+
 }
 
 // FIRST CONTAINER WITH MAIN TITLE
@@ -360,6 +350,7 @@ section {
   @include flexCenter();
   flex-direction: column;
   gap: 5rem;
+  padding-block: 2rem;
 }
 
 .project-container {
@@ -547,7 +538,6 @@ section {
 }
 
 #close-btn {
-    cursor: pointer;
     position: absolute;
     top: 0;
     right: 0;
@@ -561,7 +551,7 @@ button {
     font-size: 1rem;
     width: 150px;
     height: 80px;
-    cursor: pointer;
+    cursor: none;
     margin: 3rem;
     background: linear-gradient(to right, #3498db, #2ecc71);
     transition: background 0.3s ease-in-out;
@@ -583,33 +573,34 @@ button.clicked {
 
 .project-info {
 
-  h2 {
+   h2 {
     margin-left: 0;
   }
 
-.project-wrap {
- display: flex;
- flex-direction: column;
- 
- gap: 1rem;
- padding: 1rem;
+   .project-wrap {
+   display: flex;
+   flex-direction: column;
+  
+   gap: 1rem;
+   padding: 1rem;
   
    p {
    letter-spacing: 2px;
-   }
+  }
 
    button {
     display: flex;
+    cursor: none;
     justify-content: center;
-    cursor: pointer;
     background: 0;
     border: 0;
     font-size: 1.5rem;
     padding: 1rem 0;
     
-     span {
-      transition: 0.2s ease-in-out;
-     }
+   span {
+     transition: 0.2s ease-in-out;
+    }
+
   }
   
    .back-button {
@@ -642,7 +633,7 @@ button.clicked {
 .project-screenshots {
 
   img {
-    width: 100%;
+   width: 100%;
   }
  }
 }
@@ -657,31 +648,35 @@ button.clicked {
 @media only screen and (min-width: 550px) { 
 
 .introduction-section {
-  align-items: center;
+ align-items: center;
   
-  h1 {
-    max-width: 1000px;
+   h1 {
+   max-width: 1000px;
 
-    span {
-    margin-left: 4rem;
+   span {
+   margin-left: 4rem;
     }
   }
-
-  h2 {
-    margin-left: 8rem;
+ 
+   h2 {
+   margin-left: 8rem;
   }
 
-  .adobe-ps-block {
-      margin: 1rem;
+   .adobe-ps-block {
+   margin: 1rem;
   }
 }  
 
 .project-container:hover .project-heading {
-  width: 100%;
+ width: 100%;
 }
 }
 
-@media only screen and (min-width: 700px) { 
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (min-width: 767px) { 
+
 
 .introduction-container {
 
@@ -696,7 +691,6 @@ button.clicked {
     margin-left: 12rem;
   }
 }
-
 
 .projects-main {
   gap: 7rem;
