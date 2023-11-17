@@ -194,10 +194,29 @@ body {
   font-family: "Kanit", sans-serif;
   font-family: "Tektur", cursive;
   overflow-x: hidden;
+  height: 100vh;
+  cursor: none;
 }
 body a {
   text-decoration: none;
   color: rgba(245, 245, 245, 0.521);
+}
+
+#customCursor-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -10;
+}
+#customCursor-overlay #customCursor {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: red; /* Set the color or background of your custom cursor */
+  border-radius: 30% 70% 30% 70%/70% 30% 70% 30%;
+  pointer-events: none; /* Allow the cursor to pass through the element */
+  transition: transform 0.1s ease-out;
+  transform-origin: 100% 100%;
 }
 
 .gradient-text {
@@ -397,6 +416,10 @@ svg:nth-child(3) path {
   display: flex;
   min-height: 70vh;
   flex-direction: column;
+  background-image: url("/Portfolio/Photos/shapes-background.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .about-section .about-main {
   display: flex;

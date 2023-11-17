@@ -20,6 +20,22 @@
 
 <body>
 
+    <div id="customCursor-overlay">
+        <div id="customCursor">
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const customCursor = document.getElementById("customCursor");
+            
+                    document.addEventListener("mousemove", function (e) {
+                        // Update the position of the custom cursor based on the mouse coordinates
+                        customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+                    });
+                });
+            </script>
+         </div>
+    </div>
+
+
  <header>
 
      <div class="toggle">
@@ -248,6 +264,7 @@
      </section>
 
 </main>
+</body>
 
 <footer>
     
@@ -286,7 +303,6 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-</body>
 
 
 </html>
