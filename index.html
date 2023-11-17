@@ -37,7 +37,7 @@
          </div>
  </div>
 
- 
+
  <header>
 
      <div class="toggle">
@@ -230,25 +230,25 @@
              </button>
 
 <!------------------ FORM WITH OVERLAY -->
-             <div id="overlay">
+             <div id="form-overlay">
 
                  <div id="form-container">
                      
                      <form> 
-                        
-                         <h2>Hello, Let's connect !</h2>Hello, my name is   
-
-                         <!-- Your form fields go here -->
-                         <input type="text" placeholder="name" id="name" name="name" required> & my email 
-                         
-                         <input type="email" placeholder="email" id="email" name="email" required> . <br> My reason for contact is <br>
-
-                         <input type="text" placeholder="reason" id="reason" name="reason" required> . <br> Thank you so much! I'll get back to you soonest. 😄 <br>
-                         <br>
-
-                         <button type="submit">Submit</button>
 
                          <span id="close-btn" onclick="closeForm()">X</span>
+                        
+                         <h2>Hello, Let's connect !</h2> Hello, my name is
+
+                         <!-- Your form fields go here -->
+                         <input type="text" placeholder="name" id="name" name="name" required>, & my email is 
+                         
+                         <input type="email" placeholder="email" id="email" name="email" required>   My reason for contacting is 
+
+                         <textarea id="reason" name="reason" rows="9" cols="30"></textarea>
+                          <br>Thank you so much! I'll get back to you soonest. 😄 
+                         
+                         <button type="submit">Submit</button>
 
                      </form>
 
@@ -257,7 +257,7 @@
              </div>
 
              <script>
-                 const overlay = document.getElementById("overlay");
+                 const overlay = document.getElementById("form-overlay");
                  const showFormBtn = document.getElementById("showFormBtn");
  
                  showFormBtn.addEventListener("click", () => {
