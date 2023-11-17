@@ -350,7 +350,7 @@ section {
   @include flexCenter();
   flex-direction: column;
   gap: 5rem;
-  padding-block: 2rem;
+  padding-block: 4rem;
 }
 
 .project-container {
@@ -769,7 +769,6 @@ button.clicked {
  .projects-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding-block: 2rem;
 
     width: 500px;
     margin: auto;
