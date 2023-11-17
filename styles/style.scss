@@ -14,7 +14,6 @@
     // border:  solid 1px white;
 }
 
-
 //MIXINS
 
 @mixin flexCenter { //ADDS FLEX, JUSTIFY, ALIGN
@@ -95,12 +94,17 @@ a {///////////////////////SIDEBAR_LINKS
   box-shadow: -50px 20px 5px rgba(0, 0, 0, 0.281);
 }
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 html {
   scroll-behavior: smooth;
   -ms-scrollbar-style: smooth;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
 header {
   display: none;
 }
@@ -124,7 +128,6 @@ body {
  }
 }
 
-
 // CUSTOMIZED MOUSE CURSOR + OVERLAY
 #customCursor-overlay {
  width: 100vw; height: 100vh;
@@ -141,7 +144,6 @@ body {
  pointer-events: none; /* Allow the cursor to pass through the element */
  transition: transform 0.1s ease-out;
  transform-origin: 100% 100%;
-
 }
 
 }
@@ -266,7 +268,7 @@ section {
 
 }
 
-// 3 SVG ICONS AT BOTTOM OF FIRST PAGE
+// SVG ICONS AT BOTTOM/LEFT SIDE OF FIRST PAGE
 .svg-block {
    position: absolute;
    bottom: 1rem;
@@ -361,7 +363,6 @@ section {
             transform: translateX(-50%);
             transition: opacity 0.5s, transform 0.5s;
      
-
   img {
     width: 100%; height: 100%;
     z-index: -1;
@@ -505,16 +506,22 @@ section {
     width: 100vw; height: 100vh;
     letter-spacing: 2px;
     color: #fff;
+    overflow: scroll;
     
     form {
       font-size: 1rem;
       display: flex;
       align-items: center;
+      justify-content: center;
       flex-direction: column;
       height: 100vh;
       font-family: 'Tektur', cursive;
+      cursor:default;
 
       overflow: scroll;
+ overflow-y: hidden;
+ overflow-x: hidden;
+
       
       h2 {
         font-size: 1.5rem;

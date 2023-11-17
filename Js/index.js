@@ -1,11 +1,20 @@
 
 
-//////////////////////////SIDE_BAR_TOGGLE
+// COSTOM CURSOR
+
+document.addEventListener("DOMContentLoaded", function () {
+    const customCursor = document.getElementById("customCursor");
+
+    document.addEventListener("mousemove", function (e) {
+        // Update the position of the custom cursor based on the mouse coordinates
+        customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+});
+
+// CLICK HAMBURGER TO TOGGLE SIDEBAR
 
 let hamburger = document.querySelector (".hamburgerMenu");
 let sideBar = document.querySelector (".sideBar");
-
-// TOGGLE SIDE BAR
 
 hamburger.addEventListener("click", () => {
     sideBar.classList.toggle("change");
@@ -14,7 +23,7 @@ hamburger.addEventListener("click", () => {
 });
 
 
-// PROJECT CONTAINERS SLIDE IN ON SCROLL
+// PROJECT CONTAINERS SLIDE ON SCROLL
 
 document.addEventListener("DOMContentLoaded", function () {
     const animatedElements = document.querySelectorAll(".project-container");

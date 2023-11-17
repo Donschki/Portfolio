@@ -490,15 +490,20 @@ svg:nth-child(3) path {
   height: 100vh;
   letter-spacing: 2px;
   color: #fff;
+  overflow: scroll;
 }
 #form-container form {
   font-size: 1rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   height: 100vh;
   font-family: "Tektur", cursive;
+  cursor: default;
   overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 #form-container form h2 {
   font-size: 1.5rem;
@@ -751,4 +756,4 @@ button.clicked {
   .heading {
     margin: 3rem 5rem;
   }
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMapping
