@@ -643,6 +643,11 @@ button.clicked {
     width: 100%;
   }
 }
+@media screen and (max-width: 768px) {
+  #customCursor-overlay {
+    display: none;
+  }
+}
 @media only screen and (min-width: 767px) {
   .introduction-container h1 span {
     margin-left: 2ch;
