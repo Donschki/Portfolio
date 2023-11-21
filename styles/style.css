@@ -392,6 +392,7 @@ svg:nth-child(3) path {
   opacity: 0; /* Initially hidden */
   transform: translateX(-50%);
   transition: opacity 0.5s, transform 0.5s;
+  cursor: none;
 }
 .project-container img {
   width: 100%;
@@ -401,14 +402,17 @@ svg:nth-child(3) path {
      object-fit: cover;
   box-shadow: 40px 40px 50px 10px #1a1527;
   border-radius: 2.5px;
+  transition: 0.5s ease-in-out;
 }
 .project-container .project-heading {
   transition: ease-in-out 0.2s;
   text-transform: uppercase;
 }
 
-.project-container:hover .project-heading {
+.project-container:hover img {
   letter-spacing: 5px;
+  opacity: 0.5;
+  transition: 0.5s ease-in-out;
 }
 
 .about-section {
