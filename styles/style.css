@@ -235,7 +235,6 @@ body a {
 main {
   display: flex;
   flex-direction: column;
-  z-index: -1;
 }
 
 section {
@@ -261,7 +260,7 @@ section h1 {
   display: flex;
   justify-content: center;
   transition: 0.5s ease-in-out;
-  background-image: url("/Portfolio/Photos/shapes-background-2.png");
+  background-image: url("/Images/shapes-background-2.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -367,10 +366,11 @@ svg:nth-child(3) path {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-  background-image: url("/Portfolio/Photos/background-3.png");
+  background-image: url("");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-image: url("/Images/background-3.png");
 }
 .projects-section a {
   display: flex;
@@ -416,7 +416,7 @@ svg:nth-child(3) path {
   display: flex;
   min-height: 70vh;
   flex-direction: column;
-  background-image: url("/Portfolio/Photos/shapes-background.png");
+  background-image: url("/Images/shapes-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -643,7 +643,7 @@ button.clicked {
     width: 100%;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 485px) {
   #customCursor-overlay {
     display: none;
   }
