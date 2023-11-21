@@ -210,7 +210,6 @@ body a {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: -1;
 }
 #customCursor-overlay #customCursor {
   position: absolute;
@@ -236,6 +235,7 @@ body a {
 main {
   display: flex;
   flex-direction: column;
+  z-index: -1;
 }
 
 section {
@@ -490,13 +490,11 @@ svg:nth-child(3) path {
   height: 100vh;
   letter-spacing: 2px;
   color: #fff;
-  overflow: scroll;
 }
 #form-container form {
   font-size: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   height: 100vh;
   font-family: "Tektur", cursive;
@@ -756,4 +754,4 @@ button.clicked {
   .heading {
     margin: 3rem 5rem;
   }
-}/*# sourceMapping
+}/*# sourceMappingURL=style.css.map */

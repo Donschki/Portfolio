@@ -132,7 +132,6 @@ body {
 #customCursor-overlay {
  width: 100vw; height: 100vh;
  position: fixed;
- z-index: -1;
 
 
 #customCursor {
@@ -165,6 +164,7 @@ body {
 main {
   display: flex;
   flex-direction: column;
+  z-index: -1;
 }
 
 section {
@@ -203,6 +203,7 @@ section {
  background-size: cover;
  background-repeat: no-repeat;
  min-height: 100vh;
+
    
  .adobe-ps-block {
 
@@ -506,13 +507,11 @@ section {
     width: 100vw; height: 100vh;
     letter-spacing: 2px;
     color: #fff;
-    overflow: scroll;
     
     form {
       font-size: 1rem;
       display: flex;
       align-items: center;
-      justify-content: center;
       flex-direction: column;
       height: 100vh;
       font-family: 'Tektur', cursive;
@@ -751,6 +750,8 @@ button.clicked {
         }
       }
 }
+
+
 }
 
 .svg-block {
