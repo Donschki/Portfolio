@@ -260,7 +260,7 @@ section h1 {
   display: flex;
   justify-content: center;
   transition: 0.5s ease-in-out;
-  background-image: url("/Images/shapes-background-2.png");
+  background-image: url("/Portfolio/Images/shapes-background-2.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -366,11 +366,10 @@ svg:nth-child(3) path {
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-  background-image: url("");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("/Images/background-3.png");
+  background-image: url("/Portfolio/Images/background-3.png");
 }
 .projects-section a {
   display: flex;
@@ -416,7 +415,7 @@ svg:nth-child(3) path {
   display: flex;
   min-height: 70vh;
   flex-direction: column;
-  background-image: url("/Images/shapes-background.png");
+  background-image: url("/Portfolio/Images/shapes-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -544,7 +543,7 @@ svg:nth-child(3) path {
   color: rgb(0, 217, 255);
 }
 
-button {
+#showFormBtn {
   padding: 10px 20px;
   font-size: 1rem;
   width: 150px;
@@ -559,11 +558,11 @@ button {
   position: relative;
 }
 
-button:hover {
+#showFormBtn:hover {
   background: linear-gradient(to right, rgba(46, 204, 112, 0.568627451), rgba(52, 152, 219, 0.5333333333));
 }
 
-button.clicked {
+#showFormBtn.clicked {
   background-position: right center;
   transition: background 0.3s ease-in-out;
 }
