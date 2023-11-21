@@ -463,6 +463,7 @@ section {
    .socials-icon-container {
      display: flex;
      flex-direction: column;
+     position: relative;
       
     a {
      display: inline-flex;

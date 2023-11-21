@@ -451,6 +451,7 @@ svg:nth-child(3) path {
 .socials-section .socials-icon-container {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .socials-section .socials-icon-container a {
   display: inline-flex;
