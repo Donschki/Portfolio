@@ -452,11 +452,13 @@ svg:nth-child(3) path {
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: none;
 }
 .socials-section .socials-icon-container a {
   display: inline-flex;
   align-items: center;
   padding: 0.5rem;
+  cursor: none;
 }
 .socials-section .socials-icon-container svg {
   width: 40px;
