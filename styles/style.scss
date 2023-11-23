@@ -134,7 +134,6 @@ body {
 #customCursor-overlay {
  width: 100vw; height: 100vh;
  position: fixed;
- z-index: -1;
 
 #customCursor {
  position: absolute;
@@ -145,6 +144,7 @@ body {
  pointer-events: none; /* Allow the cursor to pass through the element */
  transition: transform 0.1s ease-out;
  transform-origin: 100% 100%;
+
 }
 }
 
@@ -166,12 +166,12 @@ body {
 main {
   display: flex;
   flex-direction: column;
- z-index: -2;
 
 }
 
 section {
  transition: 0.1s;
+
 
    h1 {
      font-size: $fontSizeM;
@@ -206,15 +206,12 @@ section {
  background-size: cover;
  background-repeat: no-repeat;
  min-height: 100vh;
- z-index: -2a;
-
    
  .adobe-ps-block {
 
  position: absolute;
  bottom: -12rem;
  right: -8.2rem;
- z-index: 10; 
  transform: rotateZ(90deg);
  font-size: 12px;
 }
@@ -332,6 +329,8 @@ section {
   padding: 1rem;
   text-transform: uppercase;
   transition: 0.5s ;
+ z-index: 1;
+
 }
 
 
@@ -420,6 +419,8 @@ section {
 
    .about-main-paragraph {
     padding-bottom: 2rem;
+   z-index: 1;
+
   }
 
    svg {

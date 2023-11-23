@@ -207,7 +207,6 @@ body a {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: -1;
 }
 #customCursor-overlay #customCursor {
   position: absolute;
@@ -233,7 +232,6 @@ body a {
 main {
   display: flex;
   flex-direction: column;
-  z-index: -2;
 }
 
 section {
@@ -264,13 +262,11 @@ section h1 {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
-  z-index: -2a;
 }
 .introduction-section .adobe-ps-block {
   position: absolute;
   bottom: -12rem;
   right: -8.2rem;
-  z-index: 10;
   transform: rotateZ(90deg);
   font-size: 12px;
 }
@@ -359,6 +355,7 @@ svg:nth-child(3) path {
   padding: 1rem;
   text-transform: uppercase;
   transition: 0.5s;
+  z-index: 1;
 }
 
 .projects-section {
@@ -436,6 +433,7 @@ svg:nth-child(3) path {
 }
 .about-section .about-main .about-main-paragraph {
   padding-bottom: 2rem;
+  z-index: 1;
 }
 .about-section .about-main svg {
   display: none;
