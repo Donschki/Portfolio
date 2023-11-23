@@ -194,10 +194,7 @@ header {
 body {
   background-color: #1a1527;
   color: rgba(245, 245, 245, 0.521);
-  font-family: "Handjet", cursive;
-  font-family: "Kanit", sans-serif;
   font-family: "Tektur", cursive;
-  overflow-x: hidden;
   height: 100vh;
   cursor: none;
 }
@@ -224,7 +221,7 @@ body a {
 }
 
 .gradient-text {
-  background-image: linear-gradient(to right, #6305fa, #fffb07, #fd7e14);
+  background-image: linear-gradient(to right, #fd7e14, #6305fa, #fffb07);
   background-size: 100%;
   background-repeat: repeat;
   -webkit-background-clip: text;
@@ -449,9 +446,10 @@ svg:nth-child(3) path {
 }
 
 .socials-section {
+  letter-spacing: 2px;
   display: flex;
   flex-direction: column;
-  letter-spacing: 2px;
+  padding-block: 2rem;
 }
 .socials-section .socials-icon-container {
   display: flex;
@@ -476,6 +474,13 @@ svg:nth-child(3) path {
 }
 .socials-section a:hover span {
   margin-left: 1rem;
+  background-image: linear-gradient(to right, #fd7e14, #6305fa, #fffb07);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
 #form-overlay {
@@ -682,6 +687,7 @@ svg:nth-child(3) path {
   }
   .socials-section {
     flex-direction: row;
+    justify-content: center;
   }
   .socials-section .socials-icon-container {
     flex-direction: row;
@@ -739,10 +745,6 @@ svg:nth-child(3) path {
   }
 }
 @media only screen and (min-width: 1200px) {
-  .heading {
-    margin-top: 3rem;
-    margin-left: 5rem;
-  }
   #form-container {
     max-width: 1200px;
     margin: auto;

@@ -94,6 +94,11 @@ a {///////////////////////SIDEBAR_LINKS
   box-shadow: -50px 20px 5px rgba(0, 0, 0, 0.281);
 }
 
+@mixin font-family {
+  font-family: 'Tektur', cursive;
+
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -112,10 +117,7 @@ body {
  background-color: $background-color-primary;
  color: $fontColor;
 
- font-family: 'Handjet', cursive;
- font-family: 'Kanit', sans-serif;
  font-family: 'Tektur', cursive;
- overflow-x: hidden;
  height: 100vh;
  cursor: none;
 
@@ -150,7 +152,7 @@ body {
 
 .gradient-text {
   
-  background-image: linear-gradient(to right, $color-indigo, $color-yellow, $color-orange);
+  background-image: linear-gradient(to right, $color-orange, $color-indigo, $color-yellow, );
   
   background-size: 100%;
   background-repeat: repeat;
@@ -461,9 +463,10 @@ section {
 // SOCIALS SECTION
 
 .socials-section {
+ letter-spacing: 2px;
  display: flex;
  flex-direction: column;
- letter-spacing: 2px;
+ padding-block: 2rem;
     
     // SOCIALS ICONS CONTAINER 
 
@@ -494,6 +497,15 @@ section {
     
    a:hover span {
    margin-left: 1rem;
+   background-image: linear-gradient(to right, $color-orange, $color-indigo, $color-yellow, );
+  
+  background-size: 100%;
+  background-repeat: repeat;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
   }
 }
 
@@ -757,6 +769,7 @@ section {
 
 .socials-section {
    flex-direction: row;
+   justify-content: center;
 
    .socials-icon-container {
      flex-direction: row;
@@ -832,10 +845,6 @@ section {
 
 @media only screen and (min-width: 1200px) {
 
-.heading {
-   margin-top: 3rem;
-   margin-left: 5rem ;
-}
 
 #form-container {
   max-width: 1200px;
