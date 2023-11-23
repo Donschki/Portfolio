@@ -416,7 +416,7 @@ svg:nth-child(3) path {
   display: flex;
   min-height: 500px;
   flex-direction: column;
-  background-image: url("/Portfolio/Images/background-2.jpg");
+  background-image: url("/Portfolio/Images/background-2.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
