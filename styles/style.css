@@ -414,7 +414,7 @@ svg:nth-child(3) path {
 
 .about-section {
   display: flex;
-  height: 100vh;
+  height: 50vh;
   flex-direction: column;
   background-image: url("/Portfolio/Images/background-2.png");
   background-position: center;
@@ -450,6 +450,7 @@ svg:nth-child(3) path {
   display: flex;
   flex-direction: column;
   padding-block: 2rem;
+  height: 50vh;
 }
 .socials-section .socials-icon-container {
   display: flex;
