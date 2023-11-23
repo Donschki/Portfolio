@@ -233,6 +233,7 @@ body a {
 main {
   display: flex;
   flex-direction: column;
+  z-index: -2;
 }
 
 section {
@@ -513,8 +514,6 @@ svg:nth-child(3) path {
   font-family: "Tektur", cursive;
   cursor: default;
   overflow: scroll;
-  overflow-y: hidden;
-  overflow-x: hidden;
 }
 #form-container form h2 {
   font-size: 1.5rem;
