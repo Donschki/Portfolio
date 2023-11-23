@@ -751,9 +751,6 @@ svg:nth-child(3) path {
     max-width: 1200px;
     margin: auto;
   }
-  .about-section {
-    min-height: 400px;
-  }
   .heading {
     margin: 1rem 5rem;
   }
