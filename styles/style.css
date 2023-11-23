@@ -368,7 +368,7 @@ svg:nth-child(3) path {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("/Portfolio/Images/shapes-background-2");
+  background-image: url("/Portfolio/Images/shapes-background-2.png");
 }
 .projects-section a {
   display: flex;
@@ -418,7 +418,7 @@ svg:nth-child(3) path {
   display: flex;
   min-height: 500px;
   flex-direction: column;
-  background-image: url("/Portfolio/Images/background-2.png");
+  background-image: url("/Portfolio/Images/background-2.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
