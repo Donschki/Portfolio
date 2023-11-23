@@ -357,7 +357,7 @@ svg:nth-child(3) path {
 .heading {
   display: flex;
   align-items: center;
-  margin: 3rem 1rem;
+  padding: 1rem;
   text-transform: uppercase;
   transition: 0.5s;
 }
@@ -418,7 +418,7 @@ svg:nth-child(3) path {
 
 .about-section {
   display: flex;
-  min-height: 70vh;
+  min-height: 500px;
   flex-direction: column;
   background-image: url("/Portfolio/Images/shapes-background.png");
   background-position: center;
@@ -462,8 +462,8 @@ svg:nth-child(3) path {
 .socials-section .socials-icon-container a {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem;
   cursor: none;
+  padding: 10px;
 }
 .socials-section .socials-icon-container svg {
   width: 40px;
@@ -552,13 +552,16 @@ svg:nth-child(3) path {
   color: rgb(0, 217, 255);
 }
 
+.form-button-container {
+  padding: 2rem 4rem;
+}
+
 #showFormBtn {
   padding: 10px 20px;
   font-size: 1rem;
   width: 150px;
   height: 80px;
   cursor: none;
-  margin: 3rem;
   background: linear-gradient(to right, #3498db, #2ecc71);
   transition: background 0.3s ease-in-out;
   color: white;
@@ -590,12 +593,12 @@ svg:nth-child(3) path {
 }
 .project-info .project-wrap button {
   display: flex;
-  cursor: none;
   justify-content: center;
   background: 0;
   border: 0;
   font-size: 1.5rem;
   padding: 1rem 0;
+  cursor: none;
 }
 .project-info .project-wrap button span {
   transition: 0.2s ease-in-out;
@@ -679,7 +682,6 @@ svg:nth-child(3) path {
   }
   .socials-section {
     flex-direction: row;
-    min-height: 150px;
   }
   .socials-section .socials-icon-container {
     flex-direction: row;
@@ -744,6 +746,9 @@ svg:nth-child(3) path {
   #form-container {
     max-width: 1200px;
     margin: auto;
+  }
+  .about-section {
+    min-height: 400px;
   }
 }
 @media only screen and (min-width: 1600px) {
