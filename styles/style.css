@@ -264,6 +264,7 @@ section h1 {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
+  z-index: -2;
 }
 .introduction-section .adobe-ps-block {
   position: absolute;
