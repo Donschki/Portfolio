@@ -131,7 +131,7 @@ body {
 #customCursor-overlay {
  width: 100vw; height: 100vh;
  position: fixed;
-
+ z-index: -1;
 
 #customCursor {
  position: absolute;
@@ -519,9 +519,11 @@ section {
     form {
       font-size: 1rem;
       display: flex;
+      height: 100%;
+
       align-items: center;
+      justify-content: center;
       flex-direction: column;
-      height: 100vh;
       font-family: 'Tektur', cursive;
       cursor:default;
 
@@ -532,14 +534,14 @@ section {
       
       h2 {
         font-size: 1.5rem;
-        padding: 1rem;
+        padding: 10px;
       }
 
       input {
        background: transparent;
        border: none;
        width: 300px; 
-       padding: 1rem;
+       padding: 10px;
        text-align: center;
        font-size: 1.2rem;
        color: rgb(0, 217, 255);
@@ -564,13 +566,15 @@ section {
       font-family: 'Tektur', cursive;
 
       }
+
+
 }
 }
 
 #close-btn {
     position: relative;
     left: 40%;
-    font-size: 4rem;
+    font-size: 3rem;
     color: rgb(0, 217, 255);
 }
 

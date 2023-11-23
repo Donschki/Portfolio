@@ -210,6 +210,7 @@ body a {
   width: 100vw;
   height: 100vh;
   position: fixed;
+  z-index: -1;
 }
 #customCursor-overlay #customCursor {
   position: absolute;
@@ -500,9 +501,10 @@ svg:nth-child(3) path {
 #form-container form {
   font-size: 1rem;
   display: flex;
+  height: 100%;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  height: 100vh;
   font-family: "Tektur", cursive;
   cursor: default;
   overflow: scroll;
@@ -511,13 +513,13 @@ svg:nth-child(3) path {
 }
 #form-container form h2 {
   font-size: 1.5rem;
-  padding: 1rem;
+  padding: 10px;
 }
 #form-container form input {
   background: transparent;
   border: none;
   width: 300px;
-  padding: 1rem;
+  padding: 10px;
   text-align: center;
   font-size: 1.2rem;
   color: rgb(0, 217, 255);
@@ -546,7 +548,7 @@ svg:nth-child(3) path {
 #close-btn {
   position: relative;
   left: 40%;
-  font-size: 4rem;
+  font-size: 3rem;
   color: rgb(0, 217, 255);
 }
 
