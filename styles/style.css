@@ -588,6 +588,7 @@ svg:nth-child(3) path {
 .project-info .project-wrap {
   display: flex;
   flex-direction: column;
+  z-index: 2;
   gap: 1rem;
   padding: 1rem;
 }

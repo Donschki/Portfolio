@@ -121,8 +121,6 @@ body {
  height: 100vh;
  cursor: none;
 
-//  cursor: url('/Photos/icons8-mouse-64.png'), auto;
-
  a {
   text-decoration: none;
   color: $fontColor;
@@ -631,7 +629,7 @@ section {
    .project-wrap {
    display: flex;
    flex-direction: column;
-  
+   z-index: 2;
    gap: 1rem;
    padding: 1rem;
   
