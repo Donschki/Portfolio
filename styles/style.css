@@ -401,7 +401,6 @@ svg:nth-child(3) path {
   z-index: -1;
   -o-object-fit: cover;
      object-fit: cover;
-  box-shadow: 40px 40px 50px 10px #1a1527;
   border-radius: 2.5px;
   transition: 0.5s ease-in-out;
 }
