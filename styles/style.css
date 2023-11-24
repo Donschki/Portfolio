@@ -508,7 +508,6 @@ svg:nth-child(3) path {
   justify-content: center;
   flex-direction: column;
   font-family: "Tektur", cursive;
-  cursor: default;
   overflow: scroll;
 }
 #form-container form h2 {
