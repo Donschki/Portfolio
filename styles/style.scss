@@ -199,39 +199,12 @@ section {
  justify-content: center;
  transition: 0.5s ease-in-out;
  
- background-image: url('/Images/shapes-background.png');
+ background-image: url('/Portfolio/Images/shapes-background.png');
  background-position: center;
  background-size: cover;
  background-repeat: no-repeat;
  min-height: 100vh;
-   
- .adobe-ps-block {
 
- position: absolute;
- bottom: -12rem;
- right: -8.2rem;
- transform: rotateZ(90deg);
- font-size: 12px;
-}
-
- .adobe-ps-block::before {
- content: '';
- 
- position: absolute;
- left: -10px;  
- bottom: 5px;
- padding: 2px ;
- border: solid 2px white;
- border-radius: 50%;
-}
-  
- .adobe-ps-block::after {
- content: '-- background images created with Adobe PS';
- 
- font-size: $fontSizeXS;
- color: rgb(172, 172, 172);
- letter-spacing: 1px;
-  }
 
 }
 
@@ -335,7 +308,6 @@ section {
 // PROJECT SECTION
 
 .projects-section {
-  overflow: hidden;
   transition: 0.2s;
   
   display: flex;
@@ -344,7 +316,7 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
 
- background-image: url('/Images/shapes-background-2.png');
+ background-image: url('/Portfolio/Images/shapes-background-2.png');
 
 
   a {
@@ -353,14 +325,45 @@ section {
      margin: auto
   }
 }
+   
+.adobe-ps-block {
+
+  position: absolute;
+  top: 10rem;
+  right: -8rem;
+  transform: rotateZ(90deg);
+  font-size: 12px;
+ }
+ 
+  .adobe-ps-block::before {
+  content: '';
+  
+  position: absolute;
+  left: -10px;  
+  bottom: 5px;
+  padding: 2px ;
+  border: solid 2px white;
+  border-radius: 50%;
+ }
+   
+  .adobe-ps-block::after {
+  content: '-- background images created with Adobe PS';
+  
+  font-size: $fontSizeXS;
+  color: rgb(172, 172, 172);
+  letter-spacing: 1px;
+   }
 
 .projects-main {
   @include flexCenter();
   flex-direction: column;
+  position: relative;
+  
 }
 
 .project-container {
      width: 250px;
+     height: 400px;
      display: flex;
      flex-direction: column;
      padding-block: 2rem;
@@ -398,7 +401,7 @@ section {
  display: flex;
  flex-direction: column;
 
- background-image: url('/Images/background-2.png');
+ background-image: url('/Portfolio/Images/background-2.png');
  background-position: center;
  background-size: cover;
  background-repeat: no-repeat;
@@ -587,6 +590,19 @@ section {
  left: 40%;
  font-size: 3rem;
  color: rgb(0, 217, 255);
+}
+
+#form-submit-btn {
+  margin-block: 1rem;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: none;
+  background: linear-gradient(to right, #3498db, #2ecc71);
+  transition: background 0.3s ease-in-out;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  position: relative;
 }
 
 .form-button-container {

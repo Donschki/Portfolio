@@ -257,33 +257,11 @@ section h1 {
   display: flex;
   justify-content: center;
   transition: 0.5s ease-in-out;
-  background-image: url("/Images/shapes-background.png");
+  background-image: url("/Portfolio/Images/shapes-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
-}
-.introduction-section .adobe-ps-block {
-  position: absolute;
-  bottom: -12rem;
-  right: -8.2rem;
-  transform: rotateZ(90deg);
-  font-size: 12px;
-}
-.introduction-section .adobe-ps-block::before {
-  content: "";
-  position: absolute;
-  left: -10px;
-  bottom: 5px;
-  padding: 2px;
-  border: solid 2px white;
-  border-radius: 50%;
-}
-.introduction-section .adobe-ps-block::after {
-  content: "-- background images created with Adobe PS";
-  font-size: 0.7rem;
-  color: rgb(172, 172, 172);
-  letter-spacing: 1px;
 }
 
 .introduction-container {
@@ -359,14 +337,13 @@ svg:nth-child(3) path {
 }
 
 .projects-section {
-  overflow: hidden;
   transition: 0.2s;
   display: flex;
   flex-direction: column;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("/Images/shapes-background-2.png");
+  background-image: url("/Portfolio/Images/shapes-background-2.png");
 }
 .projects-section a {
   display: flex;
@@ -374,15 +351,42 @@ svg:nth-child(3) path {
   margin: auto;
 }
 
+.adobe-ps-block {
+  position: absolute;
+  top: 10rem;
+  right: -8rem;
+  transform: rotateZ(90deg);
+  font-size: 12px;
+}
+
+.adobe-ps-block::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  bottom: 5px;
+  padding: 2px;
+  border: solid 2px white;
+  border-radius: 50%;
+}
+
+.adobe-ps-block::after {
+  content: "-- background images created with Adobe PS";
+  font-size: 0.7rem;
+  color: rgb(172, 172, 172);
+  letter-spacing: 1px;
+}
+
 .projects-main {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 
 .project-container {
   width: 250px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   padding-block: 2rem;
@@ -415,7 +419,7 @@ svg:nth-child(3) path {
 .about-section {
   display: flex;
   flex-direction: column;
-  background-image: url("/Images/background-2.png");
+  background-image: url("/Portfolio/Images/background-2.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -552,6 +556,19 @@ svg:nth-child(3) path {
   left: 40%;
   font-size: 3rem;
   color: rgb(0, 217, 255);
+}
+
+#form-submit-btn {
+  margin-block: 1rem;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: none;
+  background: linear-gradient(to right, #3498db, #2ecc71);
+  transition: background 0.3s ease-in-out;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  position: relative;
 }
 
 .form-button-container {
