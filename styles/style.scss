@@ -130,8 +130,6 @@ body {
 // CUSTOMIZED MOUSE CURSOR + OVERLAY
 
 #customCursor-overlay {
- width: 100vw; height: 100vh;
- position: fixed;
 
 #customCursor {
  position: absolute;
@@ -636,7 +634,11 @@ section {
 // PROJECTS - WEBSITE INFORMATION SHOWN ON RIGHT SIDE OF WINDOW
 
 .project-info {
+  height: 100vh;
 
+  #customCursor-overlay {
+    display: none;
+  }
    h2 {
    margin-left: 0;
   }
@@ -695,6 +697,7 @@ section {
 
 .project-screenshots {
 overflow: scroll;
+
    img {
    width: 100%;
   }
@@ -841,8 +844,6 @@ margin: auto;
 .project-info {
   display: grid;
   grid-template-columns: 70% 30%;
-  height: 100vh;
-  overflow: hidden;
 }
 
 .project-wrap {
@@ -858,7 +859,6 @@ margin: auto;
   top: 0;
   right: -10rem;
 }
-
 }
 
 @media only screen and (min-width: 1200px) {

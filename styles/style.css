@@ -203,11 +203,6 @@ body a {
   color: rgba(245, 245, 245, 0.521);
 }
 
-#customCursor-overlay {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-}
 #customCursor-overlay #customCursor {
   position: absolute;
   width: 25px;
@@ -597,6 +592,12 @@ svg:nth-child(3) path {
   transition: background 0.3s ease-in-out;
 }
 
+.project-info {
+  height: 100vh;
+}
+.project-info #customCursor-overlay {
+  display: none;
+}
 .project-info h2 {
   margin-left: 0;
 }
@@ -751,8 +752,6 @@ svg:nth-child(3) path {
   .project-info {
     display: grid;
     grid-template-columns: 70% 30%;
-    height: 100vh;
-    overflow: hidden;
   }
   .project-wrap {
     grid-column: 2;
