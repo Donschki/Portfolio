@@ -833,15 +833,17 @@ margin: auto;
 }
 
 @media only screen and (min-width: 800px) { 
+
 .projects-main {
   max-width: 800px;
 }
+
 .project-info {
   display: grid;
   grid-template-columns: 70% 30%;
   height: 100vh;
   overflow: hidden;
- }
+}
 
 .project-wrap {
  grid-column: 2;
@@ -850,6 +852,11 @@ margin: auto;
 .project-screenshots {
   grid-row: 1;
   overflow: scroll;
+}
+
+.adobe-ps-block {
+  top: 0;
+  right: -10rem;
 }
 
 }

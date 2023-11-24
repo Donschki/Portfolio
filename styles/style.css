@@ -761,6 +761,10 @@ svg:nth-child(3) path {
     grid-row: 1;
     overflow: scroll;
   }
+  .adobe-ps-block {
+    top: 0;
+    right: -10rem;
+  }
 }
 @media only screen and (min-width: 1200px) {
   #form-container {
