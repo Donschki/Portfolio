@@ -197,7 +197,7 @@ section {
  justify-content: center;
  transition: 0.5s ease-in-out;
  
- background-image: url('/Portfolio/Images/shapes-background.png');
+ background-image: url(/Images/shapes-background.png);
  background-position: center;
  background-size: cover;
  background-repeat: no-repeat;
@@ -314,7 +314,7 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
 
- background-image: url('/Portfolio/Images/shapes-background-2.png');
+ background-image: url(/Images/shapes-background-2.png);
 
 
   a {
@@ -398,7 +398,7 @@ section {
  display: flex;
  flex-direction: column;
 
- background-image: url('/Portfolio/Images/background-2.png');
+ background-image: url(/Images/background-2.png);
  background-position: center;
  background-size: cover;
  background-repeat: no-repeat;

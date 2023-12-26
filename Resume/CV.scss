@@ -1,0 +1,251 @@
+* {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
+
+@mixin flexCenter {
+      display: flex;
+      flex-direction: column
+}
+
+:root {
+      --font-color-1: #f9f5ec;
+      --base-color-1: #617d88;
+      --base-color-2: #ffdb58;
+      --heading-color: #df6c5a;
+      --side-color: #92bead;
+}
+
+.flex {
+      @include flexCenter();
+      gap: 1rem;
+}
+
+// Profile main
+.profile-main {
+
+      
+    
+      h3,h4 {
+           text-decoration: underline;
+     }
+
+      li {
+           list-style: square;
+     }
+}
+
+// Profile body
+.profile-body {
+      padding: 0 2rem;
+      background: var(--base-color-1);
+      color: var(--font-color-1);
+   
+}
+
+// Profile header
+.profile-header {
+      display: flex;
+      align-items: center;
+}
+
+// Profile photo
+.profile-photo {
+
+      height: 300px;
+      background-image: url(./Profile-photo.jpg);
+      background-image: no-repeat;
+      background-size: cover;
+      background-position: top;
+}
+
+// Name heading
+.name-heading {
+      background: var(--heading-color);
+      color:var(--font-color-1);
+      padding: 2rem;
+}
+
+// Profile sides
+.profile-side {
+ padding: 2rem;
+ background: var(--side-color);
+ color:var(--font-color-1) ;
+
+      i {
+           display: flex;
+           gap: 1rem;
+           font-size: 1.5rem;
+     }
+
+     i::before {
+          color: var(--base-color-2);
+
+     }
+
+      span {
+           display: flex;
+           align-items: center;
+           font-size: 1rem;
+     }
+}
+
+
+// Contact details
+.contact-details {
+      margin: 1rem 3rem;
+}
+
+// Education
+.education-list {
+ margin: 0 3rem ;
+
+      li {
+           padding: 12px 0;
+     }
+     
+      span {
+           margin: 5px 10px;
+     }
+}
+
+// Skills
+.skills-details {
+      margin: 0 3rem ;
+}
+
+// Profile body
+.profile-body {
+     h2 {
+          padding: 1.5rem 0;
+    }
+}
+
+
+// Work experience
+.work-experience {
+}
+
+.work-field {
+}
+
+.work-list {
+    
+      li {
+           margin: 0.8rem 1rem;
+           list-style: none;
+           font-weight: 1000;
+           font-style: italic;
+     }
+}
+
+.duties {
+ margin: 1rem 3rem;
+
+      h3 {
+           margin: 0 -1rem;
+     }
+
+      li {
+           margin: 10px 10px;
+     }
+}
+
+// Profile footer
+.profile-footer {
+ background: var(--base-color-2);
+ padding: 0 2rem;
+ color: var(--base-color-1);
+
+ h2 {
+     padding: 1rem ;
+}
+
+}
+
+// References
+
+.references-all {
+     @include flexCenter();
+}
+
+.references {
+      padding: 1rem ;
+
+}
+
+@media only screen and (min-width: 768px) {
+
+      .profile-header {
+           gap: 0;
+           align-items: start;
+     }
+
+      .profile-photo {
+           width: 100%; height: 100%;
+           grid-column: 1;
+           grid-row: 1;
+     }
+
+      .name-heading {
+           grid-column: 2;
+           padding: 2rem;
+           grid-row: 1;
+
+           h1 {
+                font-size: 5em;
+                width: 100px;
+           }
+
+           h4 {
+                font-size: 2em;
+           }
+     }
+
+      .profile-main {
+           display: grid;
+           grid-template-columns: 350px ;
+           margin: auto;
+     }
+
+      .profile-body {
+           padding: 0 2rem ;
+     }
+
+      .profile-side {
+           grid-column: 1;
+           grid-row: 2/0;
+     }
+
+      .profile-footer {
+           grid-column: 1/3;
+           justify-content: space-between;
+
+          
+
+           .references-all {
+                flex-direction: row;
+                justify-content: space-evenly;
+
+           }
+     }
+}
+
+@media only screen and (min-width: 1200px) { 
+
+     .profile-side {
+          grid-row: 2/5;
+     }
+      .profile-main {
+           width: 1000px;
+     }
+
+      .profile-footer {
+           grid-column: 2/3;
+     }
+}
+
+
+
+
