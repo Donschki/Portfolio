@@ -131,8 +131,8 @@ body {
 
 #customCursor-overlay {
 position: fixed;
+
 #customCursor {
- position: absolute;
  width: 25px;
  height: 25px;
  background-color: red; /* Set the color or background of your custom cursor */
@@ -143,6 +143,8 @@ position: fixed;
 
 }
 }
+
+
 
 // COLORFUL TITLES & SUBTITLES
 
@@ -696,7 +698,7 @@ section {
 
 .project-screenshots {
 overflow: scroll;
-
+overflow-x: hidden;
 
    img {
    width: 100%;

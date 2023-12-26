@@ -207,7 +207,6 @@ body a {
   position: fixed;
 }
 #customCursor-overlay #customCursor {
-  position: absolute;
   width: 25px;
   height: 25px;
   background-color: red; /* Set the color or background of your custom cursor */
@@ -649,6 +648,7 @@ svg:nth-child(3) path {
 }
 .project-info .project-screenshots {
   overflow: scroll;
+  overflow-x: hidden;
 }
 .project-info .project-screenshots img {
   width: 100%;
