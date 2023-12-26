@@ -203,6 +203,9 @@ body a {
   color: rgba(245, 245, 245, 0.521);
 }
 
+#customCursor-overlay {
+  position: fixed;
+}
 #customCursor-overlay #customCursor {
   position: absolute;
   width: 25px;

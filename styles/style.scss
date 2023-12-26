@@ -130,7 +130,7 @@ body {
 // CUSTOMIZED MOUSE CURSOR + OVERLAY
 
 #customCursor-overlay {
-
+position: fixed;
 #customCursor {
  position: absolute;
  width: 25px;
@@ -696,6 +696,7 @@ section {
 
 .project-screenshots {
 overflow: scroll;
+
 
    img {
    width: 100%;
