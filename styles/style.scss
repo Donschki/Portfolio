@@ -131,6 +131,8 @@ body {
 
 #customCursor-overlay {
 position: fixed;
+z-index: 15;
+
 
 #customCursor {
  width: 25px;
@@ -142,6 +144,7 @@ position: fixed;
  transform-origin: 100% 100%;
 
  animation: cursor-rotate 1s infinite;
+
 
 }
 }
@@ -325,9 +328,13 @@ section {
      margin: auto
   }
 }
-   
-.adobe-ps-block {
 
+.projects-main {
+  position: relative;
+}
+  
+
+.adobe-ps-block {
   position: absolute;
   top: 10rem;
   right: -8rem;
@@ -335,6 +342,7 @@ section {
   font-size: 12px;
  }
  
+
   .adobe-ps-block::before {
   content: '';
   
@@ -345,14 +353,15 @@ section {
   border: solid 2px white;
   border-radius: 50%;
  }
-   
+
+ 
   .adobe-ps-block::after {
   content: '-- background images created with Adobe PS';
   
   font-size: $fontSizeXS;
   color: rgb(172, 172, 172);
   letter-spacing: 1px;
-   }
+  }
 
 .projects-main {
   @include flexCenter();
@@ -417,11 +426,6 @@ section {
     border-left: 1px solid yellow;
   }
 
-   .about-main-paragraph {
-    padding-block: 2rem;
-   z-index: 1;
-
-  }
 
    svg {
     display: none;
@@ -526,6 +530,7 @@ section {
    align-items: center;
    justify-content: center;
    z-index: 10;
+   
 }
 
 // FORM CONTAINER
@@ -548,6 +553,8 @@ section {
    font-family: 'Tektur', cursive;
 
    overflow: scroll;
+   overflow-y: hidden;
+   overflow-x: hidden;
    
    h2 {
    font-size: 1.5rem;
@@ -640,6 +647,7 @@ section {
   #customCursor-overlay {
     display: none;
   }
+
    h2 {
    margin-left: 0;
   }
@@ -668,10 +676,12 @@ section {
      transition: 0.2s ease-in-out;
     }
   }
+
   
    .back-button {
      width: 120px;
   }
+
 
    .back-button:hover span{
      margin-left: -1rem;
@@ -681,10 +691,12 @@ section {
      -moz-background-clip: text;
      -moz-text-fill-color: transparent;
     }
+
   
    .visit-button {
      width: 130px;
     }
+    
 
    .visit-button:hover span{
      margin-left: 1rem;
@@ -713,7 +725,14 @@ overflow-x: hidden;
 }
 } 
 
-@media only screen and (min-width: 550px) { 
+@media  screen and (max-width: 485px) { 
+
+  #customCursor-overlay {
+    display: none;
+  }
+}
+
+@media  screen and (min-width: 550px) { 
 
 .introduction-section {
  align-items: center;
@@ -740,15 +759,7 @@ overflow-x: hidden;
 }
 }
 
-@media  screen and (max-width: 485px) { 
-
-#customCursor-overlay {
-  display: none;
-}
-}
-
 @media only screen and (min-width: 767px) { 
-
 
 .introduction-container {
 
@@ -790,10 +801,6 @@ margin: auto;
    .about-main {
      display: grid;
      grid-template-columns: 1fr 1fr;
-   }
-
-   .about-main-paragraph {
-    grid-column: 1/3;
    }
 
 }
@@ -857,10 +864,6 @@ margin: auto;
   overflow: scroll;
 }
 
-.adobe-ps-block {
-  top: 0;
-  right: -10rem;
-}
 }
 
 @media only screen and (min-width: 1200px) {
