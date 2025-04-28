@@ -33,16 +33,18 @@
     <div class="spinner"></div>
   </div>
 
+  <div class="wrapper">
 <!-- HERO -->
-  <main class="main">
-    <section id="hero" aria-label="Introduction">
+  <main>
+    <section class="sticky-section" id="hero" aria-label="Introduction">
       <h1>Hello, I'm Donnay Krog</h1>
       <p>Junior Front-End Developer passionate about building sleek, interactive web experiences.</p>
       <a href="#projects" class="btn">View My Work</a>
     </section>
 
+
 <!-- ABOUT ME -->
-<section id="about">
+<section class="sticky-section" id="about">
   <h2>About Me</h2>
   <p>Here's a little bit about me, my skills, and what drives me. Explore below to find out more!</p>
   
@@ -90,10 +92,8 @@
   </div>
 </section>
 
-
-
 <!-- PROJECTS -->
-<section id="projects" aria-labelledby="projects-heading">
+<section class="sticky-section" id="projects" aria-labelledby="projects-heading">
   <h2 id="projects-heading">Projects</h2>
   <div class="project-list">
     <article class="project" aria-labelledby="project1-title">
@@ -134,7 +134,7 @@
 </section>
 
 <!-- CONTACT FORM -->
-<section id="contact" aria-labelledby="contact-heading" class="contact-section">
+<section class="sticky-section" id="contact" aria-labelledby="contact-heading" class="contact-section">
   <h2 id="contact-heading">Let's Connect</h2>
   <form id="contact-form" aria-label="Contact form">
     <div class="input-group">
@@ -153,6 +153,7 @@
   </form>
 </section>
 
+</div>
     
   </main>
 
@@ -161,14 +162,17 @@
   </footer>
 
   <script src="script.js" defer></script>
+
  <!-- EmailJS SDK -->
   <script type="text/javascript"
           src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
   </script>
+
   <script type="text/javascript">
      (function() {
         emailjs.init('h4ODndc48ho0JOjHM'); // Your Public API Key
      })();
   </script>
+
 </body>
 </html>

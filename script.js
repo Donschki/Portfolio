@@ -63,6 +63,36 @@ window.addEventListener('scroll', function () {
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
 
+// Sticky Sections hidden after scroll down and reappear on scroll up
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.sticky-section');
+  
+  if (!sections.length) return; // Early exit if no sections found
+
+  sections.forEach((section, index) => {
+    if (index === sections.length - 1) return;
+
+    const nextSection = sections[index + 1];
+
+    const observer = new IntersectionObserver(handleIntersect(section), {
+      root: null,
+      threshold: 0,
+      rootMargin: '0px 0px -200% 0px'
+    });
+
+    observer.observe(nextSection);
+  });
+});
+
+// Extract handler to separate function for better readability
+function handleIntersect(section) {
+  return (entries) => {
+    for (const entry of entries) {
+      section.classList.toggle('hidden', entry.isIntersecting);
+    }
+  };
+}
+
 // Form submission handler
 const form = document.querySelector("form");
 const loadingScreen = document.getElementById('loading-screen'); // Get the loading screen
