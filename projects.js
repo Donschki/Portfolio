@@ -145,7 +145,6 @@ function loadProject() {
   }
 }
 
-  
   // Show the loading screen
   function showLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');

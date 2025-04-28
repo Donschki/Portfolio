@@ -137,34 +137,6 @@ document.querySelectorAll('.card').forEach(card => {
     card.classList.toggle('flipped');
   });
 
-  // Touch events for mobile
-  card.addEventListener('touchstart', () => {
-    const clickIndicator = document.createElement('div');
-    clickIndicator.classList.add('click-indicator');
-    clickIndicator.innerText = "Click Me!";
-    card.appendChild(clickIndicator);
-  });
-
-  // Move the "Click Me!" indicator as the touch moves over the card
-  card.addEventListener('touchmove', (e) => {
-    const touchX = e.touches[0].clientX - card.offsetLeft;
-    const touchY = e.touches[0].clientY - card.offsetTop;
-
-    const clickIndicator = card.querySelector('.click-indicator');
-    if (clickIndicator) {
-      clickIndicator.style.left = `${touchX}px`;
-      clickIndicator.style.top = `${touchY}px`;
-    }
-  });
-
-  // Remove the "Click Me!" indicator when touch ends
-  card.addEventListener('touchend', () => {
-    const clickIndicator = card.querySelector('.click-indicator');
-    if (clickIndicator) {
-      card.removeChild(clickIndicator);
-    }
-  });
-
   // Mouse events for desktop
   card.addEventListener('mouseenter', () => {
     const clickIndicator = document.createElement('div');
