@@ -1,197 +1,117 @@
 const projects = [
-    {
-      title: "La Colombiana",
-      description: "A rich cultural e-commerce website showcasing Colombian art and tradition.",
-      story: "This project was inspired by my love for Colombian art. The goal was to create an immersive experience for users, showcasing not just products, but the rich history and culture behind them.",
-      features: [
-        "Interactive art galleries",
-        "E-commerce functionality",
-        "Cultural storytelling",
-        "User profiles and reviews"
-      ],
-      techstack: [
-        "WordPress", "PHP", "CSS3", "JavaScript"
-      ],
-      lessons: "I learned how to integrate WordPress with custom plugins for a dynamic e-commerce experience, and how to craft a cultural narrative through digital design.",
-      liveDemoLink: "https://lacolombiana.co.za",
-      imageSrc: "Images/Logo-With-Lady-800x400-3.png",
-      bgColor: "#f9f9f9"
-    },
-    {
-      title: "Root'd",
-      description: "A community gardening app connecting urban farmers through smart mapping and real-time chats.",
-      story: "Root'd is born from a passion for urban agriculture. This app allows city dwellers to share resources, garden plots, and connect with others in their local gardening community.",
-      features: [
-        "Real-time chat for gardeners",
-        "Map integration for plant tracking",
-        "Weather alerts for garden care",
-        "User gardening profile pages"
-      ],
-      techstack: [
-        "Node.js", "Express", "MongoDB", "Socket.io"
-      ],
-      lessons: "I learned how to integrate real-time communications into an app using Socket.io and gained insights into geolocation and map-based technologies for urban gardening.",
-      liveDemoLink: "https://rootdsa.co.za",
-      imageSrc: "Images/rootd-white.png",
-      bgColor: "#fff0f0"
-    },
-    {
-      title: "Get Out In Cape Town",
-      description: "A travel guide app blending local experiences, secret spots, and adventure tours in Cape Town.",
-      story: "Cape Town has so many hidden gems. This app aims to give travelers a local perspective, offering secret spots and off-the-beaten-path tours that most tourists miss.",
-      features: [
-        "Interactive maps with hidden spots",
-        "Local tour guides",
-        "Adventure activity booking",
-        "User-generated travel tips"
-      ],
-      techstack: [
-        "React", "Node.js", "MongoDB", "Google Maps API"
-      ],
-      lessons: "I delved into the power of user-generated content and map APIs while learning how to integrate location-based services seamlessly into an app for a better user experience.",
-      liveDemoLink: "https://getoutin.co.za",
-      imageSrc: "Images/GetOutInLogo-SVG.svg",
-      bgColor: "#f0f9ff"
-    },
-    {
-      title: "Down With Dough Bakery",
-      description: "A travel guide app blending local experiences, secret spots, and adventure tours in Cape Town.",
-      story: "Cape Town has so many hidden gems. This app aims to give travelers a local perspective, offering secret spots and off-the-beaten-path tours that most tourists miss.",
-      features: [
-        "Interactive maps with hidden spots",
-        "Local tour guides",
-        "Adventure activity booking",
-        "User-generated travel tips"
-      ],
-      techstack: [
-        "React", "Node.js", "MongoDB", "Google Maps API"
-      ],
-      lessons: "I delved into the power of user-generated content and map APIs while learning how to integrate location-based services seamlessly into an app for a better user experience.",
-      liveDemoLink: "https://www.downwithdough.co.za",
-      imageSrc: "Images/DWD-logo.jpg",
-      bgColor: "#f0f9ff"
-    }
-  ];
-  
-  // Load project details based on the URL query
+  {
+    title: "La Colombiana",
+    description: "A rich cultural e-commerce website showcasing Colombian art and tradition.",
+    story: "Inspired by my love for Colombian art, this project immerses users in the history and culture behind the products.",
+    features: ["Interactive art galleries", "E-commerce functionality", "Cultural storytelling", "User profiles and reviews"],
+    techstack: ["WordPress", "PHP", "CSS3", "JavaScript"],
+    lessons: "Integrated WordPress with custom plugins and learned to craft digital narratives.",
+    liveDemoLink: "https://lacolombiana.co.za",
+    imageSrc: "Images/Logo-With-Lady-800x400-3.png",
+    bgColor: "#f9f9f9"
+  },
+  {
+    title: "Root'd",
+    description: "A community gardening app connecting urban farmers through smart mapping and real-time chats.",
+    story: "Born from a passion for urban agriculture, Root’d connects gardeners, plots, and resources in real time.",
+    features: ["Real-time chat", "Map-based plant tracking", "Weather alerts", "User profiles"],
+    techstack: ["Node.js", "Express", "MongoDB", "Socket.io"],
+    lessons: "Gained experience with Socket.io, geolocation, and map integrations.",
+    liveDemoLink: "https://rootdsa.co.za",
+    imageSrc: "Images/rootd-white.png",
+    bgColor: "#fff0f0"
+  },
+  {
+    title: "Get Out In Cape Town",
+    description: "A travel guide app blending local experiences, secret spots, and adventure tours in Cape Town.",
+    story: "This app reveals Cape Town’s hidden gems and authentic tours most visitors miss.",
+    features: ["Interactive hidden maps", "Local guides", "Adventure bookings", "User travel tips"],
+    techstack: ["React", "Node.js", "MongoDB", "Google Maps API"],
+    lessons: "Learned about user-generated content and seamless map integration.",
+    liveDemoLink: "https://getoutin.co.za",
+    imageSrc: "Images/GetOutInLogo-SVG.svg",
+    bgColor: "#f0f9ff"
+  },
+  {
+    title: "Down With Dough Bakery",
+    description: "A travel guide app blending local experiences, secret spots, and adventure tours in Cape Town.",
+    story: "This app reveals Cape Town’s hidden gems and authentic tours most visitors miss.",
+    features: ["Interactive hidden maps", "Local guides", "Adventure bookings", "User travel tips"],
+    techstack: ["React", "Node.js", "MongoDB", "Google Maps API"],
+    lessons: "Learned about user-generated content and seamless map integration.",
+    liveDemoLink: "https://www.downwithdough.co.za",
+    imageSrc: "Images/DWD-logo.jpg",
+    bgColor: "#f0f9ff"
+  }
+];
+
 function loadProject() {
-  const params = new URLSearchParams(window.location.search);
-  const projectId = parseInt(params.get('project'), 10);
+  const id = parseInt(new URLSearchParams(location.search).get('project'), 10);
+  const p = projects[id - 1];
+  if (!p) return alert('Project not found.');
 
-  if (projectId >= 1 && projectId <= projects.length) {
-    const projectData = projects[projectId - 1]; // Get the correct project data based on the ID
+  const el = (id) => document.getElementById(id);
+  el('project-title').innerText = p.title;
+  el('project-description').innerText = p.description;
+  el('project-story').innerHTML = `<p>${p.story}</p>`;
+  el('project-features').innerHTML = p.features.map(f => `<li>${f}</li>`).join('');
+  el('project-techstack').innerHTML = p.techstack.map(t => `<li class="tech-badge">${t}</li>`).join('');
+  el('project-lessons').innerText = p.lessons;
+  el('project-content').style.backgroundColor = p.bgColor;
+  el('project-progress').innerText = `Project ${id} of ${projects.length}`;
 
-    // Set Title and Description
-    document.getElementById('project-title').innerText = projectData.title;
-    document.getElementById('project-description').innerText = projectData.description;
+  const img = document.createElement('img');
+  img.src = p.imageSrc;
+  img.alt = p.title;
+  img.classList.add('project-img');
+  const imgContainer = el('project-image');
+  imgContainer.innerHTML = '';
+  imgContainer.appendChild(img);
 
-    // Set the Image
-    const projectImageContainer = document.getElementById('project-image');
-    projectImageContainer.innerHTML = ''; // Clear previous image
-    const newImg = document.createElement('img');
-    newImg.src = projectData.imageSrc;
-    newImg.alt = projectData.title;
-    newImg.classList.add('project-img');
-    projectImageContainer.appendChild(newImg);
-
-    // Inject the project story
-    document.getElementById('project-story').innerHTML = `<p>${projectData.story}</p>`;
-
-    // Inject features and tech stack
-    document.getElementById('project-features').innerHTML = projectData.features.map(feature => `<li>${feature}</li>`).join('');
-    document.getElementById('project-techstack').innerHTML = projectData.techstack.map(tech => `<li class="tech-badge">${tech}</li>`).join('');
-
-    // Inject lessons learned
-    document.getElementById('project-lessons').innerText = projectData.lessons;
-
-    // Set background color for the project section
-    document.getElementById('project-content').style.backgroundColor = projectData.bgColor;
-
-    // Update progress bar text
-    document.getElementById('project-progress').innerText = `Project ${projectId} of ${projects.length}`;
-
-    // Update the "View Live" button link
-    const liveDemoButton = document.getElementById('live-demo');
-    if (projectData.liveDemoLink) {
-      liveDemoButton.href = projectData.liveDemoLink;
-      liveDemoButton.style.display = 'inline-block'; // Make sure it's visible
-    } else {
-      liveDemoButton.style.display = 'none'; // Hide if no live link available
-    }
-
-    // Set up navigation buttons (Previous/Next)
-    const prevButton = document.getElementById('prev-project');
-    const nextButton = document.getElementById('next-project');
-
-    prevButton.onclick = function () {
-      if (projectId > 1) {
-        showLoadingScreen();
-        setTimeout(() => {
-          window.location.href = `Projects.html?project=${projectId - 1}`;
-        }, 300);
-      }
-    };
-
-    nextButton.onclick = function () {
-      if (projectId < projects.length) {
-        showLoadingScreen();
-        setTimeout(() => {
-          window.location.href = `Projects.html?project=${projectId + 1}`;
-        }, 300);
-      }
-    };
+  const demoBtn = el('live-demo');
+  if (p.liveDemoLink) {
+    demoBtn.href = p.liveDemoLink;
+    demoBtn.style.display = 'inline-block';
   } else {
-    alert('Project not found.');
+    demoBtn.style.display = 'none';
+  }
+
+  el('prev-project').onclick = () => navigateTo(id - 1);
+  el('next-project').onclick = () => navigateTo(id + 1);
+}
+
+function navigateTo(id) {
+  if (id < 1 || id > projects.length) return;
+  showLoadingScreen();
+  setTimeout(() => location.href = `Projects.html?project=${id}`, 300);
+}
+
+function showLoadingScreen() {
+  const screen = document.getElementById('loading-screen');
+  if (screen) {
+    screen.style.display = 'flex';
+    screen.classList.remove('fade-out');
   }
 }
 
-  // Show the loading screen
-  function showLoadingScreen() {
-    const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
-      loadingScreen.style.display = 'flex';
-      loadingScreen.classList.remove('fade-out'); // Remove fade-out if user is navigating again
-    }
+function hideLoadingScreen() {
+  const screen = document.getElementById('loading-screen');
+  if (screen) {
+    screen.classList.add('fade-out');
+    screen.addEventListener('transitionend', () => screen.style.display = 'none', { once: true });
   }
-  
-  // Hide the loading screen (with fade-out)
-  function hideLoadingScreen() {
-    const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
-      loadingScreen.classList.add('fade-out');
-      loadingScreen.addEventListener('transitionend', function () {
-        loadingScreen.style.display = 'none';
-      }, { once: true });
-    }
-  }
-  
-  // When the page fully loads
-  window.addEventListener('load', function () {
-    // Load project first
-    loadProject();
-  
-    // Small timeout to ensure images are rendered
-    setTimeout(() => {
-      document.getElementById('project-content').style.opacity = 1;
-      hideLoadingScreen();
-    }, 300); // delay can be adjusted
-  });
-  
-  // Keyboard navigation (arrows)
-  window.addEventListener('keydown', function (e) {
-    const params = new URLSearchParams(window.location.search);
-    const projectId = parseInt(params.get('project'), 10);
-  
-    if (e.key === 'ArrowLeft' && projectId > 1) {
-      showLoadingScreen();
-      setTimeout(() => {
-        window.location.href = `Projects.html?project=${projectId - 1}`;
-      }, 300);
-    } else if (e.key === 'ArrowRight' && projectId < projects.length) {
-      showLoadingScreen();
-      setTimeout(() => {
-        window.location.href = `Projects.html?project=${projectId + 1}`;
-      }, 300);
-    }
-  });
-  
+}
+
+window.addEventListener('load', () => {
+  loadProject();
+  setTimeout(() => {
+    document.getElementById('project-content').style.opacity = 1;
+    hideLoadingScreen();
+  }, 300);
+});
+
+window.addEventListener('keydown', (e) => {
+  const id = parseInt(new URLSearchParams(location.search).get('project'), 10);
+  if (e.key === 'ArrowLeft') navigateTo(id - 1);
+  else if (e.key === 'ArrowRight') navigateTo(id + 1);
+});

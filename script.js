@@ -2,46 +2,125 @@
 emailjs.init('h4ODndc48ho0JOjHM');
 
 // Smooth scroll for internal links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('a[href^="#"]');
+  const burger = document.querySelector('.burger');
+  const navMenu = document.querySelector('.nav-links');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href').slice(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+        // 🔥 Close mobile menu if it's open
+        if (burger.classList.contains('toggle')) {
+          burger.classList.remove('toggle');
+          navMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      }
+    });
   });
 });
 
-// Mobile menu toggle
+
 const header = document.querySelector('header');
 const navLinks = document.querySelector('.nav-links');
-let burger = document.querySelector('.burger');
+const burger = document.querySelector('.burger');
+const body = document.body;
+const links = document.querySelectorAll('.nav-links li');
 
-if (!burger) {
-  burger = document.createElement('div');
-  burger.classList.add('burger');
-  burger.innerHTML = `
-    <span></span>
-    <span></span>
-    <span></span>
-  `;
-  nav.appendChild(burger);
-}
+let menuOpen = false;
+
+// Timeline for opening
+const openMenu = gsap.timeline({ paused: true });
+
+openMenu
+  .set(navLinks, { display: "flex" })
+  .to(navLinks, { right: 0, opacity: 1, duration: 0.5, ease: "power2.out" })
+  .to('.burger span:nth-child(1)', { rotate: 45, y: 8, duration: 0.3, ease: "power2.out" }, "<")
+  .to('.burger span:nth-child(2)', { opacity: 0, duration: 0.2, ease: "power2.out" }, "<")
+  .to('.burger span:nth-child(3)', { rotate: -45, y: -8, duration: 0.3, ease: "power2.out" }, "<")
+  .to(links, { 
+    y: 0,
+    opacity: 1,
+    stagger: 0.1,
+    duration: 0.5,
+    ease: "power2.out"
+  }, "-=0.3"); // << now .to(), not .from()
+
+// Timeline for closing
+const closeMenu = gsap.timeline({ paused: true });
+
+closeMenu
+  .to(links, { 
+    y: 20,
+    opacity: 0,
+    stagger: 0.05,
+    duration: 0.3,
+    ease: "power2.in"
+  })
+  .to(navLinks, { right: "-100%", opacity: 0, duration: 0.4, ease: "power2.in" })
+  .to('.burger span:nth-child(1)', { rotate: 0, y: 0, duration: 0.3, ease: "power2.in" }, "<")
+  .to('.burger span:nth-child(2)', { opacity: 1, duration: 0.2, ease: "power2.in" }, "<")
+  .to('.burger span:nth-child(3)', { rotate: 0, y: 0, duration: 0.3, ease: "power2.in" }, "<");
 
 burger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  burger.classList.toggle('toggle');
-  document.body.classList.toggle('menu-open'); // Toggle body class for menu-open state
-});
-
-// Close the menu when clicking outside of the burger or menu
-document.addEventListener('click', function (event) {
-  if (!burger.contains(event.target) && !navLinks.contains(event.target) && !header.contains(event.target)) {
-    navLinks.classList.remove('active');
-    burger.classList.remove('toggle');
-    document.body.classList.remove('menu-open');
+  if (!menuOpen) {
+    openMenu.restart();
+    body.classList.add('menu-open');
+    menuOpen = true;
+  } else {
+    closeMenu.restart();
+    body.classList.remove('menu-open');
+    menuOpen = false;
   }
 });
+
+// Close when clicking outside
+document.addEventListener('click', (event) => {
+  if (
+    menuOpen &&
+    !burger.contains(event.target) &&
+    !navLinks.contains(event.target) &&
+    !header.contains(event.target)
+  ) {
+    closeMenu.restart();
+    body.classList.remove('menu-open');
+    menuOpen = false;
+  }
+});
+
+// GSAP hover effect for nav links
+const navItems = document.querySelectorAll('.nav-links li');
+
+navItems.forEach((item) => {
+  item.addEventListener('mouseenter', () => {
+    gsap.to(item, { 
+      scale: 1.1, 
+      color: 'var(--accent-color)', // Change color on hover
+      duration: 0.3, 
+      ease: 'power2.out' 
+    });
+  });
+
+  item.addEventListener('mouseleave', () => {
+    gsap.to(item, { 
+      scale: 1, 
+      color: 'var(--text-color-light)', // Return to the original color
+      duration: 0.3, 
+      ease: 'power2.in' 
+    });
+  });
+});
+
 
 // Header hide on scroll down, show on scroll up
 let lastScrollTop = 0;
@@ -134,67 +213,96 @@ window.addEventListener('load', () => {
   loader.classList.add('fade-out');
 });
 
-// Fun facts for each card
-const facts = [
-  "I build websites faster than my coffee cools down.",
-  "Once drew a full cityscape pixel by pixel.",
-  "Dream project: Making an interactive web novel.",
-  "I'm a huge fan of minimalistic design!",
-  "My code is my canvas, and the web is my gallery."
-];
 
-// Assigning unique fun facts to each card
-document.getElementById('card-webdev').onclick = function () {
-  this.querySelector('.card-back').innerText = facts[0];  // Web Developer fact
-};
 
-document.getElementById('card-design').onclick = function () {
-  this.querySelector('.card-back').innerText = facts[1];  // Design fact
-};
+document.addEventListener('DOMContentLoaded', function () {
+  // Fun facts array
+  const facts = [
+    "I build websites faster than my coffee cools down.",
+    "Once drew a full cityscape pixel by pixel.",
+    "Dream project: Making an interactive web novel.",
+    "I'm a huge fan of minimalistic design!",
+    "My code is my canvas, and the web is my gallery."
+  ];
 
-document.getElementById('card-problem').onclick = function () {
-  this.querySelector('.card-back').innerText = facts[2];  // Problem Solver fact
-};
-
-document.getElementById('card-coffee').onclick = function () {
-  this.querySelector('.card-back').innerText = facts[3];  // Coffee Lover fact
-};
-
-// Add event listeners to each card to toggle the flipped class on click and mouse/touch leave
-document.querySelectorAll('.card').forEach(card => {
-  // Add click functionality to flip the card
-  card.addEventListener('click', () => {
-    card.classList.toggle('flipped');
+  // Add fun facts when clicking on cards
+  ['webdev', 'design', 'problem', 'coffee'].forEach((id, i) => {
+    const card = document.getElementById(`card-${id}`);
+    if (card) card.onclick = () =>
+      card.querySelector('.card-back').innerText = facts[i];
   });
 
-  // Mouse events for desktop
-  card.addEventListener('mouseenter', () => {
-    const clickIndicator = document.createElement('div');
-    clickIndicator.classList.add('click-indicator');
-    clickIndicator.innerText = "Click Me!";
-    card.appendChild(clickIndicator);
+  // Card animations and hover effects
+  const cards = document.querySelectorAll('.card');
+
+  gsap.from(cards, {
+    opacity: 0,
+    y: 50,
+    stagger: 0.2,
+    duration: 1.2,
+    ease: "power3.out"
   });
 
-  // Move the "Click Me!" indicator as mouse moves over the card
-  card.addEventListener('mousemove', (e) => {
-    const mouseX = e.clientX - card.offsetLeft;
-    const mouseY = e.clientY - card.offsetTop;
+  cards.forEach(card => {
+    // Hover effect: Grow and rotate slightly with faster transition
+    card.addEventListener('mouseenter', () =>
+      gsap.to(card, {
+        scale: 1.05,
+        rotation: 8, // Increased rotation for more dramatic effect
+        boxShadow: '0 15px 25px rgba(0, 0, 0, 0.2)',
+        duration: 0.2, // Reduced duration for faster effect
+        ease: "power1.out" // Quicker easing function for snappier feel
+      })
+    );
+    
+    // Return effect on mouse leave with quicker transition
+    card.addEventListener('mouseleave', () =>
+      gsap.to(card, {
+        scale: 1,
+        rotation: 0,
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+        duration: 0.2, // Reduced duration for faster effect
+        ease: "elastic.out(1, 0.4)"
+      })
+    );
 
-    const clickIndicator = card.querySelector('.click-indicator');
-    if (clickIndicator) {
-      clickIndicator.style.left = `${mouseX}px`;
-      clickIndicator.style.top = `${mouseY}px`;
-    }
-  });
-
-  // Remove the "Click Me!" indicator when mouse leaves the card
-  card.addEventListener('mouseleave', () => {
-    const clickIndicator = card.querySelector('.click-indicator');
-    if (clickIndicator) {
-      card.removeChild(clickIndicator);
-    }
+    // Flip effect on click
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+      
+      // Faster animation for flipping card
+      const inner = card.querySelector('.card-inner');
+      gsap.to(inner, {
+        rotationY: card.classList.contains('flipped') ? 180 : 0,
+        duration: 0.4, // Reduced duration for a faster flip
+        ease: "power2.out"
+      });
+    });
   });
 });
+
+
+
+
+// Project containers Projects Section / Home Page
+gsap.utils.toArray('.project').forEach((project, i) => {
+  gsap.from(project, {
+    scrollTrigger: {
+      trigger: project,
+      start: 'top 85%',
+      toggleActions: 'play none none reverse',
+    },
+    opacity: 0,
+    y: 50,
+    scale: 0.95,
+    duration: 0.8,
+    ease: 'back.out(1.7)',
+    delay: i * 0.1, // Stagger entrance
+  });
+});
+
+
+
 
 
 

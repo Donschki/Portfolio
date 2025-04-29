@@ -110,89 +110,104 @@ nav {
 }
 
 .nav-links {
-  list-style: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  width: 60%;
+  background: var(--background-color);
   display: flex;
-  align-items: center;
-  gap: 2.5rem;
-}
-
-.nav-links a {
-  color: var(--text-color-light);
-  font-weight: 500;
-  font-size: 1.1rem;
-  position: relative;
-  transition: all var(--transition-speed) ease;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: var(--primary-color);
-  transition: width var(--transition-speed);
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-  color: var(--primary-color);
-}
-
-/* ===========================
-   Burger and Mobile Navigation
-=========================== */
-.burger {
-  display: none;
   flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  z-index: 1000;
+  transition: none; /* we animate with GSAP now */
+  
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* Nav Link Items */
+.nav-links li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+.nav-links li:hover {
+  color: var(--accent-color); /* Change to your desired hover color */
+  transform: scale(1.1) translateY(0); /* Smooth scaling on hover */
   cursor: pointer;
 }
 
-.burger span {
-  width: 25px;
-  height: 2px;
-  background: var(--text-color-light);
-  transition: all var(--transition-speed) ease;
+/* Optional: Add hover transition */
+.nav-links a {
+  display: inline-block;
+  padding: 5px;
+  text-decoration: none;
+  color: var(--text-color-light); /* Default text color */
 }
 
-/* Burger Toggle Animation */
-.burger.toggle span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
+  /* BURGER Menu */
+  body.menu-open {
+    overflow: hidden;
+  }
 
-.burger.toggle span:nth-child(2) {
-  opacity: 0;
-}
+  .burger {
+    display: flex; /* show on mobile */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .burger span {
+    width: 30px;
+    height: 3px;
+    background: var(--text-color-light);
+    transition: background 0.3s ease;
+  }
 
-.burger.toggle span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
 
 /* ===========================
    Buttons
 =========================== */
 .btn {
-  background: var(--buttons);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
+  position: relative;
+  overflow: hidden; /* Required for ripple effect */
+  margin: 0.5rem;
+  padding: 1rem 2rem;
+  background-color: #3498db;
+  color: white;
   border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1rem;
+  border-radius: 12px;
+  font-size: 16px;
   cursor: pointer;
-  transition: var(--transition-speed) ease;
+  z-index: 1;
 }
 
-.btn:hover,
-.btn:focus {
-  background: #0b5ed7;
+.btn:hover {
+  background-color: #2980b9;
 }
+
+.btn:focus {
+  outline: none;
+}
+
+/* Ripple effect styling */
+.ripple {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.4); /* or use btn.dataset.ripple */
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
 
 /* ===========================
    Sections
@@ -235,25 +250,34 @@ h2 {
   opacity: 0;
 }
 
+/* About Section Styling */
+.sticky-section {
+  padding: 2rem;
+  background: #f9f9f9;
+  position: relative;
+  z-index: 10;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
 .about-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 20px; /* Space between cards */
+  width: 100%;
+  margin: 0 auto; /* Center the grid */
 }
 
-/* Make sure the indicator is visible and appropriately sized on mobile */
-.click-indicator {
-  position: absolute;
-  pointer-events: none;
-  font-size: 1.2rem;  /* Adjust size for mobile */
-  color: #ff6ec4;
-  font-weight: bold;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease;
-  opacity: 1;
-}
-
-/* Adjust card size for smaller screens */
 .card {
   perspective: 1000px;
   cursor: pointer;
@@ -261,19 +285,22 @@ h2 {
   border-radius: 12px;
   transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 150px;
 }
 
 .card-inner {
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 100%;
   transition: transform 0.5s ease-in-out;
   transform-style: preserve-3d;
 }
 
 .card.flipped .card-inner {
-  transform: rotateY(180deg); /* Flip the card when it has the 'flipped' class */
+  transform: rotateY(180deg);
 }
 
 .card-front, .card-back {
@@ -293,38 +320,39 @@ h2 {
 }
 
 .card-front {
-  background: var(--card-front-color)
+  background: var(--card-front-color);
 }
 
 .card-back {
-  background: #7873f5; /* back card background color */
+  background: #7873f5;
   color: white;
-  transform: rotateY(180deg); /* start the back card rotated */
+  transform: rotateY(180deg);
 }
 
-.card:hover .card-front {
-  transform: scale(1.05);
-}
-
-.card:hover {
-  transform: translateY(-10px) rotate(-5deg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.card:hover .click-indicator {
-  opacity: 1;
-}
-
-@keyframes pop {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .about-cards {
+    grid-template-columns: 1fr; /* Stack cards in a single column on small screens */
   }
-  100% {
-    transform: translate(-50%, -50%) scale(1.5);
-    opacity: 1;
+
+  .card {
+    height: 120px; /* Adjust card height on mobile */
+  }
+
+  .card-inner {
+    height: 120px;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.125rem;
   }
 }
+
+
 
 #projects {
   position: relative;
@@ -550,11 +578,7 @@ footer {
 }
 
 /* Style for the project image container */
-.project-image-container {
-  width: 50%;
-  margin:0 auto;
-  height: auto;
-}
+
 
 .project-image {
   width: 100%; /* Make the image responsive */
@@ -599,15 +623,23 @@ p {
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   display: grid;
-  grid-template-rows: auto 1fr 1fr auto;
+  grid-template-rows: auto 1fr auto auto;
   justify-content: center;
   align-items: center;
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible;
+  transform: translateY(0); /* Set default for smooth hover */
 }
 
 .project:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-8px) !important; /* Subtle lift on hover */ 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.project-image-container {
+  width: 50%;
+  margin: 0 auto;
+  height: auto;
 }
 
 .project h3 {
@@ -752,67 +784,7 @@ p {
     font-size: 1.5rem; /* Adjust subheadings */
   }
 
-  /* BURGER Menu */
-  .burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 25px;
-    height: 20px;
-    cursor: pointer;
-    z-index: 1001;
-  }
 
-  .burger span {
-    width: 100%;
-    height: 3px;
-    background: var(--accent-color);
-    border-radius: 3px;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transform-origin: center;
-  }
-
-  .burger.toggle span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px) scaleX(1.1);
-  }
-
-  .burger.toggle span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-
-  .burger.toggle span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px) scaleX(1.1);
-  }
-
-  /* NAVIGATION */
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 1.5rem;
-    width: 75%;
-    background: #fff;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: translateX(100%);
-    transition: transform 0.4s ease;
-    display: none;
-  }
-
-  .nav-links.active {
-    display: flex;
-    transform: translateX(0%);
-  }
-
-  .nav-links a {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
 
   /* ABOUT CARDS */
   .about-cards {
@@ -862,67 +834,6 @@ p {
     font-size: 1.8rem; /* Adjusted heading size */
   }
 
-  /* BURGER Menu */
-  .burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 30px;
-    height: 22px;
-    cursor: pointer;
-    z-index: 1001;
-  }
-
-  .burger span {
-    width: 100%;
-    height: 3px;
-    background: var(--accent-color);
-    border-radius: 3px;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transform-origin: center;
-  }
-
-  .burger.toggle span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px) scaleX(1.15);
-  }
-
-  .burger.toggle span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-
-  .burger.toggle span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px) scaleX(1.15);
-  }
-
-  /* NAVIGATION */
-  .nav-links {
-    position: absolute;
-    top: 80px;
-    right: 2rem;
-    width: 70%;
-    background: #fff;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transform: translateX(100%);
-    transition: transform 0.4s ease;
-    display: none;
-  }
-
-  .nav-links.active {
-    display: flex;
-    transform: translateX(0%);
-  }
-
-  .nav-links a {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
 
   /* ABOUT CARDS */
   .about-cards {
@@ -946,7 +857,7 @@ p {
     margin-top: 50px;
     padding: 2.5rem 2rem;
     height: auto;
-    min-height: 100vh;
+    min-height: 20vh;
   }
 }
 
