@@ -313,26 +313,34 @@ gsap.utils.toArray('.project').forEach((project, i) => {
 
 const hero = document.querySelector('.hero');
 const chars = document.querySelectorAll('.char');
+let tiltEnabled = false;
+let lastGamma = 0, lastBeta = 0;
 
+// Desktop mouse interaction
 hero.addEventListener('mousemove', (e) => {
   const { left, top, width, height } = hero.getBoundingClientRect();
   const x = e.clientX - left - width / 2;
   const y = e.clientY - top - height / 2;
 
+  animateChars(x, y, width);
+});
+
+hero.addEventListener('mouseleave', () => {
+  resetChars();
+});
+
+// Shared animation function
+function animateChars(x, y, width = 500) {
   chars.forEach((char, index) => {
-    // Increase the "strength" to make the effect more noticeable
-    const strength = 1 + (index % 5) * 0.5; // Increase the multiplier for more intense movement
+    const strength = 1 + (index % 5) * 0.5;
+    const rotate = (x / width) * 20 * (index % 3 ? 1 : -1);
+    const scale = 1 + Math.sin((x + y) / 200) * 0.1;
+    const skewX = (x / 500) * strength;
+    const skewY = (y / 500) * strength;
 
-    // Adjust the rotation for more dramatic effect
-    const rotate = (x / width) * 20 * (index % 3 ? 1 : -1); // Increased rotation
-    const scale = 1 + Math.sin((x + y) / 200) * 0.1; // Increased scale effect
-    const skewX = (x / 500) * strength;  // Skew the characters more based on mouse movement
-    const skewY = (y / 500) * strength;  // More intense skewing effect
-
-    // Apply the GSAP animations
     gsap.to(char, {
-      x: x / 30 * strength,  // Increased movement range
-      y: y / 30 * strength,  // Increased movement range
+      x: x / 30 * strength,
+      y: y / 30 * strength,
       rotate,
       scale,
       skewX,
@@ -341,9 +349,9 @@ hero.addEventListener('mousemove', (e) => {
       ease: 'power2.out'
     });
   });
-});
+}
 
-hero.addEventListener('mouseleave', () => {
+function resetChars() {
   gsap.to(chars, {
     x: 0,
     y: 0,
@@ -354,7 +362,45 @@ hero.addEventListener('mouseleave', () => {
     duration: 0.6,
     ease: 'power3.out'
   });
-});
+}
+
+// Mobile tilt logic
+function handleOrientation(event) {
+  const smooth = 0.1;
+  lastGamma += (event.gamma - lastGamma) * smooth;
+  lastBeta += (event.beta - lastBeta) * smooth;
+
+  const x = lastGamma * 5;
+  const y = lastBeta * 5;
+
+  animateChars(x, y);
+}
+
+function enableMobileTilt() {
+  if (tiltEnabled) return;
+
+  if (typeof DeviceOrientationEvent !== 'undefined' &&
+      typeof DeviceOrientationEvent.requestPermission === 'function') {
+    DeviceOrientationEvent.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        window.addEventListener('deviceorientation', handleOrientation);
+        tiltEnabled = true;
+        document.querySelector('.tilt-hint')?.classList.add('fade-out');
+      }
+    }).catch(console.error);
+  } else {
+    window.addEventListener('deviceorientation', handleOrientation);
+    tiltEnabled = true;
+    document.querySelector('.tilt-hint')?.classList.add('fade-out');
+  }
+}
+
+// Trigger tilt permission only on mobile
+const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
+if (isMobile) {
+  hero.addEventListener('click', enableMobileTilt);
+}
+
 
 
 

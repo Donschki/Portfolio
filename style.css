@@ -386,6 +386,26 @@ nav {
   -webkit-background: #0b5ed7;
 }
 
+.tilt-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.tilt-hint.fade-out {
+  opacity: 0;
+}
+
+
 section {
   padding: var(--section-padding);
   border-radius: var(--border-radius);
