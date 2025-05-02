@@ -1,5 +1,6 @@
 const projects = [
   {
+    id: 1,
     title: "La Colombiana",
     description: "A rich cultural e-commerce website showcasing Colombian art and tradition.",
     story: "Inspired by my love for Colombian art, this project immerses users in the history and culture behind the products.",
@@ -11,6 +12,7 @@ const projects = [
     bgColor: "#f9f9f9"
   },
   {
+    id: 2,
     title: "Root'd",
     description: "A community gardening app connecting urban farmers through smart mapping and real-time chats.",
     story: "Born from a passion for urban agriculture, Root’d connects gardeners, plots, and resources in real time.",
@@ -22,6 +24,7 @@ const projects = [
     bgColor: "#fff0f0"
   },
   {
+    id: 3,
     title: "Get Out In Cape Town",
     description: "A travel guide app blending local experiences, secret spots, and adventure tours in Cape Town.",
     story: "This app reveals Cape Town’s hidden gems and authentic tours most visitors miss.",
@@ -33,68 +36,76 @@ const projects = [
     bgColor: "#f0f9ff"
   },
   {
+    id: 4,
     title: "Down With Dough Bakery",
-    description: "A travel guide app blending local experiences, secret spots, and adventure tours in Cape Town.",
-    story: "This app reveals Cape Town’s hidden gems and authentic tours most visitors miss.",
-    features: ["Interactive hidden maps", "Local guides", "Adventure bookings", "User travel tips"],
-    techstack: ["React", "Node.js", "MongoDB", "Google Maps API"],
-    lessons: "Learned about user-generated content and seamless map integration.",
+    description: "A cozy, playful bakery brand website with seasonal menu displays, animations, and ordering integration.",
+    story: "Built to give a local bakery a warm online presence, this site mixes charm with responsive design and functionality.",
+    features: ["Menu browser", "Online ordering integration", "Seasonal themes", "GSAP animations"],
+    techstack: ["HTML5", "SCSS", "JavaScript", "GSAP"],
+    lessons: "Refined responsive layout techniques and used GSAP for playful UI animations.",
     liveDemoLink: "https://www.downwithdough.co.za",
     imageSrc: "Images/DWD-logo.jpg",
-    bgColor: "#f0f9ff"
+    bgColor: "#fef7f3"
   }
 ];
 
-// GSAP animations and enhancements
+// Load current project
 function loadProject() {
   const id = parseInt(new URLSearchParams(location.search).get('project'), 10);
-  const p = projects[id - 1];
-  if (!p) return alert('Project not found.');
+  const project = projects.find(p => p.id === id);
+  if (!project) return alert('Project not found.');
 
+  updateProjectDetails(project);
+  animateProjectDetails();
+  setupNavigation(project.id);
+  addImageHoverEffect();
+  gsap.from('.project-container', { opacity: 0, y: 50, duration: 1.5 });
+}
+
+function updateProjectDetails(project) {
   const el = (id) => document.getElementById(id);
-  el('project-title').innerText = p.title;
-  el('project-description').innerText = p.description;
-  el('project-story').innerHTML = `<p>${p.story}</p>`;
-  el('project-features').innerHTML = p.features.map(f => `<li>${f}</li>`).join('');
-  el('project-techstack').innerHTML = p.techstack.map(t => `<li class="tech-badge">${t}</li>`).join('');
-  el('project-lessons').innerText = p.lessons;
-  el('project-content').style.backgroundColor = p.bgColor;
-  el('project-progress').innerText = `Project ${id} of ${projects.length}`;
 
-  // GSAP fade-in animations
-  gsap.from(el('project-title'), { opacity: 0, y: -50, duration: 1 });
-  gsap.from(el('project-description'), { opacity: 0, y: 50, duration: 1, delay: 0.2 });
-  gsap.from(el('project-story'), { opacity: 0, y: 50, duration: 1, delay: 0.4 });
-  gsap.from(el('project-features'), { opacity: 0, y: 50, duration: 1, delay: 0.6 });
-  gsap.from(el('project-techstack'), { opacity: 0, y: 50, duration: 1, delay: 0.8 });
-  gsap.from(el('project-lessons'), { opacity: 0, y: 50, duration: 1, delay: 1 });
+  el('project-title').textContent = project.title;
+  el('project-description').textContent = project.description;
+  el('project-story').innerHTML = `<p>${project.story}</p>`;
+  el('project-features').innerHTML = project.features.map(f => `<li>${f}</li>`).join('');
+  el('project-techstack').innerHTML = project.techstack.map(t => `<li class="tech-badge">${t}</li>`).join('');
+  el('project-lessons').textContent = project.lessons;
+  el('project-progress').textContent = `Project ${project.id} of ${projects.length}`;
 
-  // Image fade-in and append
   const img = document.createElement('img');
-  img.src = p.imageSrc;
-  img.alt = p.title;
+  img.src = project.imageSrc;
+  img.alt = `${project.title} preview image`;
   img.classList.add('project-img');
   const imgContainer = el('project-image');
   imgContainer.innerHTML = '';
   imgContainer.appendChild(img);
-  gsap.from(img, { opacity: 0, scale: 0.5, duration: 1, delay: 1.2 });
 
-  // Live demo button
   const demoBtn = el('live-demo');
-  if (p.liveDemoLink) {
-    demoBtn.href = p.liveDemoLink;
+  if (project.liveDemoLink) {
+    demoBtn.href = project.liveDemoLink;
     demoBtn.style.display = 'inline-block';
-    gsap.from(demoBtn, { opacity: 0, x: -50, duration: 0.8, delay: 1.5 });
   } else {
     demoBtn.style.display = 'none';
   }
 
-  // Card flip effect
-  const projectContent = el('project-content');
-  projectContent.classList.add('card-flip');
-  gsap.from(projectContent, { rotationY: 180, duration: 1, ease: 'power4.out' });
+  el('project-content').style.backgroundColor = project.bgColor || '#fff';
+}
 
-  // Hover interactions for image wrapper
+function animateProjectDetails() {
+  const el = (id) => document.getElementById(id);
+
+  gsap.from(el('project-title'), { opacity: 0, y: -30, duration: 1 });
+  gsap.from('.project-body', { opacity: 0, y: 30, duration: 1.2, delay: 0.2 });
+  gsap.from('.project-img', { opacity: 0, scale: 0.95, duration: 1.2, delay: 0.5 });
+  gsap.from(el('live-demo'), { opacity: 0, x: -20, duration: 0.8, delay: 0.7 });
+
+  const content = el('project-content');
+  content.classList.add('card-flip');
+  gsap.from(content, { rotationY: 180, duration: 1, ease: 'power4.out' });
+}
+
+function addImageHoverEffect() {
   gsap.utils.toArray('.project-image-wrapper').forEach((imgWrapper) => {
     imgWrapper.addEventListener('mouseenter', () => {
       gsap.to(imgWrapper, { rotation: 10, scale: 1.05, duration: 0.5 });
@@ -103,19 +114,16 @@ function loadProject() {
       gsap.to(imgWrapper, { rotation: 0, scale: 1, duration: 0.5 });
     });
   });
+}
 
-  // Navigation click handlers
-  el('prev-project').onclick = () => navigateTo(id - 1);
-  el('next-project').onclick = () => navigateTo(id + 1);
+function setupNavigation(id) {
+  const el = (id) => document.getElementById(id);
 
-  // Container fade-in
-  gsap.from('.project-container', { opacity: 0, y: 50, duration: 1.5 });
-  gsap.from('.project-header', { opacity: 0, scale: 0.5, duration: 1.5 });
-  gsap.from('.project-body', { opacity: 0, duration: 2 });
+  el('prev-project').onclick = () => navigateTo(id - 1 <= 0 ? projects.length : id - 1);
+  el('next-project').onclick = () => navigateTo(id + 1 > projects.length ? 1 : id + 1);
 }
 
 function navigateTo(id) {
-  if (id < 1 || id > projects.length) return;
   showLoadingScreen();
   setTimeout(() => location.href = `Projects.html?project=${id}`, 300);
 }
@@ -138,17 +146,14 @@ function hideLoadingScreen() {
   }
 }
 
+// Events
 window.addEventListener('load', () => {
   loadProject();
-  setTimeout(() => {
-    document.getElementById('project-content').style.opacity = 1;
-    hideLoadingScreen();
-  }, 300);
+  setTimeout(hideLoadingScreen, 400);
 });
 
 window.addEventListener('keydown', (e) => {
   const id = parseInt(new URLSearchParams(location.search).get('project'), 10);
-  if (e.key === 'ArrowLeft') navigateTo(id - 1);
-  else if (e.key === 'ArrowRight') navigateTo(id + 1);
+  if (e.key === 'ArrowLeft') navigateTo(id - 1 <= 0 ? projects.length : id - 1);
+  else if (e.key === 'ArrowRight') navigateTo(id + 1 > projects.length ? 1 : id + 1);
 });
-

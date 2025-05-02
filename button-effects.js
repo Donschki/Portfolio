@@ -19,8 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const animateButton = (btn, i) => {
-    gsap.from(btn, {
-      ...getAnimProps(btn.dataset.anim),
+    const tl = gsap.timeline();
+    const props = getAnimProps(btn.dataset.anim);
+
+    tl.from(btn, {
+      ...props,
       duration: 0.9,
       ease: "power3.out",
       delay: i * 0.15
@@ -59,22 +62,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  // Create the observer
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const btn = entry.target;
+      const btn = entry.target;
+
+      // Only animate once
+      if (entry.isIntersecting && btn.dataset.animated !== "true") {
         animateButton(btn, [...buttons].indexOf(btn));
+        btn.dataset.animated = "true";
         obs.unobserve(btn);
       }
     });
   }, {
-    threshold: 0.25, // Slightly lower for mobile viewports
-    rootMargin: "0px 0px -10% 0px" // Helps with edge triggering
+    threshold: 0.25,
+    rootMargin: "0px 0px -10% 0px"
   });
 
-  buttons.forEach(btn => {
+  // Add button effects
+  buttons.forEach((btn, i) => {
+    btn.dataset.animated = "false";
     observer.observe(btn);
 
+    // Hover effects
     btn.addEventListener('mouseenter', () => {
       gsap.to(btn, {
         scale: 1.12,
@@ -93,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    // Click effects
     btn.addEventListener('click', (e) => {
       gsap.fromTo(btn, { scale: 1 }, {
         scale: 0.9,
@@ -104,7 +115,75 @@ document.addEventListener("DOMContentLoaded", () => {
       handleRipple(btn, e);
     });
 
-    // Optional: mobile ripple support
+    // Touch ripple for mobile
     btn.addEventListener('touchstart', (e) => handleRipple(btn, e), { passive: true });
   });
 });
+
+
+const backToTopBtn = document.getElementById('backToTop');
+const arrowMorph = document.querySelector('.arrow-morph');
+const buttonWrapper = document.querySelector('.button-wrapper');
+let isVisible = false;
+
+window.addEventListener('scroll', () => {
+  const triggerPoint = 500;
+
+  if (window.scrollY > triggerPoint && !isVisible) {
+    isVisible = true;
+
+    // Reveal button
+    gsap.to(buttonWrapper, {
+      y: '-100%',
+      duration: 0.5,
+      ease: 'power2.out'
+    });
+
+    gsap.to(backToTopBtn, {
+      opacity: 1,
+      pointerEvents: 'auto',
+      duration: 0.5,
+      ease: 'power2.out'
+    });
+
+    // Morph arrow out of the button top
+    gsap.to(arrowMorph, {
+      scaleY: 1,
+      duration: 0.5,
+      ease: 'power2.out'
+    });
+
+  } else if (window.scrollY <= triggerPoint && isVisible) {
+    isVisible = false;
+
+    gsap.to(buttonWrapper, {
+      y: '100%',
+      duration: 0.5,
+      ease: 'power2.in'
+    });
+
+    gsap.to(backToTopBtn, {
+      opacity: 0,
+      pointerEvents: 'none',
+      duration: 0.5,
+      ease: 'power2.in'
+    });
+
+    gsap.to(arrowMorph, {
+      scaleY: 0,
+      duration: 0.3,
+      ease: 'power2.in'
+    });
+  }
+});
+
+backToTopBtn.addEventListener('click', () => {
+  gsap.to(window, {
+    scrollTo: { y: 0, autoKill: true },
+    duration: 1,
+    ease: 'power2.out'
+  });
+});
+
+
+

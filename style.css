@@ -22,61 +22,32 @@
   --button-hover: #7b61ff;
   --section-padding: 2rem 1rem;
   --button-padding: 1rem 2rem;
+  --button-primary-color: #3498db;
   --border-radius: 6px;
   --gap: 2rem;
   
-  /* Base font size for body */
-  --font-size-body: clamp(0.875rem, 2.5vw, 1.125rem);
+   /* Fluid, responsive type scale with sensible min/max bounds */
+   --font-size-body: clamp(0.95rem, 2vw, 1.25rem);
 
-  /* Heading font sizes using clamp for fluid scaling */
-  --font-header-h1: clamp(1.8rem, 5vw, 3.5rem);  /* Scale dynamically between 1.8rem to 3.5rem */
-  --font-header-h2: clamp(1.4rem, 4vw, 2.4rem);  /* Scale dynamically between 1.4rem to 2.4rem */
-  --font-header-h3: clamp(1.2rem, 3.5vw, 2rem);  /* Scale dynamically between 1.2rem to 2rem */
-  --font-header-h4: clamp(1rem, 3vw, 1.6rem);    /* Scale dynamically between 1rem to 1.6rem */
-}
-
-@media (min-width: 480px) {
-  :root {
-    --font-size-body: clamp(0.95rem, 2vw, 1.2rem); /* Slightly larger text for small tablet */
-    --font-header-h1: clamp(2rem, 5vw, 3.5rem);
-    --font-header-h2: clamp(1.6rem, 4.5vw, 2.5rem);
-    --font-header-h3: clamp(1.4rem, 4vw, 2.2rem);
-    --font-header-h4: clamp(1.2rem, 3.5vw, 1.8rem);
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --font-size-body: clamp(1rem, 1.75vw, 1.25rem); /* Larger body text for tablet */
-    --font-header-h1: clamp(2.4rem, 4.5vw, 3.8rem); /* Larger h1 for tablets */
-    --font-header-h2: clamp(1.8rem, 3.8vw, 2.6rem);
-    --font-header-h3: clamp(1.6rem, 3.6vw, 2.4rem);
-    --font-header-h4: clamp(1.4rem, 3.2vw, 1.9rem);
-    --section-padding: 2rem 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --font-size-body: clamp(1.1rem, 1.5vw, 1.375rem); /* Slightly larger body text for laptops */
-    --font-header-h1: clamp(2.8rem, 4vw, 4rem); /* Scaling h1 for larger devices */
-    --font-header-h2: clamp(2rem, 3.5vw, 2.8rem);
-    --font-header-h3: clamp(1.8rem, 3vw, 2.6rem);
-    --font-header-h4: clamp(1.6rem, 2.8vw, 2rem);
-    --section-padding: 2.5rem 3rem; /* Adjusted padding for larger viewports */
-  }
-}
-
-@media (min-width: 1280px) {
-  :root {
-    --font-size-body: clamp(1.125rem, 1.25vw, 1.5rem); /* Larger body text for desktops */
-    --font-header-h1: clamp(3rem, 3.8vw, 4.2rem); /* Even larger h1 */
-    --font-header-h2: clamp(2.2rem, 3.2vw, 3rem);
-    --font-header-h3: clamp(2rem, 2.8vw, 2.8rem);
-    --font-header-h4: clamp(1.8rem, 2.5vw, 2.2rem);
-    --section-padding: 3rem 4rem; /* Spacious padding for larger screens */
-  }
-}
+   --font-header-h1: clamp(2rem, 10vw, 10rem);
+   --font-header-h2: clamp(1.6rem, 4vw, 2.5rem);
+   --font-header-h3: clamp(1.4rem, 3.5vw, 2.2rem);
+   --font-header-h4: clamp(1.2rem, 3vw, 1.8rem);
+ 
+   --section-padding: 1.5rem 1rem; /* base spacing */
+ }
+ 
+ @media (min-width: 1024px) {
+   :root {
+     --font-size-body: clamp(1.1rem, 1.5vw, 1.375rem);
+     --font-header-h1: clamp(7rem, 4vw, 20rem);
+     --font-header-h2: clamp(2rem, 3.5vw, 2.8rem);
+     --font-header-h3: clamp(1.8rem, 3vw, 2.6rem);
+     --font-header-h4: clamp(1.6rem, 2.5vw, 2rem);
+ 
+     --section-padding: 2.5rem 3rem; /* upscale padding on large viewports */
+   }
+ }
 
 body {
   font-family: var(--font-family);
@@ -131,6 +102,47 @@ main {
   padding: var(--section-padding);
   justify-content: center;
 }
+
+.button-wrapper {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  pointer-events: none;
+}
+
+.morph-button {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(100%);
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+  transition: border-radius 0.3s ease;
+}
+
+.arrow-morph {
+  position: absolute;
+  top: 20px; /* Adjust this to pull the arrow closer to the button */
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  width: 40px;
+  height: 20px;
+  background: #222;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform-origin: bottom center;
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+
 
 /* ===========================
    Header and Navigation
@@ -256,15 +268,18 @@ nav {
 .btn {
   position: relative;
   overflow: hidden;
-  margin: 0.5rem;
   padding: var(--button-padding);
-  background-color: #3498db;
+  background-color: var(--button-primary-color);
   color: white;
   border: none;
   border-radius: var(--border-radius);
   font-size: 16px;
   cursor: pointer;
   z-index: 1;
+  text-align: center;
+  text-decoration: none;
+  max-width: 300px;
+  margin: auto;
   
   /* Webkit prefix for button styling */
   -webkit-transition: background-color 0.3s ease;
@@ -313,7 +328,7 @@ nav {
 }
 
 .hero-title {
-  font-size: clamp(4rem, 12vw, 16rem); /* Adjusts font size based on screen width */
+  font-size: var(--font-header-h1);
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.05em;
@@ -337,19 +352,6 @@ nav {
   -webkit-transition: transform 0.2s ease;
 }
 
-/* Mobile-specific adjustments (if needed) */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: clamp(3rem, 10vw, 12rem); /* Adjust font size for tablets */
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: clamp(2.5rem, 8vw, 10rem); /* Adjust font size for mobile */
-  }
-}
-
 #hero {
   display: flex;
   width: 100%;
@@ -368,6 +370,7 @@ nav {
   /* Webkit prefix for sticky position */
   -webkit-position: sticky;
   -webkit-top: -200px;
+  padding: var(--section-padding);
 }
 
 #hero p {
@@ -388,11 +391,11 @@ nav {
 
 .tilt-hint {
   position: absolute;
-  bottom: 10px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  color: white;
   padding: 6px 12px;
   border-radius: 4px;
   font-size: 14px;
@@ -405,6 +408,27 @@ nav {
   opacity: 0;
 }
 
+.tilt-toggle {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 11;
+}
+
+.tilt-toggle.show {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 section {
   padding: var(--section-padding);
@@ -423,7 +447,12 @@ section {
   position: sticky;
   top: 0;
   z-index: 10;
-  transition: opacity 0.3s ease;
+  width: 100vw;
+  height: calc(100vh - 1px); /* Forces clean snap on scroll */
+  overflow: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  background: inherit;
+  background: var(--background-color);
   
   /* Webkit prefix for sticky position */
   -webkit-position: sticky;
@@ -434,8 +463,7 @@ section {
 .sticky-section.hidden {
   opacity: 0;
   pointer-events: none;
-  
-  /* Webkit prefix for opacity */
+  visibility: hidden;
   -webkit-opacity: 0;
 }
 
@@ -620,11 +648,7 @@ section {
   margin: auto;
 }
 
-.project-links .project-btn {
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  background-color: #007bff;
-}
+
 
 .project-links .project-btn:hover {
   background-color: #0056b3;
@@ -725,8 +749,6 @@ footer {
   background: #fff;
   color: #777;
   font-size: 0.9rem;
-  display: flex;
-  align-items: center;
 }
 
 /* ===========================

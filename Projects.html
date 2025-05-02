@@ -6,10 +6,12 @@
   <title>Project Details</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="project.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fredoka+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+  <main>
   <!-- Loading Spinner (hidden by default) -->
   <div id="loading-screen" class="loading-screen">
     <div class="spinner"></div> <!-- Style this spinner -->
@@ -57,7 +59,7 @@
     </ul>
   </div>
 
-  <div class="full-width">
+  <div class="project-lesson">
     <h4>What I Learned</h4>
     <p id="project-lessons">This project taught me how to build scalable applications using modern technologies...</p>
   </div>
@@ -66,7 +68,7 @@
   
       <!-- Project Links Section -->
       <div class="project-links">
-        <a id="live-demo" href="#" target="_blank" class="btn project-btn" data-ripple="#ff7675">View Live</a>
+        <a id="live-demo" href="#" target="_blank" class="btn" data-ripple="#ff7675">View Live</a>
       </div>
     </div>
   
@@ -77,10 +79,27 @@
       <button id="next-project" class="btn nav-btn">Next</button>
     </div>
   </div>
-  
+
+  <div class="button-wrapper">
+    <div class="arrow-morph"></div>
+    <button id="backToTop" class="morph-button">
+      Back to Top
+    </button>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Donnay Krog. All rights reserved.</p> 
+</footer>
 
   <script src="projects.js"></script>
-  <script src="button-effects.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="button-effects.js"></script> 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> 
+
+  <script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 </body>
 </html>
