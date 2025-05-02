@@ -16,18 +16,17 @@
       <a href="/" class="logo">
         DK Portfolio
       </a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="burger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
-  </header>
+        <div class="burger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </header>
 
   <div id="loading-screen" class="loading-screen">
     <div class="spinner"></div>
@@ -35,13 +34,20 @@
 
   <div class="wrapper">
 <!-- HERO -->
-  <main>
-    <section class="sticky-section" id="hero" aria-label="Introduction">
-      <h1>Hello, I'm Donnay Krog</h1>
-      <p>Junior Front-End Developer passionate about building sleek, interactive web experiences.</p>
-      <a href="#projects" class="btn">View My Work</a>
-    </section>
+<main>
+  
 
+  <section class="hero sticky-section" id="hero" aria-label="Introduction">
+    <h1 class="hero-title">
+      <span class="char">D</span><span class="char">o</span><span class="char">n</span><span class="char">n</span><span class="char">a</span><span class="char">y</span><br>
+      <span class="char">K</span><span class="char">r</span><span class="char">o</span><span class="char">g</span><br>
+      <span class="char">F</span><span class="char">r</span><span class="char">o</span><span class="char">n</span><span class="char">t</span> 
+      <span class="char">E</span><span class="char">n</span><span class="char">d</span><br>
+      <span class="char">D</span><span class="char">e</span><span class="char">v</span><span class="char">e</span><span class="char">l</span><span class="char">o</span><span class="char">p</span><span class="char">e</span><span class="char">r</span>
+    </h1>
+
+    <a href="#projects" class="btn">View My Work</a>
+  </section>
 
 <!-- ABOUT ME -->
 <section class="sticky-section" id="about">
@@ -156,20 +162,20 @@
 
 </div>
     
-  </main>
+</main>
 
   <footer>
-    <p>&copy; 2025 Your Real Name. All rights reserved.</p>
+    <p>&copy; 2025 Your Real Name. All rights reserved.</p> 
   </footer>
 
-  <script src="script.js" defer></script>
-  <script src="button-effects.js"></script>
+  <script src="script.js" defer></script> 
+  <script src="button-effects.js"></script> 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+<script>smoothscroll.polyfill();</script>
 
  <!-- EmailJS SDK -->
   <script type="text/javascript"

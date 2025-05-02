@@ -45,6 +45,7 @@ const projects = [
   }
 ];
 
+// GSAP animations and enhancements
 function loadProject() {
   const id = parseInt(new URLSearchParams(location.search).get('project'), 10);
   const p = projects[id - 1];
@@ -60,6 +61,15 @@ function loadProject() {
   el('project-content').style.backgroundColor = p.bgColor;
   el('project-progress').innerText = `Project ${id} of ${projects.length}`;
 
+  // GSAP fade-in animations
+  gsap.from(el('project-title'), { opacity: 0, y: -50, duration: 1 });
+  gsap.from(el('project-description'), { opacity: 0, y: 50, duration: 1, delay: 0.2 });
+  gsap.from(el('project-story'), { opacity: 0, y: 50, duration: 1, delay: 0.4 });
+  gsap.from(el('project-features'), { opacity: 0, y: 50, duration: 1, delay: 0.6 });
+  gsap.from(el('project-techstack'), { opacity: 0, y: 50, duration: 1, delay: 0.8 });
+  gsap.from(el('project-lessons'), { opacity: 0, y: 50, duration: 1, delay: 1 });
+
+  // Image fade-in and append
   const img = document.createElement('img');
   img.src = p.imageSrc;
   img.alt = p.title;
@@ -67,17 +77,41 @@ function loadProject() {
   const imgContainer = el('project-image');
   imgContainer.innerHTML = '';
   imgContainer.appendChild(img);
+  gsap.from(img, { opacity: 0, scale: 0.5, duration: 1, delay: 1.2 });
 
+  // Live demo button
   const demoBtn = el('live-demo');
   if (p.liveDemoLink) {
     demoBtn.href = p.liveDemoLink;
     demoBtn.style.display = 'inline-block';
+    gsap.from(demoBtn, { opacity: 0, x: -50, duration: 0.8, delay: 1.5 });
   } else {
     demoBtn.style.display = 'none';
   }
 
+  // Card flip effect
+  const projectContent = el('project-content');
+  projectContent.classList.add('card-flip');
+  gsap.from(projectContent, { rotationY: 180, duration: 1, ease: 'power4.out' });
+
+  // Hover interactions for image wrapper
+  gsap.utils.toArray('.project-image-wrapper').forEach((imgWrapper) => {
+    imgWrapper.addEventListener('mouseenter', () => {
+      gsap.to(imgWrapper, { rotation: 10, scale: 1.05, duration: 0.5 });
+    });
+    imgWrapper.addEventListener('mouseleave', () => {
+      gsap.to(imgWrapper, { rotation: 0, scale: 1, duration: 0.5 });
+    });
+  });
+
+  // Navigation click handlers
   el('prev-project').onclick = () => navigateTo(id - 1);
   el('next-project').onclick = () => navigateTo(id + 1);
+
+  // Container fade-in
+  gsap.from('.project-container', { opacity: 0, y: 50, duration: 1.5 });
+  gsap.from('.project-header', { opacity: 0, scale: 0.5, duration: 1.5 });
+  gsap.from('.project-body', { opacity: 0, duration: 2 });
 }
 
 function navigateTo(id) {
@@ -98,7 +132,9 @@ function hideLoadingScreen() {
   const screen = document.getElementById('loading-screen');
   if (screen) {
     screen.classList.add('fade-out');
-    screen.addEventListener('transitionend', () => screen.style.display = 'none', { once: true });
+    screen.addEventListener('transitionend', () => {
+      screen.style.display = 'none';
+    }, { once: true });
   }
 }
 
@@ -115,3 +151,4 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') navigateTo(id - 1);
   else if (e.key === 'ArrowRight') navigateTo(id + 1);
 });
+

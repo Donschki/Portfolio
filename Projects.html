@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Project Details</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="project.css">
 </head>
 
 <body>
@@ -18,61 +19,65 @@
   <div class="project-container">
     <!-- Back to Home Button -->
     <button id="back-to-home" class="btn" onclick="window.location.href='index.html'">Back to Home</button>
-
-    <!-- Project Progress (now styled and working) -->
-
+  
+    <!-- Project Content -->
     <div id="project-content" class="project-content">
       <div class="project-header">
         <h2 id="project-title"></h2>
       </div>
-
+  
       <div class="project-body">
         <div class="project-image-wrapper" id="project-image">
           <!-- JS injects <img> here -->
         </div>
-
+  
         <div class="project-description-wrapper">
           <p id="project-description"></p>
+  
+          <!-- Project Storytelling Block -->
+          <div id="project-story" class="project-story"></div>
+  
+          <!-- Project Key Details -->
+<div class="project-details">
+  <div>
+    <h4>Key Features</h4>
+    <ul id="project-features">
+      <li>Feature One</li>
+      <li>Feature Two</li>
+      <li>Feature Three</li>
+    </ul>
+  </div>
 
-          <!-- NEW: Project Storytelling Block -->
-          <div id="project-story" class="project-story">
-            <!-- JS injects short backstory here -->
-          </div>
+  <div>
+    <h4>Platform and Tech Stack</h4>
+    <ul id="project-techstack">
+      <li>Technology One</li>
+      <li>Technology Two</li>
+      <li>Technology Three</li>
+    </ul>
+  </div>
 
-          <!-- NEW: Key Details About the Project -->
-          <div class="project-details">
-            <h4>Key Features</h4>
-            <ul id="project-features">
-              <!-- JS injects bullet points here -->
-            </ul>
-
-            <h4>Platform and Tech Stack</h4>
-            <ul id="project-techstack">
-              <!-- JS injects tech badges or list items here -->
-            </ul>
-
-            <!-- Optional: Small 'What I Learned' Section -->
-            <h4>What I Learned</h4>
-            <p id="project-lessons"></p>
-          </div>
-
-        </div>
-        <div class="project-links">
-          <a id="live-demo" href="#" target="_blank" class="btn project-btn" data-ripple="#ff7675">View Live</a>
-
-        </div>
+  <div class="full-width">
+    <h4>What I Learned</h4>
+    <p id="project-lessons">This project taught me how to build scalable applications using modern technologies...</p>
+  </div>
+</div>
+      </div>
+  
+      <!-- Project Links Section -->
+      <div class="project-links">
+        <a id="live-demo" href="#" target="_blank" class="btn project-btn" data-ripple="#ff7675">View Live</a>
       </div>
     </div>
-
-
+  
     <!-- Navigation Buttons -->
     <div class="navigation-buttons">
-    <div id="project-progress" class="project-progress">Loading project...</div>
-
+      <div id="project-progress" class="project-progress">Loading project...</div>
       <button id="prev-project" class="btn nav-btn">Previous</button>
       <button id="next-project" class="btn nav-btn">Next</button>
     </div>
   </div>
+  
 
   <script src="projects.js"></script>
   <script src="button-effects.js"></script>

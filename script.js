@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('a[href^="#"]');
   const burger = document.querySelector('.burger');
   const navMenu = document.querySelector('.nav-links');
-  
+
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const targetId = link.getAttribute('href').slice(1);
@@ -19,22 +19,22 @@ document.addEventListener('DOMContentLoaded', () => {
           block: 'start'
         });
 
-        // 🔥 Close mobile menu if it's open
+        // Close mobile menu if it's open
         if (burger.classList.contains('toggle')) {
           burger.classList.remove('toggle');
           navMenu.classList.remove('active');
           document.body.classList.remove('menu-open');
+          closeMenu.restart();
+          menuOpen = false;
         }
       }
     });
   });
 });
 
-
-const header = document.querySelector('header');
-const navLinks = document.querySelector('.nav-links');
-const burger = document.querySelector('.burger');
 const body = document.body;
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
 const links = document.querySelectorAll('.nav-links li');
 
 let menuOpen = false;
@@ -43,34 +43,48 @@ let menuOpen = false;
 const openMenu = gsap.timeline({ paused: true });
 
 openMenu
+  .to('.burger span', {
+    rotate: (i) => (i === 0 ? 45 : i === 1 ? 0 : -45),
+    y: (i) => (i === 0 ? 8 : i === 2 ? -8 : 0),
+    scaleX: 1.2,
+    transformOrigin: "center",
+    stagger: 0.05,
+    duration: 0.4,
+    ease: "back.out(1.7)"
+  })
   .set(navLinks, { display: "flex" })
-  .to(navLinks, { right: 0, opacity: 1, duration: 0.5, ease: "power2.out" })
-  .to('.burger span:nth-child(1)', { rotate: 45, y: 8, duration: 0.3, ease: "power2.out" }, "<")
-  .to('.burger span:nth-child(2)', { opacity: 0, duration: 0.2, ease: "power2.out" }, "<")
-  .to('.burger span:nth-child(3)', { rotate: -45, y: -8, duration: 0.3, ease: "power2.out" }, "<")
-  .to(links, { 
-    y: 0,
+  .to(navLinks, { right: 0, opacity: 1, duration: 0.6, ease: "power2.out" })
+  .fromTo(links, {
+    rotateX: -90,
+    opacity: 0,
+    transformOrigin: "top center"
+  }, {
+    rotateX: 0,
     opacity: 1,
     stagger: 0.1,
     duration: 0.5,
-    ease: "power2.out"
-  }, "-=0.3"); // << now .to(), not .from()
+    ease: "back.out(1.4)"
+  });
 
 // Timeline for closing
 const closeMenu = gsap.timeline({ paused: true });
 
 closeMenu
-  .to(links, { 
-    y: 20,
+  .to(links, {
+    rotateX: 90,
     opacity: 0,
     stagger: 0.05,
     duration: 0.3,
     ease: "power2.in"
   })
-  .to(navLinks, { right: "-100%", opacity: 0, duration: 0.4, ease: "power2.in" })
-  .to('.burger span:nth-child(1)', { rotate: 0, y: 0, duration: 0.3, ease: "power2.in" }, "<")
-  .to('.burger span:nth-child(2)', { opacity: 1, duration: 0.2, ease: "power2.in" }, "<")
-  .to('.burger span:nth-child(3)', { rotate: 0, y: 0, duration: 0.3, ease: "power2.in" }, "<");
+  .to(navLinks, { right: "-100%", opacity: 0, duration: 0.5, ease: "power2.in" })
+  .to('.burger span', {
+    rotate: 0,
+    y: 0,
+    scaleX: 1,
+    duration: 0.5,
+    ease: "elastic.out(1, 0.4)"
+  });
 
 burger.addEventListener('click', () => {
   if (!menuOpen) {
@@ -84,8 +98,9 @@ burger.addEventListener('click', () => {
   }
 });
 
-// Close when clicking outside
+// Close the menu when clicking outside
 document.addEventListener('click', (event) => {
+  const header = document.querySelector('header');
   if (
     menuOpen &&
     !burger.contains(event.target) &&
@@ -98,72 +113,82 @@ document.addEventListener('click', (event) => {
   }
 });
 
-// GSAP hover effect for nav links
+// GSAP hover effect for navigation links
 const navItems = document.querySelectorAll('.nav-links li');
 
 navItems.forEach((item) => {
   item.addEventListener('mouseenter', () => {
-    gsap.to(item, { 
-      scale: 1.1, 
-      color: 'var(--accent-color)', // Change color on hover
-      duration: 0.3, 
-      ease: 'power2.out' 
+    gsap.to(item, {
+      scale: 1.15,
+      color: 'var(--accent-color)',
+      duration: 0.3,
+      ease: 'power2.out'
     });
   });
 
   item.addEventListener('mouseleave', () => {
-    gsap.to(item, { 
-      scale: 1, 
-      color: 'var(--text-color-light)', // Return to the original color
-      duration: 0.3, 
-      ease: 'power2.in' 
+    gsap.to(item, {
+      scale: 1,
+      color: 'var(--text-color-light)',
+      duration: 0.3,
+      ease: 'power2.in'
     });
   });
 });
 
-
-// Header hide on scroll down, show on scroll up
-let lastScrollTop = 0;
-const scrollThreshold = 50; // optional: don't hide immediately on tiny scrolls
-
-window.addEventListener('scroll', function () {
-  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (Math.abs(scrollTop - lastScrollTop) > scrollThreshold) {
-    if (scrollTop > lastScrollTop) {
-      // Scroll down
-      header.classList.add('hidden');
-    } else {
-      // Scroll up
-      header.classList.remove('hidden');
-    }
-  }
-
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
-
-// Sticky Sections hidden after scroll down and reappear on scroll up
+// Hide Header on scroll
 document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('.sticky-section');
-  
-  if (!sections.length) return; // Early exit if no sections found
+  const header = document.querySelector('header');
+  let lastScrollTop = window.scrollY;
+  let ticking = false;
+  const scrollThreshold = 5;
+  const minScroll = 60; // how far down before header starts hiding
 
-  sections.forEach((section, index) => {
-    if (index === sections.length - 1) return;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
 
-    const nextSection = sections[index + 1];
+        if (Math.abs(scrollTop - lastScrollTop) > scrollThreshold) {
+          if (scrollTop > lastScrollTop && scrollTop > minScroll) {
+            header.classList.add('hidden');
+          } else {
+            header.classList.remove('hidden');
+          }
 
-    const observer = new IntersectionObserver(handleIntersect(section), {
-      root: null,
-      threshold: 0,
-      rootMargin: '0px 0px -200% 0px'
-    });
+          lastScrollTop = scrollTop;
+        }
 
-    observer.observe(nextSection);
+        ticking = false;
+      });
+
+      ticking = true;
+    }
   });
 });
 
-// Extract handler to separate function for better readability
+
+// Sticky Sections
+if ('IntersectionObserver' in window) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.sticky-section');
+    if (!sections.length) return;
+
+    sections.forEach((section, index) => {
+      if (index === sections.length - 1) return;
+
+      const nextSection = sections[index + 1];
+      const observer = new IntersectionObserver(handleIntersect(section), {
+        root: null,
+        threshold: 0,
+        rootMargin: '0px 0px -200% 0px'
+      });
+
+      observer.observe(nextSection);
+    });
+  });
+}
+
 function handleIntersect(section) {
   return (entries) => {
     for (const entry of entries) {
@@ -172,16 +197,14 @@ function handleIntersect(section) {
   };
 }
 
-// Form submission handler
+// Form submission
 const form = document.querySelector("form");
-const loadingScreen = document.getElementById('loading-screen'); // Get the loading screen
+const loadingScreen = document.getElementById('loading-screen');
 
 if (form) {
   form.addEventListener("submit", function(event) {
     event.preventDefault();
-
-    // Show the loading screen
-    loadingScreen.style.display = 'flex'; // Make the loader visible
+    loadingScreen.style.display = 'flex';
 
     const formData = new FormData(this);
     const data = {
@@ -194,29 +217,26 @@ if (form) {
       .then(response => {
         console.log('Success!', response.status, response.text);
         alert("Your message has been sent successfully!");
-        form.reset(); // Optional: reset form fields
+        form.reset();
       })
       .catch(error => {
         console.error('Failed to send email:', error);
         alert(`Oops! Something went wrong.\n${error.text || 'Check console for details.'}`);
       })
       .finally(() => {
-        // Hide the loading screen after the request finishes (either success or error)
         loadingScreen.style.display = 'none';
       });
   });
 }
 
-// Page loader fade-out
+// Page loader
 window.addEventListener('load', () => {
   const loader = document.getElementById('loading-screen');
-  loader.classList.add('fade-out');
+  if (loader) loader.classList.add('fade-out');
 });
 
-
-
+// Fun Facts Cards
 document.addEventListener('DOMContentLoaded', function () {
-  // Fun facts array
   const facts = [
     "I build websites faster than my coffee cools down.",
     "Once drew a full cityscape pixel by pixel.",
@@ -225,14 +245,12 @@ document.addEventListener('DOMContentLoaded', function () {
     "My code is my canvas, and the web is my gallery."
   ];
 
-  // Add fun facts when clicking on cards
   ['webdev', 'design', 'problem', 'coffee'].forEach((id, i) => {
     const card = document.getElementById(`card-${id}`);
     if (card) card.onclick = () =>
       card.querySelector('.card-back').innerText = facts[i];
   });
 
-  // Card animations and hover effects
   const cards = document.querySelectorAll('.card');
 
   gsap.from(cards, {
@@ -244,45 +262,37 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   cards.forEach(card => {
-    // Hover effect: Grow and rotate slightly with faster transition
     card.addEventListener('mouseenter', () =>
       gsap.to(card, {
         scale: 1.05,
-        rotation: 8, // Increased rotation for more dramatic effect
+        rotation: 8,
         boxShadow: '0 15px 25px rgba(0, 0, 0, 0.2)',
-        duration: 0.2, // Reduced duration for faster effect
-        ease: "power1.out" // Quicker easing function for snappier feel
+        duration: 0.2,
+        ease: "power1.out"
       })
     );
-    
-    // Return effect on mouse leave with quicker transition
+
     card.addEventListener('mouseleave', () =>
       gsap.to(card, {
         scale: 1,
         rotation: 0,
         boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-        duration: 0.2, // Reduced duration for faster effect
+        duration: 0.2,
         ease: "elastic.out(1, 0.4)"
       })
     );
 
-    // Flip effect on click
     card.addEventListener('click', () => {
       card.classList.toggle('flipped');
-      
-      // Faster animation for flipping card
       const inner = card.querySelector('.card-inner');
       gsap.to(inner, {
         rotationY: card.classList.contains('flipped') ? 180 : 0,
-        duration: 0.4, // Reduced duration for a faster flip
+        duration: 0.4,
         ease: "power2.out"
       });
     });
   });
 });
-
-
-
 
 // Project containers Projects Section / Home Page
 gsap.utils.toArray('.project').forEach((project, i) => {
@@ -301,6 +311,50 @@ gsap.utils.toArray('.project').forEach((project, i) => {
   });
 });
 
+const hero = document.querySelector('.hero');
+const chars = document.querySelectorAll('.char');
+
+hero.addEventListener('mousemove', (e) => {
+  const { left, top, width, height } = hero.getBoundingClientRect();
+  const x = e.clientX - left - width / 2;
+  const y = e.clientY - top - height / 2;
+
+  chars.forEach((char, index) => {
+    // Increase the "strength" to make the effect more noticeable
+    const strength = 1 + (index % 5) * 0.5; // Increase the multiplier for more intense movement
+
+    // Adjust the rotation for more dramatic effect
+    const rotate = (x / width) * 20 * (index % 3 ? 1 : -1); // Increased rotation
+    const scale = 1 + Math.sin((x + y) / 200) * 0.1; // Increased scale effect
+    const skewX = (x / 500) * strength;  // Skew the characters more based on mouse movement
+    const skewY = (y / 500) * strength;  // More intense skewing effect
+
+    // Apply the GSAP animations
+    gsap.to(char, {
+      x: x / 30 * strength,  // Increased movement range
+      y: y / 30 * strength,  // Increased movement range
+      rotate,
+      scale,
+      skewX,
+      skewY,
+      duration: 0.4,
+      ease: 'power2.out'
+    });
+  });
+});
+
+hero.addEventListener('mouseleave', () => {
+  gsap.to(chars, {
+    x: 0,
+    y: 0,
+    rotate: 0,
+    scale: 1,
+    skewX: 0,
+    skewY: 0,
+    duration: 0.6,
+    ease: 'power3.out'
+  });
+});
 
 
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Web Novel</title>
+  <link rel="stylesheet" href="story.css">
+</head>
+<body>
+  <audio id="ambient-sound" loop autoplay>
+    <source src="forest_ambient.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="story-container">
+    <canvas id="pixel-animation-canvas"></canvas>
+    <p id="story-text">Loading the story...</p>
+
+    <div id="choices-container">
+      <!-- Choices will be dynamically loaded here -->
+    </div>
+
+    <p id="trust-level">Trust: 50</p>
+    <p id="sanity-level">Sanity: 100</p>
+  </div>
+
+  <script src="story.js"></script>
+</body>
+</html>
