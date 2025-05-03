@@ -15,7 +15,7 @@
   --heading-color: #3b3b86;
   --text-color: #5e6d7a;
   --text-color-light: #7c4dff;
-  --background-color: linear-gradient(135deg, #f0f0ff, #e0f7fa);
+  --background-color: linear-gradient(0deg, #f0f0ff, #e0f7fa);
   --transition-speed: 0.3s;
   --card-front-color: #00bcd4;
   --font-family: 'Quicksand', sans-serif;
@@ -29,10 +29,10 @@
    /* Fluid, responsive type scale with sensible min/max bounds */
    --font-size-body: clamp(0.95rem, 2vw, 1.25rem);
 
-   --font-header-h1: clamp(2rem, 10vw, 10rem);
+   --font-header-h1: clamp(2rem, 5vw, 6rem);
    --font-header-h2: clamp(1.6rem, 4vw, 2.5rem);
    --font-header-h3: clamp(1.4rem, 3.5vw, 2.2rem);
-   --font-header-h4: clamp(1.2rem, 3vw, 1.8rem);
+   --font-header-h4: clamp(1.2rem, 2.5vw, 1.4rem);
  
    --section-padding: 1.5rem 1rem; /* base spacing */
  }
@@ -40,7 +40,7 @@
  @media (min-width: 1024px) {
    :root {
      --font-size-body: clamp(1.1rem, 1.5vw, 1.375rem);
-     --font-header-h1: clamp(7rem, 4vw, 20rem);
+     --font-header-h1: clamp(7rem, 12vw, 16rem);
      --font-header-h2: clamp(2rem, 3.5vw, 2.8rem);
      --font-header-h3: clamp(1.8rem, 3vw, 2.6rem);
      --font-header-h4: clamp(1.6rem, 2.5vw, 2rem);
@@ -48,6 +48,11 @@
      --section-padding: 2.5rem 3rem; /* upscale padding on large viewports */
    }
  }
+
+ html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 body {
   font-family: var(--font-family);
@@ -58,7 +63,6 @@ body {
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 img {
@@ -447,8 +451,6 @@ section {
   position: sticky;
   top: 0;
   z-index: 10;
-  width: 100vw;
-  height: calc(100vh - 1px); /* Forces clean snap on scroll */
   overflow: hidden;
   transition: opacity 0.15s ease, visibility 0.15s ease;
   background: inherit;
